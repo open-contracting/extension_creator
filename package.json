@@ -1,0 +1,20 @@
+{
+  "name": "OCDS-extension-maker",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "json-merge-patch": "^0.2.3",
+    "jsoneditor": "^5.5.6"
+  }
+}

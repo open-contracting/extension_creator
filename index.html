@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>JSONEditor | Require.js demo</title>
+  <style type="text/css">
+    .jsoneditor {
+      height: 400px !important;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="jsoneditor.css">
+</head>
+<body>
+
+<h2> OCDS Extension Creator </h2>
+
+<h3> Source File </h3>
+
+<p>
+  Select a file 
+  <select autocomplete="off" id="select-original">
+    <option value="release-schema">Release Schema</option>
+    <option value="release-package-schema">Release Package Schema</option>
+    <option value="record-package-schema">Record Package Schema</option>
+  </select>
+  <span style="margin:40px"> OR </span>  Upload a file <input type="file" id="upload-original" value="Load"/> 
+</p>
+
+<div id="jsoneditor-original"></div>
+</body>
+
+<h3> Target File </h3>
+<p>
+  <button id="copy-target"/>Copy from source above.</button> <span style="margin:40px"> OR </span>   Upload a file  <input type="file" id="upload-target" value="Load"/>
+</p>
+
+<div id="jsoneditor-target"></div>
+</body>
+
+<h3> Patch </h3>
+<p>
+  <button id="generate-patch"/>Generate Patch</button> 
+  <span style="margin:40px"> Then </span>  <button id="download-patch"/>Download Patch</button>  
+</p>
+
+<div id="jsoneditor-patch"></div>
+</body>
+
+<script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+<script data-main="scripts/main" src="app.js"></script>
+</html>
