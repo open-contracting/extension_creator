@@ -1,8 +1,8 @@
-JSONEditor = require('./node_modules/jsoneditor/dist/jsoneditor')
-jsonmergepatch = require('json-merge-patch')
-jquery = require('jquery')
+var JSONEditor = require('./node_modules/jsoneditor/dist/jsoneditor');
+var jsonmergepatch = require('json-merge-patch');
+var JSZip = require("jszip");
 
-var metaschema = require('json!./metaschema.json')
+var metaschema = require('json!./metaschema.json');
 
 var schemas = {
   'release-schema': require('json!./release-schema.json'),
@@ -20,8 +20,6 @@ var options_original = {
     alert(err.toString());
   },
   onModeChange: function (newMode, oldMode) {
-
-    //console.log('Mode switched from', oldMode, 'to', newMode);
   }
 };
 var editor_original = new JSONEditor(original, options_original, schemas['release-schema']);
@@ -51,7 +49,6 @@ var options_target = {
     alert(err.toString());
   },
   onModeChange: function (newMode, oldMode) {
-    //console.log('Mode switched from', oldMode, 'to', newMode);
   }
 };
 
@@ -91,8 +88,47 @@ document.getElementById('generate-patch').onclick = function (event) {
 
 document.getElementById('download-patch').onclick = function () {
   var blob = new Blob([editor_patch.getText()], {type: 'application/json;charset=utf-8'});
-  console.log(file_name)
   saveAs(blob, file_name);
+};
+
+document.getElementById('generate-extension').onclick = function () {
+  var name = document.getElementById('extension-name').value
+  var description = document.getElementById('extension-description').value
+  if (!name || !description) {
+    return true
+  }
+  
+  var generated_patch = jsonmergepatch.generate(editor_original.get(), editor_target.get())
+
+  var zip = new JSZip();
+  var patch_files = {
+    'record-package-schema.json': "{}",
+    'release-package-schema.json': "{}",
+    'release-schema.json': "{}",
+    'versioned-release-validation-schema.json': "{}"
+  }
+
+  if (file_name === 'record-package-schema.json' || file_name === 'release-package-schema.json') {
+    patch_files[file_name] = JSON.stringify(generated_patch, null, 2)
+  } else {
+    patch_files[file_name] = JSON.stringify(generated_patch, null, 2)  
+  }
+
+  Object.keys(patch_files).forEach(function(key) {
+    zip.file(key, patch_files[key])
+  })
+
+  zip.file('README.md', description)
+  zip.file('extension.json', JSON.stringify({"name": name, "desription": description}))
+  var docs = zip.folder('docs')
+  docs.file("index.md", "")
+  zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        saveAs(content, name+".zip");
+    });
+
+  return false;
+
 };
 
 // set json

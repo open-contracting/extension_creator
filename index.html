@@ -1,17 +1,23 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>JSONEditor | Require.js demo</title>
+  <meta charset="utf-8">
+  <title>OCDS Extension Creator</title>
   <style type="text/css">
     .jsoneditor {
       height: 400px !important;
     }
+    #upload-original, #upload-target {
+      display: inline;
+    }
+    .margin-100 {margin-bottom: 100px}
   </style>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="jsoneditor.css">
 </head>
 <body>
 
+<div class="container margin-100">
 <h2> OCDS Extension Creator </h2>
 
 <h3> Source File </h3>
@@ -23,7 +29,7 @@
     <option value="release-package-schema">Release Package Schema</option>
     <option value="record-package-schema">Record Package Schema</option>
   </select>
-  <span style="margin:40px"> OR </span>  Upload a file <input type="file" id="upload-original" value="Load"/> 
+  <span style="margin:40px"> OR </span>  Upload a file <input class="btn" type="file" id="upload-original" value="Load"/> 
 </p>
 
 <div id="jsoneditor-original"></div>
@@ -31,7 +37,7 @@
 
 <h3> Target File </h3>
 <p>
-  <button id="copy-target"/>Copy from source above.</button> <span style="margin:40px"> OR </span>   Upload a file  <input type="file" id="upload-target" value="Load"/>
+  <button class="btn btn-success" id="copy-target"/>Copy from source above.</button> <span style="margin:40px"> OR </span>   Upload a file  <input type="file" id="upload-target" value="Load"/>
 </p>
 
 <div id="jsoneditor-target"></div>
@@ -39,14 +45,37 @@
 
 <h3> Patch </h3>
 <p>
-  <button id="generate-patch"/>Generate Patch</button> 
-  <span style="margin:40px"> Then </span>  <button id="download-patch"/>Download Patch</button>  
+  <button id="generate-patch" class="btn btn-success"/>Generate Patch</button> 
+  <span style="margin:40px"> Then </span>  <button id="download-patch" class="btn btn-success"/>Download Patch</button>  
 </p>
 
 <div id="jsoneditor-patch"></div>
+
+<h3> Create Extension </h3>
+
+<form>
+  <div class="form-group">
+    <label for="extension-name">Extension Name</label>
+    <input class="form-control" id="extension-name" placeholder="eg. myextension" required>
+  </div>
+  <div class="form-group">
+    <label for="extension-description">Extension Description</label>
+    <textarea class="form-control" id="extension-description" placeholder="eg. what my extension does" required></textarea>
+  </div>
+  <input type="submit" id="generate-extension" class="btn btn-success"/ value="Generate Extension"> 
+</form>
+
+</div>
 </body>
+
+
+
+
 
 <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.1/jszip.min.js"></script>
 <script data-main="scripts/main" src="app.js"></script>
+
 </html>
+
