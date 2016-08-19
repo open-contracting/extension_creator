@@ -1,6 +1,7 @@
 var JSONEditor = require('./node_modules/jsoneditor/dist/jsoneditor');
 var jsonmergepatch = require('json-merge-patch');
 var JSZip = require("jszip");
+var make_version_schema = require("./make_validation_schema").get_versioned_validation_schema;
 
 var metaschema = require('json!./metaschema.json');
 
@@ -111,7 +112,13 @@ document.getElementById('generate-extension').onclick = function () {
   if (file_name === 'record-package-schema.json' || file_name === 'release-package-schema.json') {
     patch_files[file_name] = JSON.stringify(generated_patch, null, 2)
   } else {
-    patch_files[file_name] = JSON.stringify(generated_patch, null, 2)  
+    var generated_versioned_patch = jsonmergepatch.generate(
+        make_version_schema(editor_original.get()), 
+        make_version_schema(editor_target.get())
+   )
+
+    patch_files['release-schema.json'] = JSON.stringify(generated_patch, null, 2);
+    patch_files['versioned-release-validation-schema.json'] = JSON.stringify(generated_versioned_patch, null, 2);
   }
 
   Object.keys(patch_files).forEach(function(key) {
@@ -131,11 +138,3 @@ document.getElementById('generate-extension').onclick = function () {
 
 };
 
-// set json
-//editor.set(json);
-
-// get json
-//document.getElementById('getJSON').onclick = function () {
-//  var json = editor.get();
-//  alert(JSON.stringify(json, null, 2));
-//};
