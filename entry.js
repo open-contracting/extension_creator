@@ -88,7 +88,8 @@ document.getElementById('generate-patch').onclick = function (event) {
 
 
 document.getElementById('download-patch').onclick = function () {
-  var blob = new Blob([editor_patch.getText()], {type: 'application/json;charset=utf-8'});
+  var json_object = JSON.parse(editor_patch.getText())
+  var blob = new Blob([JSON.stringify(json_object, null, 2)], {type: 'application/json;charset=utf-8'});
   saveAs(blob, file_name);
 };
 
