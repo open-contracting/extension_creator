@@ -13,6 +13,7 @@
     .margin-100 {margin-bottom: 100px}
   </style>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css">
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"> -->
   <link rel="stylesheet" type="text/css" href="jsoneditor.css">
 </head>
 <body>
@@ -23,11 +24,20 @@
 <h3> Source File </h3>
 
 <p>
-  Select a file 
-  <select autocomplete="off" id="select-original">
-    <option value="release-schema">Release Schema</option>
-    <option value="release-package-schema">Release Package Schema</option>
-    <option value="record-package-schema">Record Package Schema</option>
+  <select autocomplete="off" id="select-original" class="selectpicker">
+    <option value="" disabled selected>Select schema file</option>
+    <optgroup label="Release Schema">
+      <option value="release-schema-1.0">release schema 1.0</option>
+      <option value="release-schema-1.1">release schema 1.1</option>
+    </optgroup>
+    <optgroup label="Release Package Schema">
+      <option value="release-package-schema-1.0">release package schema 1.0</option>
+      <option value="release-package-schema-1.1">release package schema 1.1</option>
+    </optgroup>
+    <optgroup label="Record Package Schema">
+      <option value="record-package-schema-1.0">record package schema 1.0</option>
+      <option value="record-package-schema-1.1">record package schema 1.1</option>
+    </optgroup>
   </select>
   <span style="margin:40px"> OR </span>  Upload a file <input class="btn" type="file" id="upload-original" value="Load"/> 
 </p>
@@ -37,7 +47,7 @@
 
 <h3> Target File </h3>
 <p>
-  <button class="btn btn-success" id="copy-target"/>Copy from source above.</button> <span style="margin:40px"> OR </span>   Upload a file  <input type="file" id="upload-target" value="Load"/>
+  <button class="btn btn-success" id="copy-target"/>Copy from source above.</button> <span style="margin:40px"> OR </span> Upload a file <input type="file" id="upload-target" value="Load"/>
 </p>
 
 <div id="jsoneditor-target"></div>
@@ -73,6 +83,7 @@
 
 
 <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.1/jszip.min.js"></script>
 <script data-main="scripts/main" src="app.js"></script>

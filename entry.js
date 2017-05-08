@@ -4,13 +4,16 @@ var JSZip = require("jszip");
 var make_version_schema = require("./make_validation_schema").get_versioned_validation_schema;
 
 var metaschema = require('json!./metaschema.json');
+var file_name = 'release-schema.json'
 
 var schemas = {
-  'release-schema': require('json!./release-schema.json'),
-  'record-package-schema': require('json!./record-package-schema.json'),
-  'release-package-schema': require('json!./release-package-schema.json')
+  'release-schema-1.0': require('json!./release-schema/release-schema-1.0.json'),
+  'release-schema-1.1': require('json!./release-schema/release-schema-1.1.json'),
+  'release-package-schema-1.0': require('json!./release-package-schema/release-package-schema-1.0.json'),
+  'release-package-schema-1.1': require('json!./release-package-schema/release-package-schema-1.1.json'),
+  'record-package-schema-1.0': require('json!./record-package-schema/record-package-schema-1.0.json'),
+  'record-package-schema-1.1': require('json!./record-package-schema/record-package-schema-1.1.json')
 }
-var file_name = 'release-schema.json'
 
 
 var original = document.getElementById('jsoneditor-original');
@@ -36,10 +39,10 @@ FileReaderJS.setupInput(document.getElementById('upload-original'), {
 });
 document.getElementById('select-original').onchange = function (event) {
   editor_original.set(schemas[event.target.value]);
-  file_name = event.target.value + '.json';
+  editor_target.setText('{}');
+  editor_patch.setText('{}');
+  file_name = event.target.value.replace(event.target.value.substr(-4), '.json')
 }
-
-
 
 var target = document.getElementById('jsoneditor-target');
 var options_target = {
@@ -88,9 +91,12 @@ document.getElementById('generate-patch').onclick = function (event) {
 
 
 document.getElementById('download-patch').onclick = function () {
-  var json_object = JSON.parse(editor_patch.getText())
-  var blob = new Blob([JSON.stringify(json_object, null, 2)], {type: 'application/json;charset=utf-8'});
-  saveAs(blob, file_name);
+  var patch = editor_patch.getText();
+  if (patch !== '{}') {
+    var json_object = JSON.parse(patch)
+    var blob = new Blob([JSON.stringify(json_object, null, 2)], {type: 'application/json;charset=utf-8'});
+    saveAs(blob, file_name);
+  }
 };
 
 document.getElementById('generate-extension').onclick = function () {
