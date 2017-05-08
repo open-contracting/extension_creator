@@ -127,7 +127,7 @@ document.getElementById('generate-extension').onclick = function () {
   })
 
   zip.file('README.md', description)
-  zip.file('extension.json', JSON.stringify({"name": name, "desription": description}))
+  zip.file('extension.json', JSON.stringify({"name": name, "description": description}))
   var docs = zip.folder('docs')
   docs.file("index.md", "")
   zip.generateAsync({type:"blob"})
