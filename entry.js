@@ -1,7 +1,6 @@
 var JSONEditor = require('./node_modules/jsoneditor/dist/jsoneditor');
 var jsonmergepatch = require('json-merge-patch');
 var JSZip = require("jszip");
-var make_version_schema = require("./make_validation_schema").get_versioned_validation_schema;
 
 var metaschema = require('json!./metaschema.json');
 var file_name = 'release-schema.json'
@@ -102,43 +101,33 @@ document.getElementById('download-patch').onclick = function () {
 document.getElementById('generate-extension').onclick = function () {
   var name = document.getElementById('extension-name').value
   var description = document.getElementById('extension-description').value
+
   if (!name || !description) {
     return true
   }
-  
-  var generated_patch = jsonmergepatch.generate(editor_original.get(), editor_target.get())
 
+  var generated_patch = jsonmergepatch.generate(editor_original.get(), editor_target.get())
   var zip = new JSZip();
   var patch_files = {
-    'record-package-schema.json': "{}",
-    'release-package-schema.json': "{}",
-    'release-schema.json': "{}",
-    'versioned-release-validation-schema.json': "{}"
+    'release-schema.json': '{}',
+    'release-package-schema.json': '{}',
+    'record-package-schema.json': '{}',
   }
-
-  if (file_name === 'record-package-schema.json' || file_name === 'release-package-schema.json') {
-    patch_files[file_name] = JSON.stringify(generated_patch, null, 2)
-  } else {
-    var generated_versioned_patch = jsonmergepatch.generate(
-        make_version_schema(editor_original.get()), 
-        make_version_schema(editor_target.get())
-   )
-
-    patch_files['release-schema.json'] = JSON.stringify(generated_patch, null, 2);
-    patch_files['versioned-release-validation-schema.json'] = JSON.stringify(generated_versioned_patch, null, 2);
-  }
+  patch_files[file_name] = JSON.stringify(generated_patch, null, 2);
 
   Object.keys(patch_files).forEach(function(key) {
-    zip.file(key, patch_files[key])
+    if (patch_files[key] != '{}') {
+      zip.file(key, patch_files[key])
+    }
   })
 
   zip.file('README.md', description)
-  zip.file('extension.json', JSON.stringify({"name": name, "description": description}))
+  zip.file('extension.json', JSON.stringify({'name': name, 'description': description}))
   var docs = zip.folder('docs')
-  docs.file("index.md", "")
-  zip.generateAsync({type:"blob"})
+  docs.file('index.md', '')
+  zip.generateAsync({type: 'blob'})
     .then(function(content) {
-        saveAs(content, name+".zip");
+        saveAs(content, name + '.zip');
     });
 
   return false;

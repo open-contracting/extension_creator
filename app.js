@@ -47,18 +47,17 @@
 	var JSONEditor = __webpack_require__(1);
 	var jsonmergepatch = __webpack_require__(2);
 	var JSZip = __webpack_require__(9);
-	var make_version_schema = __webpack_require__(111).get_versioned_validation_schema;
 
-	var metaschema = __webpack_require__(112);
+	var metaschema = __webpack_require__(111);
 	var file_name = 'release-schema.json'
 
 	var schemas = {
-	  'release-schema-1.0': __webpack_require__(113),
-	  'release-schema-1.1': __webpack_require__(114),
-	  'release-package-schema-1.0': __webpack_require__(115),
-	  'release-package-schema-1.1': __webpack_require__(116),
-	  'record-package-schema-1.0': __webpack_require__(117),
-	  'record-package-schema-1.1': __webpack_require__(118)
+	  'release-schema-1.0': __webpack_require__(112),
+	  'release-schema-1.1': __webpack_require__(113),
+	  'release-package-schema-1.0': __webpack_require__(114),
+	  'release-package-schema-1.1': __webpack_require__(115),
+	  'record-package-schema-1.0': __webpack_require__(116),
+	  'record-package-schema-1.1': __webpack_require__(117)
 	}
 
 
@@ -148,43 +147,33 @@
 	document.getElementById('generate-extension').onclick = function () {
 	  var name = document.getElementById('extension-name').value
 	  var description = document.getElementById('extension-description').value
+
 	  if (!name || !description) {
 	    return true
 	  }
-	  
-	  var generated_patch = jsonmergepatch.generate(editor_original.get(), editor_target.get())
 
+	  var generated_patch = jsonmergepatch.generate(editor_original.get(), editor_target.get())
 	  var zip = new JSZip();
 	  var patch_files = {
-	    'record-package-schema.json': "{}",
-	    'release-package-schema.json': "{}",
-	    'release-schema.json': "{}",
-	    'versioned-release-validation-schema.json': "{}"
+	    'release-schema.json': '{}',
+	    'release-package-schema.json': '{}',
+	    'record-package-schema.json': '{}',
 	  }
-
-	  if (file_name === 'record-package-schema.json' || file_name === 'release-package-schema.json') {
-	    patch_files[file_name] = JSON.stringify(generated_patch, null, 2)
-	  } else {
-	    var generated_versioned_patch = jsonmergepatch.generate(
-	        make_version_schema(editor_original.get()), 
-	        make_version_schema(editor_target.get())
-	   )
-
-	    patch_files['release-schema.json'] = JSON.stringify(generated_patch, null, 2);
-	    patch_files['versioned-release-validation-schema.json'] = JSON.stringify(generated_versioned_patch, null, 2);
-	  }
+	  patch_files[file_name] = JSON.stringify(generated_patch, null, 2);
 
 	  Object.keys(patch_files).forEach(function(key) {
-	    zip.file(key, patch_files[key])
+	    if (patch_files[key] != '{}') {
+	      zip.file(key, patch_files[key])
+	    }
 	  })
 
 	  zip.file('README.md', description)
-	  zip.file('extension.json', JSON.stringify({"name": name, "description": description}))
+	  zip.file('extension.json', JSON.stringify({'name': name, 'description': description}))
 	  var docs = zip.folder('docs')
-	  docs.file("index.md", "")
-	  zip.generateAsync({type:"blob"})
+	  docs.file('index.md', '')
+	  zip.generateAsync({type: 'blob'})
 	    .then(function(content) {
-	        saveAs(content, name+".zip");
+	        saveAs(content, name + '.zip');
 	    });
 
 	  return false;
@@ -54712,170 +54701,6 @@
 /* 111 */
 /***/ (function(module, exports) {
 
-	'use strict';
-	var version_template = {
-	    'type': 'array',
-	    'items': {
-	        'properties': {
-	            'releaseDate': {
-	                'format': 'date-time',
-	                'type': 'string'
-	            },
-	            'releaseID': {
-	                'type': 'string'
-	            },
-	            'value': {
-	            },
-	            'releaseTag': {
-	                'type': 'array',
-	                'items': {'type': 'string'}
-	            }
-	        }
-	   }
-	};
-
-	function deepcopy(obj) {
-	  return JSON.parse(JSON.stringify(obj))
-	}
-
-	function add_versions(schema) {
-	  Object.keys(schema.properties).forEach(function(key) {
-	    var value = schema.properties[key];
-	    var prop_type = value.type;
-	    delete value.title;
-	    delete value.description;
-	    var mergeStrategy = value.mergeStrategy;
-	    delete value.mergeStrategy;
-	    delete value.mergeOptions;
-	    if (!prop_type) { return }
-	    if (mergeStrategy === 'overwrite') { return }
-
-	    var json_string = JSON.stringify(["string","null"])
-	    if (JSON.stringify(prop_type) === json_string && !value.hasOwnProperty('enum')) {
-	      var new_value = {};
-	      var format = value.format 
-	      if (format == 'uri') {
-	          new_value['$ref'] = '#/definitions/StringNullUriVersioned';
-	      } else if (format == 'date-time') {
-	          new_value['$ref'] = '#/definitions/StringNullDateTimeVersioned';
-	      } else {
-	          new_value['$ref'] = '#/definitions/StringNullVersioned';
-	      }
-	      schema['properties'][key] = new_value;
-	    } else if (prop_type === 'array') {
-	      var version = deepcopy(version_template)
-	      var version_properties = version['items']['properties'];
-	      if (mergeStrategy === 'ocdsVersion') {
-	        new_value = deepcopy(value);
-	        if (new_value['items'].hasOwnProperty('$ref')) {
-	          new_value['items']['$ref'] = value['items']['$ref'] + 'Unversioned';
-	        }
-	        version_properties['value'] =  new_value;
-	        schema['properties'][key] = version;
-	      }
-	    } else if (prop_type === 'object') {
-	      add_versions(value);
-	    } else {
-	      var version = deepcopy(version_template);
-	      var version_properties = version['items']['properties'];
-	      version_properties['value'] = value;
-	      schema['properties'][key] = version;
-	    }
-	  })
-	  Object.keys(schema.definitions || {}).forEach(function(key) {
-	    add_versions(schema.definitions[key]);
-	  })
-	}
-	    
-
-	function add_string_definitions(schema) {
-	  var lookup = {'StringNullUriVersioned': 'uri',
-	                'StringNullDateTimeVersioned': 'date-time',
-	                'StringNullVersioned': null}
-
-	  Object.keys(lookup).forEach(function(key) {
-	     var version = deepcopy(version_template);
-	     var version_properties = version['items']['properties'];
-	     version_properties['value'] = {'type': ['string', 'null']};
-	     if (lookup[key]) {
-	         version_properties['value']['format'] = lookup[key];
-	     }
-	     schema['definitions'][key] = version;
-	  })
-	}
-
-	function unversion_refs(schema) {
-	  Object.keys(schema).forEach(function(key) {
-	    var value = schema[key]
-	    if (key == '$ref') {
-	      schema[key] = value + 'Unversioned'
-	    }
-	    if (typeof value === 'object' && !Array.isArray(value)) {
-	      unversion_refs(value);
-	    }
-	  })
-	}
-
-	function get_versioned_validation_schema(versioned_release) {
-	  versioned_release['id'] = 'http://standard.open-contracting.org/schema/1__0__1/versioned-release-validation-schema.json'
-	  versioned_release['$schema'] = 'http://json-schema.org/draft-04/schema#'
-	  versioned_release['title'] = 'Schema for a compiled, versioned Open Contracting Release.'
-	  var definitions = versioned_release['definitions'];
-
-	  var new_definitions = {};
-	  var definitions_copy = deepcopy(versioned_release['definitions'])
-	  Object.keys(definitions_copy).forEach(function(key) {
-	    new_definitions[key + 'Unversioned'] = definitions_copy[key];
-	  })
-
-	  unversion_refs(new_definitions);
-
-	  var ocid = versioned_release['properties']['ocid'];
-	  delete versioned_release['properties']['ocid'];
-	  delete versioned_release['properties']['date'];
-	  delete versioned_release['properties']['id'];
-	  delete versioned_release['properties']['tag'];
-
-	  versioned_release['required'] = [
-	      'ocid',
-	      'initiationType'
-	  ];
-	  add_versions(versioned_release);
-
-	  versioned_release['properties']['ocid'] = ocid;
-
-	  Object.keys(new_definitions).forEach(function(key) {
-	    definitions[key] = new_definitions[key]
-	  })
-
-	  add_string_definitions(versioned_release);
-
-	  Object.keys(definitions).forEach(function(key) {
-	    var value = definitions[key]
-	    delete value.title;
-	    delete value.description;
-	    if (!value.hasOwnProperty('properties')) {
-	       return;
-	    }
-	    Object.keys(value['properties']).forEach(function(key) {
-	      var prop_value = value['properties'][key]
-	      delete prop_value['mergeStrategy'];
-	      delete prop_value['mergeOptions'];
-	      delete prop_value['title'];
-	      delete prop_value['description'];
-	    })
-	  })
-	  return versioned_release;
-	}
-
-	exports.get_versioned_validation_schema = get_versioned_validation_schema;
-
-
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports) {
-
 	module.exports = {
 		"id": "http://json-schema.org/draft-04/schema#",
 		"$schema": "http://json-schema.org/draft-04/schema#",
@@ -55099,7 +54924,7 @@
 	};
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -56672,7 +56497,7 @@
 	};
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -58560,7 +58385,7 @@
 	};
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -58654,7 +58479,7 @@
 	};
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -58769,7 +58594,7 @@
 	};
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports) {
 
 	module.exports = {
@@ -58970,7 +58795,7 @@
 	};
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports) {
 
 	module.exports = {
