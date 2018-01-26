@@ -99,8 +99,25 @@ document.getElementById('download-patch').onclick = function () {
 };
 
 document.getElementById('generate-extension').onclick = function () {
-  var name = document.getElementById('extension-name').value
-  var description = document.getElementById('extension-description').value
+  var name = document.getElementById('extension-name').value;
+  var description = document.getElementById('extension-description').value;
+  var documentationUrl = document.getElementById('extension-url').value;
+
+  // Follow convention by requiring exactly two slashes after http(s):  
+  var urlStartPattern = new RegExp('^https?:\/\/[^\/\\s][^\\s]+$', 'i');
+  
+  if (documentationUrl) {
+    documentationUrl = documentationUrl.replace('\\r', '').replace('\\n', '');
+    documentationUrl = documentationUrl.trim();
+    if (!urlStartPattern.test(documentationUrl)) {
+      var explanation =  ' is not a valid URL.'
+      if (documentationUrl.indexOf('http') === -1){
+        explanation += ' Make sure that it starts with "http://" or "https://"';
+      }
+      alert('"' + documentationUrl + '"' + explanation);
+      return false
+    }
+  }
 
   if (!name || !description) {
     return true
@@ -122,7 +139,11 @@ document.getElementById('generate-extension').onclick = function () {
   })
 
   zip.file('README.md', description)
-  zip.file('extension.json', JSON.stringify({'name': name, 'description': description}))
+  zip.file('extension.json', JSON.stringify({
+    'name': {'en': name},
+    'description': {'en': description},
+    'documentationUrl': {'en': documentationUrl}
+  }))
   var docs = zip.folder('docs')
   docs.file('index.md', '')
   zip.generateAsync({type: 'blob'})
