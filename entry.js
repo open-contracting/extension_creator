@@ -143,7 +143,7 @@ document.getElementById('generate-extension').onclick = function () {
     'name': {'en': name},
     'description': {'en': description},
     'documentationUrl': {'en': documentationUrl}
-  }))
+  }, null, 2))
   zip.generateAsync({type: 'blob'})
     .then(function(content) {
         saveAs(content, name + '.zip');
