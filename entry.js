@@ -130,20 +130,31 @@ document.getElementById('generate-extension').onclick = function () {
     'release-package-schema.json': '{}',
     'record-package-schema.json': '{}'
   };
-  patch_files[file_name] = JSON.stringify(generated_patch, null, 2);
+  var extension_metadata = {
+    'name': {
+      'en': name
+    },
+    'description': {
+      'en': description
+    },
+    'documentationUrl': {
+      'en': documentationUrl
+    },
+    'compatibility': ['1.1'],
+    'schemas': []
+  }
 
+  patch_files[file_name] = JSON.stringify(generated_patch, null, 2);
   Object.keys(patch_files).forEach(function(key) {
     if (patch_files[key] != '{}') {
       zip.file(key, patch_files[key]);
+      extension_metadata['schemas'].push(key);
     }
   });
 
+
   zip.file('README.md', description);
-  zip.file('extension.json', JSON.stringify({
-    'name': {'en': name},
-    'description': {'en': description},
-    'documentationUrl': {'en': documentationUrl}
-  }, null, 2));
+  zip.file('extension.json', JSON.stringify(extension_metadata, null, 2));
   zip.generateAsync({type: 'blob'}).then(function(content) {
     saveAs(content, name + '.zip');
   });
