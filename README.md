@@ -1,6 +1,6 @@
 # OCDS Extension Creator
 
-A tool to generate extensions for OCDS schema.
+A tool to generate extensions to OCDS schema.
 
 ## Getting Started
 
@@ -16,21 +16,27 @@ Generate the patch with your modifications. You can download just the patch file
 
 ![readme3](https://cloud.githubusercontent.com/assets/5618508/25894798/3e81bfba-3575-11e7-811e-e94970cd5449.png)
 
-Ready? [Open the extension creator!](https://open-contracting.github.io/extension_creator/)
+Ready? [Open the OCDS Extension Creator!](https://open-contracting.github.io/extension_creator/)
 
 ## Installation
 
-Want to run the extension creator locally? Clone this repository and run:
+To run the OCDS Extension Creator locally, clone the repository and run:
 
-`npm install .`
+```shell
+npm install .
+```
 
-This repository uses [webpack](https://webpack.js.org/). Changes to statics files need to be recompiled running:
+This repository uses [webpack](https://webpack.js.org/). To re-compile the static files, run, from the root of the repository:
 
-`./node_modules/webpack/bin/webpack.js` from the root of the repo.
+```shell
+node_modules/.bin/webpack
+```
 
-Or, if you have webpack installed globally, simply running:
+Or, if you have webpack installed globally, run:
 
-`webpack.js`
+```shell
+webpack.js
+```
 
 ## Maintenance
 
