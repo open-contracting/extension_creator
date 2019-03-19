@@ -147,14 +147,14 @@ document.getElementById('generate-extension').onclick = function () {
   patch_files[file_name] = JSON.stringify(generated_patch, null, 2);
   Object.keys(patch_files).forEach(function(key) {
     if (patch_files[key] != '{}') {
-      zip.file(key, patch_files[key]);
+      zip.file(key, patch_files[key] + '\n');
       extension_metadata['schemas'].push(key);
     }
   });
 
 
-  zip.file('README.md', description);
-  zip.file('extension.json', JSON.stringify(extension_metadata, null, 2));
+  zip.file('README.md', '# ' + name + '\n\n' + description + '\n');
+  zip.file('extension.json', JSON.stringify(extension_metadata, null, 2) + '\n');
   zip.generateAsync({type: 'blob'}).then(function(content) {
     saveAs(content, name + '.zip');
   });
