@@ -144,8 +144,6 @@ document.getElementById('generate-extension').onclick = function () {
     'description': {'en': description},
     'documentationUrl': {'en': documentationUrl}
   }))
-  var docs = zip.folder('docs')
-  docs.file('index.md', '')
   zip.generateAsync({type: 'blob'})
     .then(function(content) {
         saveAs(content, name + '.zip');
