@@ -43,13 +43,13 @@ webpack.js
 Replace the tags in the URLs, then run:
 
 ```shell
-curl http://standard.open-contracting.org/schema/1__1__3/record-package-schema.json > record-package-schema/record-package-schema-1.1.json
-curl http://standard.open-contracting.org/schema/1__1__3/release-package-schema.json > release-package-schema/release-package-schema-1.1.json
-curl http://standard.open-contracting.org/schema/1__1__3/release-schema.json > release-schema/release-schema-1.1.json
+curl https://standard.open-contracting.org/schema/1__1__3/record-package-schema.json > record-package-schema/record-package-schema-1.1.json
+curl https://standard.open-contracting.org/schema/1__1__3/release-package-schema.json > release-package-schema/release-package-schema-1.1.json
+curl https://standard.open-contracting.org/schema/1__1__3/release-schema.json > release-schema/release-schema-1.1.json
 
-curl http://standard.open-contracting.org/schema/1__0__3/record-package-schema.json > record-package-schema/record-package-schema-1.0.json
-curl http://standard.open-contracting.org/schema/1__0__3/release-package-schema.json > release-package-schema/release-package-schema-1.0.json
-curl http://standard.open-contracting.org/schema/1__0__3/release-schema.json > release-schema/release-schema-1.0.json
+curl https://standard.open-contracting.org/schema/1__0__3/record-package-schema.json > record-package-schema/record-package-schema-1.0.json
+curl https://standard.open-contracting.org/schema/1__0__3/release-package-schema.json > release-package-schema/release-package-schema-1.0.json
+curl https://standard.open-contracting.org/schema/1__0__3/release-schema.json > release-schema/release-schema-1.0.json
 
 node_modules/.bin/webpack
 ```
