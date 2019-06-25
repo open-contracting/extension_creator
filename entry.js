@@ -6,11 +6,8 @@ var metaschema = require('json!./metaschema.json');
 var file_name = 'release-schema.json';
 
 var schemas = {
-  'release-schema-1.0': require('json!./release-schema/release-schema-1.0.json'),
   'release-schema-1.1': require('json!./release-schema/release-schema-1.1.json'),
-  'release-package-schema-1.0': require('json!./release-package-schema/release-package-schema-1.0.json'),
   'release-package-schema-1.1': require('json!./release-package-schema/release-package-schema-1.1.json'),
-  'record-package-schema-1.0': require('json!./record-package-schema/record-package-schema-1.0.json'),
   'record-package-schema-1.1': require('json!./record-package-schema/record-package-schema-1.1.json')
 };
 
