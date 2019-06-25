@@ -127,7 +127,7 @@
       "properties": {
         "ocid": {
           "title": "Open Contracting ID",
-          "description": "A unique identifier that identifies the unique Open Contracting Process. For more information see: https://standard.open-contracting.org/{{version}}/{{lang}}/getting_started/contracting_process/",
+          "description": "A unique identifier that identifies the unique Open Contracting Process. For more information see: https://standard.open-contracting.org/1.1/en/getting_started/contracting_process/",
           "type": "string"
         },
         "releases": {
@@ -144,7 +144,7 @@
                 "properties": {
                   "url": {
                     "title": "Release URL",
-                    "description": "The URL of the release which contains the URL of the package with the release `id` appended using a fragment identifier e.g. https://standard.open-contracting.org/{{version}}/{{lang}}/examples/tender.json#ocds-213czf-000-00001",
+                    "description": "The URL of the release which contains the URL of the package with the release `id` appended using a fragment identifier e.g. https://standard.open-contracting.org/1.1/en/examples/tender.json#ocds-213czf-000-00001",
                     "type": [
                       "string",
                       "null"

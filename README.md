@@ -50,12 +50,12 @@ curl https://standard.open-contracting.org/schema/1__1__3/release-schema.json > 
 node_modules/.bin/webpack
 ```
 
-Or, locally:
+Or, locally, in the `standard` repository, set `translate`'s `version` keyword argument to `1.1` in `conf.py` and build the documentation, then run:
 
 ```shell
-cp ../standard/standard/schema/record-package-schema.json record-package-schema/record-package-schema-1.1.json
-cp ../standard/standard/schema/release-package-schema.json release-package-schema/release-package-schema-1.1.json
-cp ../standard/standard/schema/release-schema.json release-schema/release-schema-1.1.json
+cp ../standard/build/en/record-package-schema.json record-package-schema/record-package-schema-1.1.json
+cp ../standard/build/en/release-package-schema.json release-package-schema/release-package-schema-1.1.json
+cp ../standard/build/en/release-schema.json release-schema/release-schema-1.1.json
 
 node_modules/.bin/webpack
 ```

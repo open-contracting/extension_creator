@@ -100,7 +100,7 @@
     },
     "publicationPolicy": {
       "title": "Publication policy",
-      "description": "A link to a document describing the publishers [publication policy](https://standard.open-contracting.org/{{version}}/{{lang}}/implementation/publication_policy/).",
+      "description": "A link to a document describing the publishers [publication policy](https://standard.open-contracting.org/1.1/en/implementation/publication_policy/).",
       "type": [
         "string",
         "null"
