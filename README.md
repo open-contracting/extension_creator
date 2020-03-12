@@ -43,6 +43,7 @@ webpack.js
 Replace the tags in the URLs, then run:
 
 ```shell
+curl https://standard.open-contracting.org/schema/1__1__4/meta-schema.json > metaschema.json
 curl https://standard.open-contracting.org/schema/1__1__4/record-package-schema.json > record-package-schema/record-package-schema-1.1.json
 curl https://standard.open-contracting.org/schema/1__1__4/release-package-schema.json > release-package-schema/release-package-schema-1.1.json
 curl https://standard.open-contracting.org/schema/1__1__4/release-schema.json > release-schema/release-schema-1.1.json
@@ -53,6 +54,7 @@ node_modules/.bin/webpack
 Or, locally, in the `standard` repository, set `translate`'s `version` keyword argument to `1.1` in `conf.py` and build the documentation, then run:
 
 ```shell
+cp ../standard/build/en/meta-schema.json metaschema.json
 cp ../standard/build/en/record-package-schema.json record-package-schema/record-package-schema-1.1.json
 cp ../standard/build/en/release-package-schema.json release-package-schema/release-package-schema-1.1.json
 cp ../standard/build/en/release-schema.json release-schema/release-schema-1.1.json
