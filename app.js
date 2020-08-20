@@ -46,15 +46,15 @@
 
 	var JSONEditor = __webpack_require__(1);
 	var jsonmergepatch = __webpack_require__(2);
-	var JSZip = __webpack_require__(9);
+	var JSZip = __webpack_require__(28);
 
-	var metaschema = __webpack_require__(115);
+	var metaschema = __webpack_require__(112);
 	var file_name = 'release-schema.json';
 
 	var schemas = {
-	  'release-schema-1.1': __webpack_require__(116),
-	  'release-package-schema-1.1': __webpack_require__(117),
-	  'record-package-schema-1.1': __webpack_require__(118)
+	  'release-schema-1.1': __webpack_require__(113),
+	  'release-package-schema-1.1': __webpack_require__(114),
+	  'record-package-schema-1.1': __webpack_require__(115)
 	};
 
 
@@ -238,8 +238,8 @@
 	 * Copyright (c) 2011-2019 Jos de Jong, http://jsoneditoronline.org
 	 *
 	 * @author  Jos de Jong, <wjosdejong@gmail.com>
-	 * @version 5.29.1
-	 * @date    2019-02-20
+	 * @version 5.34.0
+	 * @date    2019-06-08
 	 */
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
@@ -311,8 +311,8 @@
 		var VanillaPicker = __webpack_require__(57); // may be undefined in case of minimalist bundle
 
 		var treemode = __webpack_require__(59);
-		var textmode = __webpack_require__(81);
-		var util = __webpack_require__(65);
+		var textmode = __webpack_require__(82);
+		var util = __webpack_require__(62);
 
 		if (typeof Promise === 'undefined') {
 		  console.error('Promise undefined. Please load a Promise polyfill in the browser in order to use JSONEditor');
@@ -472,7 +472,7 @@
 		  'ajv', 'schema', 'schemaRefs','templates',
 		  'ace', 'theme', 'autocomplete',
 		  'onChange', 'onChangeJSON', 'onChangeText',
-		  'onEditable', 'onError', 'onEvent', 'onModeChange', 'onNodeName', 'onValidate',
+		  'onEditable', 'onError', 'onEvent', 'onModeChange', 'onNodeName', 'onValidate', 'onCreateMenu',
 		  'onSelectionChange', 'onTextSelectionChange', 'onClassName',
 		  'colorPicker', 'onColorPicker',
 		  'timestampTag',
@@ -29282,10 +29282,10 @@
 	/***/ function(module, exports, __webpack_require__) {
 
 		/*!
-		 * vanilla-picker v2.4.2
+		 * vanilla-picker v2.8.0
 		 * https://vanilla-picker.js.org
 		 *
-		 * Copyright 2017-2018 Andreas Borgen (https://github.com/Sphinxxxx), Adam Brooks (https://github.com/dissimulate)
+		 * Copyright 2017-2019 Andreas Borgen (https://github.com/Sphinxxxx), Adam Brooks (https://github.com/dissimulate)
 		 * Released under the ISC license.
 		 */
 		(function (global, factory) {
@@ -29365,8 +29365,14 @@
 		  	}return str;
 		  };
 
-		  var colorNames = '735AACA770//Xub218Pj/mo5+uvX6mdAP//gtpf//Ur258P//q1d9fXcxop/+TEq9zAAAAqfg/+vN6m1AAD/ngoiiviqt6pSoqzyo3riHxvdX56grk1f/8Aax10mkeqts/39QxbtZJXttkb//jcyxm3BQ86rmAP//wl5AACLwqqAIuL3y8uIYLwv1qampniqAGQAns5vbdrmohiwCLw5uVWsvsdd/4wAsegmTLMqagiwAAsqi6ZZ6uz6j7yPxtzSD2Lxk3L09PudbAM7RwsolADT0kz/xSTfuhAL//vfhaWlpyuxHpD/43rsiIiwn9//rw39uIosi9bp/wD/6w73Nzc9s5+Pj/6v8/9cA3b42qUg6vxgICArmaAIAAtdfrf8vf9n8P/wek3/2m0xnczVxc3bvSwCCsdt///wrvp8OaMs5i5ub6iyk//D1e8ifPwAoui//rNpyxrdjmw9c8ICAq4i4P//mx9+vrSq8t09PTx1ukO6Qqlv/7bBuuy/6B690uILKqpfdh876sd9d4iZnehsMTe0dv///g71lAP8A4nmMs0ys9u+vDmg9d/wD/4pmgAAAcurZs2qzllAADN4lkulXT6txk3Db66qPLNxozre2juokuAPqalj3SNHMgdkxxWF60pGRlwxfl9f/6hr5/+Thx6q/+S1m85/96tutd/fXmszxgIAAe4ma44j8rl/6UAmu0/0UA8so2nDWji87uiqumqmPuY9xbr+7u4rs23CTsb8/+/V95a/9q577xzYU/78z/8DL7b53aDdsu1sODmb11gACAy5nZjOZ1so/wAAlvevI+Pn09QWnhm7ui0UT94q+oBy7ei9KRg5aqLotXad5oFItasmwMDAaihh87r9fdalrN9p9cICQ7gz//r6k5uAP9/4qhRoK01te0rSM7cwAICA91x2L/Yclr/2NHcw1QODQd6w7oLuua09d6zudh////t359fX1enn//8Ao0ims0y';
-		  var colorNamesDeser = void 0;
+		  var colorNames = { aliceblue: '#f0f8ff', antiquewhite: '#faebd7', aqua: '#00ffff', aquamarine: '#7fffd4', azure: '#f0ffff', beige: '#f5f5dc', bisque: '#ffe4c4', black: '#000000', blanchedalmond: '#ffebcd', blue: '#0000ff', blueviolet: '#8a2be2', brown: '#a52a2a', burlywood: '#deb887', cadetblue: '#5f9ea0', chartreuse: '#7fff00', chocolate: '#d2691e', coral: '#ff7f50', cornflowerblue: '#6495ed', cornsilk: '#fff8dc', crimson: '#dc143c', cyan: '#00ffff', darkblue: '#00008b', darkcyan: '#008b8b', darkgoldenrod: '#b8860b', darkgray: '#a9a9a9', darkgreen: '#006400', darkgrey: '#a9a9a9', darkkhaki: '#bdb76b', darkmagenta: '#8b008b', darkolivegreen: '#556b2f', darkorange: '#ff8c00', darkorchid: '#9932cc', darkred: '#8b0000', darksalmon: '#e9967a', darkseagreen: '#8fbc8f', darkslateblue: '#483d8b', darkslategray: '#2f4f4f', darkslategrey: '#2f4f4f', darkturquoise: '#00ced1', darkviolet: '#9400d3', deeppink: '#ff1493', deepskyblue: '#00bfff', dimgray: '#696969', dimgrey: '#696969', dodgerblue: '#1e90ff', firebrick: '#b22222', floralwhite: '#fffaf0', forestgreen: '#228b22', fuchsia: '#ff00ff', gainsboro: '#dcdcdc', ghostwhite: '#f8f8ff', gold: '#ffd700', goldenrod: '#daa520', gray: '#808080', green: '#008000', greenyellow: '#adff2f', grey: '#808080', honeydew: '#f0fff0', hotpink: '#ff69b4', indianred: '#cd5c5c', indigo: '#4b0082', ivory: '#fffff0', khaki: '#f0e68c', lavender: '#e6e6fa', lavenderblush: '#fff0f5', lawngreen: '#7cfc00', lemonchiffon: '#fffacd', lightblue: '#add8e6', lightcoral: '#f08080', lightcyan: '#e0ffff', lightgoldenrodyellow: '#fafad2', lightgray: '#d3d3d3', lightgreen: '#90ee90', lightgrey: '#d3d3d3', lightpink: '#ffb6c1', lightsalmon: '#ffa07a', lightseagreen: '#20b2aa', lightskyblue: '#87cefa', lightslategray: '#778899', lightslategrey: '#778899', lightsteelblue: '#b0c4de', lightyellow: '#ffffe0', lime: '#00ff00', limegreen: '#32cd32', linen: '#faf0e6', magenta: '#ff00ff', maroon: '#800000', mediumaquamarine: '#66cdaa', mediumblue: '#0000cd', mediumorchid: '#ba55d3', mediumpurple: '#9370db', mediumseagreen: '#3cb371', mediumslateblue: '#7b68ee', mediumspringgreen: '#00fa9a', mediumturquoise: '#48d1cc', mediumvioletred: '#c71585', midnightblue: '#191970', mintcream: '#f5fffa', mistyrose: '#ffe4e1', moccasin: '#ffe4b5', navajowhite: '#ffdead', navy: '#000080', oldlace: '#fdf5e6', olive: '#808000', olivedrab: '#6b8e23', orange: '#ffa500', orangered: '#ff4500', orchid: '#da70d6', palegoldenrod: '#eee8aa', palegreen: '#98fb98', paleturquoise: '#afeeee', palevioletred: '#db7093', papayawhip: '#ffefd5', peachpuff: '#ffdab9', peru: '#cd853f', pink: '#ffc0cb', plum: '#dda0dd', powderblue: '#b0e0e6', purple: '#800080', rebeccapurple: '#663399', red: '#ff0000', rosybrown: '#bc8f8f', royalblue: '#4169e1', saddlebrown: '#8b4513', salmon: '#fa8072', sandybrown: '#f4a460', seagreen: '#2e8b57', seashell: '#fff5ee', sienna: '#a0522d', silver: '#c0c0c0', skyblue: '#87ceeb', slateblue: '#6a5acd', slategray: '#708090', slategrey: '#708090', snow: '#fffafa', springgreen: '#00ff7f', steelblue: '#4682b4', tan: '#d2b48c', teal: '#008080', thistle: '#d8bfd8', tomato: '#ff6347', turquoise: '#40e0d0', violet: '#ee82ee', wheat: '#f5deb3', white: '#ffffff', whitesmoke: '#f5f5f5', yellow: '#ffff00', yellowgreen: '#9acd32' };
+
+		  function printNum(num) {
+		  	var decs = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+		  	var str = decs > 0 ? num.toFixed(decs).replace(/0+$/, '').replace(/\.$/, '') : num.toString();
+		  	return str || '0';
+		  }
 
 		  var Color = function () {
 		  	function Color(r, g, b, a) {
@@ -29426,7 +29432,7 @@
 		  			}
 
 		  			else if (b === undefined) {
-		  					var color = r && ('' + r).trim();
+		  					var color = r && '' + r;
 		  					if (color) {
 		  						parseString(color.toLowerCase());
 		  					}
@@ -29437,6 +29443,39 @@
 
 
 		  	createClass(Color, [{
+		  		key: 'printRGB',
+		  		value: function printRGB(alpha) {
+		  			var rgb = alpha ? this.rgba : this.rgba.slice(0, 3),
+		  			    vals = rgb.map(function (x, i) {
+		  				return printNum(x, i === 3 ? 3 : 0);
+		  			});
+
+		  			return alpha ? 'rgba(' + vals + ')' : 'rgb(' + vals + ')';
+		  		}
+		  	}, {
+		  		key: 'printHSL',
+		  		value: function printHSL(alpha) {
+		  			var mults = [360, 100, 100, 1],
+		  			    suff = ['', '%', '%', ''];
+
+		  			var hsl = alpha ? this.hsla : this.hsla.slice(0, 3),
+
+		  			vals = hsl.map(function (x, i) {
+		  				return printNum(x * mults[i], i === 3 ? 3 : 1) + suff[i];
+		  			});
+
+		  			return alpha ? 'hsla(' + vals + ')' : 'hsl(' + vals + ')';
+		  		}
+		  	}, {
+		  		key: 'printHex',
+		  		value: function printHex(alpha) {
+		  			var hex = this.hex;
+		  			return alpha ? hex : hex.substring(0, 7);
+		  		}
+
+
+
+		  	}, {
 		  		key: 'rgba',
 		  		get: function get$$1() {
 		  			if (this._rgba) {
@@ -29456,18 +29495,18 @@
 		  			this._rgba = rgb;
 		  			this._hsla = null;
 		  		}
-
-
 		  	}, {
 		  		key: 'rgbString',
 		  		get: function get$$1() {
-		  			return 'rgb(' + this.rgba.slice(0, 3) + ')';
+		  			return this.printRGB();
 		  		}
 		  	}, {
 		  		key: 'rgbaString',
 		  		get: function get$$1() {
-		  			return 'rgba(' + this.rgba + ')';
+		  			return this.printRGB(true);
 		  		}
+
+
 		  	}, {
 		  		key: 'hsla',
 		  		get: function get$$1() {
@@ -29488,20 +29527,18 @@
 		  			this._hsla = hsl;
 		  			this._rgba = null;
 		  		}
-
-
 		  	}, {
 		  		key: 'hslString',
 		  		get: function get$$1() {
-		  			var c = this.hsla;
-		  			return 'hsl(' + c[0] * 360 + ',' + c[1] * 100 + '%,' + c[2] * 100 + '%)';
+		  			return this.printHSL();
 		  		}
 		  	}, {
 		  		key: 'hslaString',
 		  		get: function get$$1() {
-		  			var c = this.hsla;
-		  			return 'hsla(' + c[0] * 360 + ',' + c[1] * 100 + '%,' + c[2] * 100 + '%,' + c[3] + ')';
+		  			return this.printHSL(true);
 		  		}
+
+
 		  	}, {
 		  		key: 'hex',
 		  		get: function get$$1() {
@@ -29517,9 +29554,6 @@
 		  		set: function set$$1(hex) {
 		  			this.rgba = Color.hexToRgb(hex);
 		  		}
-
-
-
 		  	}], [{
 		  		key: 'hexToRgb',
 		  		value: function hexToRgb(input) {
@@ -29544,20 +29578,10 @@
 		  	}, {
 		  		key: 'nameToRgb',
 		  		value: function nameToRgb(input) {
-
-		  			if (!colorNamesDeser) {
-		  				colorNamesDeser = {};
-		  				colorNames.match(/.{7}/g).forEach(function (x) {
-		  					return colorNamesDeser[x.slice(0, 3)] = atob(x.slice(-4)).split('').map(function (b) {
-		  						return b.charCodeAt(0);
-		  					});
-		  				});
+		  			var hex = colorNames[input];
+		  			if (hex) {
+		  				return Color.hexToRgb(hex);
 		  			}
-		  			var hash = [].reduce.call(input.replace('ey', 'ay'), function (h, c) {
-		  				return (h << 2) + c.charCodeAt(0);
-		  			}, 0).toString(36).slice(-3);
-
-		  			return colorNamesDeser[hash];
 		  		}
 
 
@@ -29855,21 +29879,44 @@
 		  }
 
 
+		  var BG_TRANSP = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'2\' height=\'2\'%3E%3Cpath d=\'M1,0H0V1H2V2H1\' fill=\'lightgrey\'/%3E%3C/svg%3E")';
+		  var HUES = 360;
+		  var EVENT_KEY = 'keydown',
+		  EVENT_CLICK_OUTSIDE = 'mousedown',
+		      EVENT_TAB_MOVE = 'focusin';
+
 		  function parseHTML(htmlString) {
 		      var div = document.createElement('div');
 		      div.innerHTML = htmlString;
 		      return div.firstElementChild;
 		  }
 
+		  function $(selector, context) {
+		      return (context || document).querySelector(selector);
+		  }
+
 		  function addEvent(target, type, handler) {
 		      target.addEventListener(type, handler, false);
 		  }
+		  function stopEvent(e) {
+		      e.preventDefault();
+		      e.stopPropagation();
+		  }
+		  function onKey(target, keys, handler, stop) {
+		      addEvent(target, EVENT_KEY, function (e) {
+		          if (keys.indexOf(e.key) >= 0) {
+		              if (stop) {
+		                  stopEvent(e);
+		              }
+		              handler(e);
+		          }
+		      });
+		  }
 
-		  var BG_TRANSP = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'2\' height=\'2\'%3E%3Cpath d=\'M1,0H0V1H2V2H1\' fill=\'lightgrey\'/%3E%3C/svg%3E")';
-		  var HUES = 360;
-
+		  var _style = document.createElement('style');
+		  _style.textContent = '.picker_wrapper.no_alpha .picker_alpha{display:none}.picker_wrapper.no_editor .picker_editor{position:absolute;z-index:-1;opacity:0}.layout_default.picker_wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;font-size:10px;width:25em;padding:.5em}.layout_default.picker_wrapper input,.layout_default.picker_wrapper button{font-size:1rem}.layout_default.picker_wrapper>*{margin:.5em}.layout_default.picker_wrapper::before{content:\'\';display:block;width:100%;height:0;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}.layout_default .picker_slider,.layout_default .picker_selector{padding:1em}.layout_default .picker_hue{width:100%}.layout_default .picker_sl{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}.layout_default .picker_sl::before{content:\'\';display:block;padding-bottom:100%}.layout_default .picker_editor{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;width:6rem}.layout_default .picker_editor input{width:calc(100% + 2px);height:calc(100% + 2px)}.layout_default .picker_sample{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}.layout_default .picker_done{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}.picker_wrapper{-webkit-box-sizing:border-box;box-sizing:border-box;background:#f2f2f2;-webkit-box-shadow:0 0 0 1px silver;box-shadow:0 0 0 1px silver;cursor:default;font-family:sans-serif;color:#444;pointer-events:auto}.picker_wrapper:focus{outline:none}.picker_wrapper button,.picker_wrapper input{margin:-1px}.picker_selector{position:absolute;z-index:1;display:block;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);border:2px solid white;border-radius:100%;-webkit-box-shadow:0 0 3px 1px #67b9ff;box-shadow:0 0 3px 1px #67b9ff;background:currentColor;cursor:pointer}.picker_slider .picker_selector{border-radius:2px}.picker_hue{position:relative;background-image:-webkit-gradient(linear, left top, right top, from(red), color-stop(yellow), color-stop(lime), color-stop(cyan), color-stop(blue), color-stop(magenta), to(red));background-image:linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);-webkit-box-shadow:0 0 0 1px silver;box-shadow:0 0 0 1px silver}.picker_sl{position:relative;-webkit-box-shadow:0 0 0 1px silver;box-shadow:0 0 0 1px silver;background-image:-webkit-gradient(linear, left top, left bottom, from(white), color-stop(50%, rgba(255,255,255,0))),-webkit-gradient(linear, left bottom, left top, from(black), color-stop(50%, rgba(0,0,0,0))),-webkit-gradient(linear, left top, right top, from(gray), to(rgba(128,128,128,0)));background-image:linear-gradient(180deg, white, rgba(255,255,255,0) 50%),linear-gradient(0deg, black, rgba(0,0,0,0) 50%),linear-gradient(90deg, gray, rgba(128,128,128,0))}.picker_alpha,.picker_sample{position:relative;background:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'2\' height=\'2\'%3E%3Cpath d=\'M1,0H0V1H2V2H1\' fill=\'lightgrey\'/%3E%3C/svg%3E") left top/contain white;-webkit-box-shadow:0 0 0 1px silver;box-shadow:0 0 0 1px silver}.picker_alpha .picker_selector,.picker_sample .picker_selector{background:none}.picker_editor input{-webkit-box-sizing:border-box;box-sizing:border-box;font-family:monospace;padding:.1em .2em}.picker_sample::before{content:\'\';position:absolute;display:block;width:100%;height:100%;background:currentColor}.picker_done button{-webkit-box-sizing:border-box;box-sizing:border-box;padding:.2em .5em;cursor:pointer}.picker_arrow{position:absolute;z-index:-1}.picker_wrapper.popup{position:absolute;z-index:2;margin:1.5em}.picker_wrapper.popup,.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{background:#f2f2f2;-webkit-box-shadow:0 0 10px 1px rgba(0,0,0,0.4);box-shadow:0 0 10px 1px rgba(0,0,0,0.4)}.picker_wrapper.popup .picker_arrow{width:3em;height:3em;margin:0}.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{content:"";display:block;position:absolute;top:0;left:0;z-index:-99}.picker_wrapper.popup .picker_arrow::before{width:100%;height:100%;-webkit-transform:skew(45deg);transform:skew(45deg);-webkit-transform-origin:0 100%;transform-origin:0 100%}.picker_wrapper.popup .picker_arrow::after{width:150%;height:150%;-webkit-box-shadow:none;box-shadow:none}.popup.popup_top{bottom:100%;left:0}.popup.popup_top .picker_arrow{bottom:0;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.popup.popup_bottom{top:100%;left:0}.popup.popup_bottom .picker_arrow{top:0;left:0;-webkit-transform:rotate(90deg) scale(1, -1);transform:rotate(90deg) scale(1, -1)}.popup.popup_left{top:0;right:100%}.popup.popup_left .picker_arrow{top:0;right:0;-webkit-transform:scale(-1, 1);transform:scale(-1, 1)}.popup.popup_right{top:0;left:100%}.popup.popup_right .picker_arrow{top:0;left:0}';
 		  document.documentElement.firstElementChild 
-		  .appendChild(document.createElement('style')).textContent = '.picker_wrapper.no_alpha .picker_alpha,.picker_wrapper.no_editor .picker_editor{display:none}.layout_default.picker_wrapper{display:flex;flex-flow:row wrap;justify-content:space-between;align-items:stretch;font-size:10px;width:25em;padding:.5em}.layout_default.picker_wrapper input,.layout_default.picker_wrapper button{font-size:1rem}.layout_default.picker_wrapper>*{margin:.5em}.layout_default.picker_wrapper::before{content:\'\';display:block;width:100%;height:0;order:1}.layout_default .picker_slider,.layout_default .picker_selector{padding:1em}.layout_default .picker_hue{width:100%}.layout_default .picker_sl{flex:1 1 auto}.layout_default .picker_sl::before{content:\'\';display:block;padding-bottom:100%}.layout_default .picker_editor{order:1;width:6rem}.layout_default .picker_editor input{width:calc(100% + 2px);height:calc(100% + 2px)}.layout_default .picker_sample{order:1;flex:1 1 auto}.layout_default .picker_done{order:1}.picker_wrapper{box-sizing:border-box;background:#f2f2f2;cursor:default;font-family:sans-serif;pointer-events:auto}.picker_wrapper button,.picker_wrapper input{margin:-1px}.picker_selector{position:absolute;z-index:1;display:block;transform:translate(-50%, -50%);border:2px solid white;border-radius:100%;box-shadow:0 0 3px 1px #67b9ff;background:currentColor;cursor:pointer}.picker_slider .picker_selector{border-radius:2px}.picker_hue{position:relative;background-image:linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);box-shadow:0 0 0 1px silver}.picker_sl{position:relative;box-shadow:0 0 0 1px silver;background-image:linear-gradient(180deg, white, rgba(255,255,255,0) 50%),linear-gradient(0deg, black, rgba(0,0,0,0) 50%),linear-gradient(90deg, gray, rgba(128,128,128,0))}.picker_alpha,.picker_sample{position:relative;background:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'2\' height=\'2\'%3E%3Cpath d=\'M1,0H0V1H2V2H1\' fill=\'lightgrey\'/%3E%3C/svg%3E") left top/contain white;box-shadow:0 0 0 1px silver}.picker_alpha .picker_selector,.picker_sample .picker_selector{background:none}.picker_editor input{box-sizing:border-box;font-family:monospace;padding:.1em .2em}.picker_sample::before{content:\'\';position:absolute;display:block;width:100%;height:100%;background:currentColor}.picker_done button{box-sizing:border-box;padding:.2em .5em;cursor:pointer}.picker_arrow{position:absolute;z-index:-1}.picker_wrapper.popup{position:absolute;z-index:2;margin:1.5em}.picker_wrapper.popup,.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{background:#f2f2f2;box-shadow:0 0 10px 1px rgba(0,0,0,0.4)}.picker_wrapper.popup .picker_arrow{width:3em;height:3em;margin:0}.picker_wrapper.popup .picker_arrow::before,.picker_wrapper.popup .picker_arrow::after{content:"";display:block;position:absolute;top:0;left:0;z-index:-99}.picker_wrapper.popup .picker_arrow::before{width:100%;height:100%;transform:skew(45deg);transform-origin:0 100%}.picker_wrapper.popup .picker_arrow::after{width:150%;height:150%;box-shadow:none}.popup.popup_top{bottom:100%;left:0}.popup.popup_top .picker_arrow{bottom:0;left:0;transform:rotate(-90deg)}.popup.popup_bottom{top:100%;left:0}.popup.popup_bottom .picker_arrow{top:0;left:0;transform:rotate(90deg) scale(1, -1)}.popup.popup_left{top:0;right:100%}.popup.popup_left .picker_arrow{top:0;right:0;transform:scale(-1, 1)}.popup.popup_right{top:0;left:100%}.popup.popup_right .picker_arrow{top:0;left:0}';
+		  .appendChild(_style);
 
 		  var Picker = function () {
 
@@ -29884,7 +29931,8 @@
 		              popup: 'right',
 		              layout: 'default',
 		              alpha: true,
-		              editor: true
+		              editor: true,
+		              editorFormat: 'hex'
 		          };
 
 		          this._openProxy = function (e) {
@@ -29923,35 +29971,39 @@
 		                  settings.parent = options;
 		              } else {
 
+
 		                  if (settings.parent && options.parent && settings.parent !== options.parent) {
 		                      settings.parent.removeEventListener('click', this._openProxy, false);
 		                      this._popupInited = false;
 		                  }
 
 		                  transfer(options, settings );
+
+		                  if (options.onChange) {
+		                      this.onChange = options.onChange;
+		                  }
+		                  if (options.onDone) {
+		                      this.onDone = options.onDone;
+		                  }
+		                  if (options.onOpen) {
+		                      this.onOpen = options.onOpen;
+		                  }
+		                  if (options.onClose) {
+		                      this.onClose = options.onClose;
+		                  }
+
+		                  var col = options.color || options.colour;
+		                  if (col) {
+		                      this._setColor(col);
+		                  }
 		              }
 
-		              if (options.onChange) {
-		                  this.onChange = options.onChange;
-		              }
-		              if (options.onDone) {
-		                  this.onDone = options.onDone;
-		              }
-		              if (options.onOpen) {
-		                  this.onOpen = options.onOpen;
-		              }
-		              if (options.onClose) {
-		                  this.onClose = options.onClose;
-		              }
+		              var parent = settings.parent;
+		              if (parent && settings.popup && !this._popupInited) {
 
-		              var col = options.color || options.colour;
-		              if (col) {
-		                  this._setColor(col);
-		              }
+		                  addEvent(parent, 'click', this._openProxy);
 
-		              if (settings.parent && settings.popup && !this._popupInited) {
-
-		                  addEvent(settings.parent, 'click', this._openProxy);
+		                  onKey(parent, [' ', 'Spacebar', 'Enter'], this._openProxy );
 
 
 		                  this._popupInited = true;
@@ -29965,7 +30017,14 @@
 		          key: 'openHandler',
 		          value: function openHandler(e) {
 		              if (this.show()) {
+		                  e && e.preventDefault();
+
 		                  this.settings.parent.style.pointerEvents = 'none';
+
+		                  var toFocus = e && e.type === EVENT_KEY ? this._domEdit : this.domElement;
+		                  setTimeout(function () {
+		                      return toFocus.focus();
+		                  }, 100);
 
 		                  if (this.onOpen) {
 		                      this.onOpen(this.colour);
@@ -29977,25 +30036,26 @@
 		      }, {
 		          key: 'closeHandler',
 		          value: function closeHandler(e) {
+		              var event = e && e.type;
 		              var doHide = false;
 
 		              if (!e) {
 		                  doHide = true;
 		              }
-		              else if (e.type === 'mousedown') {
-		                      if (!this.domElement.contains(e.target)) {
-		                          doHide = true;
+		              else {
+		                      if (event === 'click' || event === EVENT_KEY) {
+		                          stopEvent(e);
 		                      }
-		                  }
-		                  else {
-		                          e.preventDefault();
-		                          e.stopPropagation();
 
-		                          doHide = true;
-		                      }
+		                      doHide = true;
+		                  }
 
 		              if (doHide && this.hide()) {
 		                  this.settings.parent.style.pointerEvents = '';
+
+		                  if (event !== EVENT_CLICK_OUTSIDE) {
+		                      this.settings.parent.focus();
+		                  }
 
 		                  if (this.onClose) {
 		                      this.onClose(this.colour);
@@ -30024,7 +30084,24 @@
 		      }, {
 		          key: '_setColor',
 		          value: function _setColor(color, flags) {
-		              var c = new Color(color);
+		              if (typeof color === 'string') {
+		                  color = color.trim();
+		              }
+		              if (!color) {
+		                  return;
+		              }
+
+		              flags = flags || {};
+		              var c = void 0;
+		              try {
+		                  c = new Color(color);
+		              } catch (ex) {
+		                  if (flags.failSilently) {
+		                      return;
+		                  }
+		                  throw ex;
+		              }
+
 		              if (!this.settings.alpha) {
 		                  var hsla = c.hsla;
 		                  hsla[3] = 1;
@@ -30057,16 +30134,16 @@
 		                  return toggled;
 		              }
 
-		              var html = this.settings.template || '<div class="picker_wrapper"><div class="picker_arrow"></div><div class="picker_hue picker_slider"><div class="picker_selector"></div></div><div class="picker_sl"><div class="picker_selector"></div></div><div class="picker_alpha picker_slider"><div class="picker_selector"></div></div><div class="picker_editor"><input/></div><div class="picker_sample"></div><div class="picker_done"><button>Ok</button></div></div>';
+		              var html = this.settings.template || '<div class="picker_wrapper" tabindex="-1"><div class="picker_arrow"></div><div class="picker_hue picker_slider"><div class="picker_selector"></div></div><div class="picker_sl"><div class="picker_selector"></div></div><div class="picker_alpha picker_slider"><div class="picker_selector"></div></div><div class="picker_editor"><input aria-label="Type a color name or hex value"/></div><div class="picker_sample"></div><div class="picker_done"><button>Ok</button></div></div>';
 		              var wrapper = parseHTML(html);
 
 		              this.domElement = wrapper;
-		              this._domH = wrapper.querySelector('.picker_hue');
-		              this._domSL = wrapper.querySelector('.picker_sl');
-		              this._domA = wrapper.querySelector('.picker_alpha');
-		              this._domEdit = wrapper.querySelector('.picker_editor input');
-		              this._domSample = wrapper.querySelector('.picker_sample');
-		              this._domOkay = wrapper.querySelector('.picker_done button');
+		              this._domH = $('.picker_hue', wrapper);
+		              this._domSL = $('.picker_sl', wrapper);
+		              this._domA = $('.picker_alpha', wrapper);
+		              this._domEdit = $('.picker_editor input', wrapper);
+		              this._domSample = $('.picker_sample', wrapper);
+		              this._domOkay = $('.picker_done button', wrapper);
 
 		              wrapper.classList.add('layout_' + this.settings.layout);
 		              if (!this.settings.alpha) {
@@ -30104,7 +30181,12 @@
 		          value: function _bindEvents() {
 		              var _this2 = this;
 
-		              var that = this;
+		              var that = this,
+		                  dom = this.domElement;
+
+		              addEvent(dom, 'click', function (e) {
+		                  return e.preventDefault();
+		              });
 
 
 		              function createDragConfig(container, callbackRelative) {
@@ -30119,7 +30201,6 @@
 		                      container: container,
 		                      dragOutside: false,
 		                      callback: relayDrag,
-		                      callbackClick: relayDrag,
 		                      callbackDragStart: relayDrag,
 		                      propagateEvents: true
 		                  };
@@ -30141,33 +30222,48 @@
 		              }
 
 
-		              if (this.settings.editor) {
-		                  addEvent(this._domEdit, 'input', function (e) {
-		                      var color = this.value;
-		                      try {
-		                          new Color(this.value);
-
-		                          that._setColor(color, { fromEditor: true });
-		                      } catch (ex) {}
+		              var editInput = this._domEdit;
+		{
+		                  addEvent(editInput, 'input', function (e) {
+		                      that._setColor(this.value, { fromEditor: true, failSilently: true });
+		                  });
+		                  addEvent(editInput, 'focus', function (e) {
+		                      var input = this;
+		                      if (input.selectionStart === input.selectionEnd) {
+		                          input.select();
+		                      }
 		                  });
 		              }
 
 
-		              addEvent(window, 'mousedown', function (e) {
-		                  return _this2._ifPopup(function () {
-		                      return _this2.closeHandler(e);
-		                  });
-		              });
-
-		              addEvent(this._domOkay, 'click', function (e) {
+		              var onDoneProxy = function onDoneProxy(e) {
 		                  _this2._ifPopup(function () {
 		                      return _this2.closeHandler(e);
 		                  });
-
 		                  if (_this2.onDone) {
 		                      _this2.onDone(_this2.colour);
 		                  }
+		              };
+
+		              this._ifPopup(function () {
+		                  var popupCloseProxy = function popupCloseProxy(e) {
+		                      return _this2.closeHandler(e);
+		                  };
+
+		                  addEvent(window, EVENT_CLICK_OUTSIDE, popupCloseProxy);
+		                  addEvent(window, EVENT_TAB_MOVE, popupCloseProxy);
+		                  onKey(dom, ['Esc', 'Escape'], popupCloseProxy);
+
+		                  addEvent(dom, EVENT_CLICK_OUTSIDE, stopEvent);
+		                  addEvent(dom, EVENT_TAB_MOVE, stopEvent);
+
+		                  addEvent(_this2._domEdit, EVENT_CLICK_OUTSIDE, function (e) {
+		                      return _this2._domEdit.focus();
+		                  });
 		              });
+
+		              addEvent(this._domOkay, 'click', onDoneProxy);
+		              onKey(dom, ['Enter'], onDoneProxy);
 		          }
 
 
@@ -30239,7 +30335,10 @@
 
 		              var uiH = this._domH,
 		                  uiSL = this._domSL,
-		                  uiA = this._domA;
+		                  uiA = this._domA,
+		                  thumbH = $('.picker_selector', uiH),
+		                  thumbSL = $('.picker_selector', uiSL),
+		                  thumbA = $('.picker_selector', uiA);
 
 		              function posX(parent, child, relX) {
 		                  child.style.left = relX * 100 + '%'; 
@@ -30249,18 +30348,18 @@
 		              }
 
 
-		              posX(uiH, uiH.firstElementChild, hsl[0]);
+		              posX(uiH, thumbH, hsl[0]);
 
 		              this._domSL.style.backgroundColor = this._domH.style.color = cssHue;
 
 
-		              posX(uiSL, uiSL.firstElementChild, hsl[1]);
-		              posY(uiSL, uiSL.firstElementChild, 1 - hsl[2]);
+		              posX(uiSL, thumbSL, hsl[1]);
+		              posY(uiSL, thumbSL, 1 - hsl[2]);
 
 		              uiSL.style.color = cssHSL;
 
 
-		              posY(uiA, uiA.firstElementChild, 1 - hsl[3]);
+		              posY(uiA, thumbA, 1 - hsl[3]);
 
 		              var opaque = cssHSL,
 		                  transp = opaque.replace('hsl', 'hsla').replace(')', ', 0)'),
@@ -30270,8 +30369,19 @@
 
 
 		              if (!flags.fromEditor) {
-		                  var hex = col.hex;
-		                  this._domEdit.value = this.settings.alpha ? hex : hex.substr(0, 7);
+		                  var format = this.settings.editorFormat,
+		                      alpha = this.settings.alpha;
+
+		                  var value = void 0;
+		                  switch (format) {
+		                      case 'rgb':
+		                          value = col.printRGB(alpha);break;
+		                      case 'hsl':
+		                          value = col.printHSL(alpha);break;
+		                      default:
+		                          value = col.printHex(alpha);
+		                  }
+		                  this._domEdit.value = value;
 		              }
 
 
@@ -30304,6 +30414,12 @@
 		          }
 
 
+
+		      }], [{
+		          key: 'StyleElement',
+		          get: function get$$1() {
+		              return _style;
+		          }
 		      }]);
 		      return Picker;
 		  }();
@@ -30322,18 +30438,18 @@
 		var VanillaPicker = __webpack_require__(57);
 		var Highlighter = __webpack_require__(60);
 		var History = __webpack_require__(61);
-		var SearchBox = __webpack_require__(62);
-		var ContextMenu = __webpack_require__(63);
-		var TreePath = __webpack_require__(69);
-		var Node = __webpack_require__(70);
-		var ModeSwitcher = __webpack_require__(79);
-		var util = __webpack_require__(65);
-		var autocomplete = __webpack_require__(80);
-		var showSortModal = __webpack_require__(75);
-		var showTransformModal = __webpack_require__(77);
-		var translate = __webpack_require__(68).translate;
-		var setLanguages = __webpack_require__(68).setLanguages;
-		var setLanguage = __webpack_require__(68).setLanguage;
+		var SearchBox = __webpack_require__(67);
+		var ContextMenu = __webpack_require__(68);
+		var TreePath = __webpack_require__(70);
+		var Node = __webpack_require__(71);
+		var ModeSwitcher = __webpack_require__(80);
+		var util = __webpack_require__(62);
+		var autocomplete = __webpack_require__(81);
+		var showSortModal = __webpack_require__(76);
+		var showTransformModal = __webpack_require__(78);
+		var translate = __webpack_require__(66).translate;
+		var setLanguages = __webpack_require__(66).setLanguages;
+		var setLanguage = __webpack_require__(66).setLanguage;
 
 		var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
 
@@ -30602,13 +30718,7 @@
 		 * @return {Object | undefined} json
 		 */
 		treemode.get = function () {
-		  // remove focus from currently edited node
-		  if (this.focusTarget) {
-		    var node = Node.getNodeFromTarget(this.focusTarget);
-		    if (node) {
-		      node.blur();
-		    }
-		  }
+		  // TODO: resolve pending debounced input changes if any, but do not resolve invalid inputs
 
 		  if (this.node) {
 		    return this.node.getValue();
@@ -30896,9 +31006,6 @@
 
 		  var json = root.getValue();
 
-		  // check for duplicate keys
-		  var duplicateErrors = root.validate();
-
 		  // execute JSON schema validation
 		  var schemaErrors = [];
 		  if (this.validateSchema) {
@@ -30930,7 +31037,7 @@
 		        .then(function (customValidationErrors) {
 		          // only apply when there was no other validation started whilst resolving async results
 		          if (seq === me.validationSequence) {
-		            var errorNodes = [].concat(duplicateErrors, schemaErrors, customValidationErrors || []);
+		            var errorNodes = [].concat(schemaErrors, customValidationErrors || []);
 		            me._renderValidationErrors(errorNodes);
 		          }
 		        })
@@ -31468,12 +31575,17 @@
 		    return;
 		  }
 
+		  var node = Node.getNodeFromTarget(event.target);
+
 		  if (event.type === 'keydown') {
 		    this._onKeyDown(event);
 		  }
 
 		  if (event.type === 'focus') {
 		    this.focusTarget = event.target;
+		    if (this.options.autocomplete && this.options.autocomplete.trigger === 'focus') {
+		      this._showAutoComplete(event.target);
+		    }
 		  }
 
 		  if (event.type === 'mousedown') {
@@ -31483,7 +31595,6 @@
 		    this._updateDragDistance(event);
 		  }
 
-		  var node = Node.getNodeFromTarget(event.target);
 
 		  if (node && this.options && this.options.navigationBar && node && (event.type === 'keydown' || event.type === 'mousedown')) {
 		    // apply on next tick, right after the new key press is applied
@@ -31834,6 +31945,51 @@
 		};
 
 		/**
+		 * Show autocomplete menu
+		 * @param {Node} node
+		 * @param {HTMLElement} element
+		 * @private
+		 */
+		treemode._showAutoComplete = function (element) {
+		  var node = Node.getNodeFromTarget(element);
+
+		  var jsonElementType = "";
+		    if (event.target.className.indexOf("jsoneditor-value") >= 0) jsonElementType = "value";
+		    if (event.target.className.indexOf("jsoneditor-field") >= 0) jsonElementType = "field";
+
+		  var self = this;
+
+		  setTimeout(function () {
+		      if (self.options.autocomplete.trigger === 'focus' || element.innerText.length > 0) {
+		          var result = self.options.autocomplete.getOptions(element.innerText, node.getPath(), jsonElementType, node.editor);
+		          if (result === null) {
+		              self.autocomplete.hideDropDown();
+		          } else if (typeof result.then === 'function') {
+		              // probably a promise
+		              if (result.then(function (obj) {
+		                  if (obj === null) {
+		                      self.autocomplete.hideDropDown();
+		                  } else if (obj.options) {
+		                      self.autocomplete.show(element, obj.startFrom, obj.options);
+		                  } else {
+		                      self.autocomplete.show(element, 0, obj);
+		                  }
+		              }.bind(self)));
+		          } else {
+		              // definitely not a promise
+		              if (result.options)
+		                  self.autocomplete.show(element, result.startFrom, result.options);
+		              else
+		                  self.autocomplete.show(element, 0, result);
+		          }
+		      }
+		      else
+		          self.autocomplete.hideDropDown();
+
+		  }, 50);
+		}
+
+		/**
 		 * Event handler for keydown. Handles shortcut keys
 		 * @param {Event} event
 		 * @private
@@ -31890,41 +32046,11 @@
 
 		  if ((this.options.autocomplete) && (!handled)) {
 		      if (!ctrlKey && !altKey && !metaKey && (event.key.length == 1 || keynum == 8 || keynum == 46)) {
-		          handled = false;
-		          var jsonElementType = "";
-		          if (event.target.className.indexOf("jsoneditor-value") >= 0) jsonElementType = "value";
-		          if (event.target.className.indexOf("jsoneditor-field") >= 0) jsonElementType = "field";
+		        handled = false;
+		        var node = Node.getNodeFromTarget(event.target);
 
-		          var node = Node.getNodeFromTarget(event.target);
-		          // Activate autocomplete
-		          setTimeout(function (hnode, element) {
-		              if (element.innerText.length > 0) {
-		                  var result = this.options.autocomplete.getOptions(element.innerText, hnode.getPath(), jsonElementType, hnode.editor);
-		                  if (result === null) {
-		                      this.autocomplete.hideDropDown();
-		                  } else if (typeof result.then === 'function') {
-		                      // probably a promise
-		                      if (result.then(function (obj) {
-		                          if (obj === null) {
-		                              this.autocomplete.hideDropDown();
-		                          } else if (obj.options) {
-		                              this.autocomplete.show(element, obj.startFrom, obj.options);
-		                          } else {
-		                              this.autocomplete.show(element, 0, obj);
-		                          }
-		                      }.bind(this)));
-		                  } else {
-		                      // definitely not a promise
-		                      if (result.options)
-		                          this.autocomplete.show(element, result.startFrom, result.options);
-		                      else
-		                          this.autocomplete.show(element, 0, result);
-		                  }
-		              }
-		              else
-		                  this.autocomplete.hideDropDown();
-
-		          }.bind(this, node, event.target), 50);
+		        // Activate autocomplete
+		        this._showAutoComplete(event.target);
 		      }
 		  }
 
@@ -32012,6 +32138,18 @@
 		      Node.onRemove(selectedNodes);
 		    }
 		  });
+		  
+		  if (this.options.onCreateMenu) {
+		    var paths = selectedNodes.map(function (node) {
+		      return node.getPath();
+		    });
+
+				items = this.options.onCreateMenu(items, {
+				  type: 'multiple',
+				  path: paths[0],
+		      paths: paths
+				});
+			}
 
 		  var menu = new ContextMenu(items, {close: onClose});
 		  menu.show(anchor, this.frame);
@@ -32249,9 +32387,11 @@
 
 	/***/ },
 	/* 61 */
-	/***/ function(module, exports) {
+	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
+
+		var util = __webpack_require__(62);
 
 		/**
 		 * @constructor History
@@ -32374,6 +32514,10 @@
 		        var nodes = params.paths.map(findNode);
 		        nodes.forEach(function (node) {
 		          var clone = node.clone();
+		          if (parentNode.type === 'object') {
+		            var existingFieldNames = parentNode.getFieldNames();
+		            clone.field = util.findUniqueName(node.field, existingFieldNames);
+		          }
 		          parentNode.insertAfter(clone, afterNode);
 		          afterNode = clone;
 		        });
@@ -32586,898 +32730,14 @@
 
 	/***/ },
 	/* 62 */
-	/***/ function(module, exports) {
-
-		'use strict';
-
-		/**
-		 * @constructor SearchBox
-		 * Create a search box in given HTML container
-		 * @param {JSONEditor} editor    The JSON Editor to attach to
-		 * @param {Element} container               HTML container element of where to
-		 *                                          create the search box
-		 */
-		function SearchBox (editor, container) {
-		  var searchBox = this;
-
-		  this.editor = editor;
-		  this.timeout = undefined;
-		  this.delay = 200; // ms
-		  this.lastText = undefined;
-
-		  this.dom = {};
-		  this.dom.container = container;
-
-		  var table = document.createElement('table');
-		  this.dom.table = table;
-		  table.className = 'jsoneditor-search';
-		  container.appendChild(table);
-		  var tbody = document.createElement('tbody');
-		  this.dom.tbody = tbody;
-		  table.appendChild(tbody);
-		  var tr = document.createElement('tr');
-		  tbody.appendChild(tr);
-
-		  var td = document.createElement('td');
-		  tr.appendChild(td);
-		  var results = document.createElement('div');
-		  this.dom.results = results;
-		  results.className = 'jsoneditor-results';
-		  td.appendChild(results);
-
-		  td = document.createElement('td');
-		  tr.appendChild(td);
-		  var divInput = document.createElement('div');
-		  this.dom.input = divInput;
-		  divInput.className = 'jsoneditor-frame';
-		  divInput.title = 'Search fields and values';
-		  td.appendChild(divInput);
-
-		  // table to contain the text input and search button
-		  var tableInput = document.createElement('table');
-		  divInput.appendChild(tableInput);
-		  var tbodySearch = document.createElement('tbody');
-		  tableInput.appendChild(tbodySearch);
-		  tr = document.createElement('tr');
-		  tbodySearch.appendChild(tr);
-
-		  var refreshSearch = document.createElement('button');
-		  refreshSearch.type = 'button';
-		  refreshSearch.className = 'jsoneditor-refresh';
-		  td = document.createElement('td');
-		  td.appendChild(refreshSearch);
-		  tr.appendChild(td);
-
-		  var search = document.createElement('input');
-		  // search.type = 'button';
-		  this.dom.search = search;
-		  search.oninput = function (event) {
-		    searchBox._onDelayedSearch(event);
-		  };
-		  search.onchange = function (event) { // For IE 9
-		    searchBox._onSearch();
-		  };
-		  search.onkeydown = function (event) {
-		    searchBox._onKeyDown(event);
-		  };
-		  search.onkeyup = function (event) {
-		    searchBox._onKeyUp(event);
-		  };
-		  refreshSearch.onclick = function (event) {
-		    search.select();
-		  };
-
-		  // TODO: ESC in FF restores the last input, is a FF bug, https://bugzilla.mozilla.org/show_bug.cgi?id=598819
-		  td = document.createElement('td');
-		  td.appendChild(search);
-		  tr.appendChild(td);
-
-		  var searchNext = document.createElement('button');
-		  searchNext.type = 'button';
-		  searchNext.title = 'Next result (Enter)';
-		  searchNext.className = 'jsoneditor-next';
-		  searchNext.onclick = function () {
-		    searchBox.next();
-		  };
-		  td = document.createElement('td');
-		  td.appendChild(searchNext);
-		  tr.appendChild(td);
-
-		  var searchPrevious = document.createElement('button');
-		  searchPrevious.type = 'button';
-		  searchPrevious.title = 'Previous result (Shift+Enter)';
-		  searchPrevious.className = 'jsoneditor-previous';
-		  searchPrevious.onclick = function () {
-		    searchBox.previous();
-		  };
-		  td = document.createElement('td');
-		  td.appendChild(searchPrevious);
-		  tr.appendChild(td);
-		}
-
-		/**
-		 * Go to the next search result
-		 * @param {boolean} [focus]   If true, focus will be set to the next result
-		 *                            focus is false by default.
-		 */
-		SearchBox.prototype.next = function(focus) {
-		  if (this.results != undefined) {
-		    var index = (this.resultIndex != undefined) ? this.resultIndex + 1 : 0;
-		    if (index > this.results.length - 1) {
-		      index = 0;
-		    }
-		    this._setActiveResult(index, focus);
-		  }
-		};
-
-		/**
-		 * Go to the prevous search result
-		 * @param {boolean} [focus]   If true, focus will be set to the next result
-		 *                            focus is false by default.
-		 */
-		SearchBox.prototype.previous = function(focus) {
-		  if (this.results != undefined) {
-		    var max = this.results.length - 1;
-		    var index = (this.resultIndex != undefined) ? this.resultIndex - 1 : max;
-		    if (index < 0) {
-		      index = max;
-		    }
-		    this._setActiveResult(index, focus);
-		  }
-		};
-
-		/**
-		 * Set new value for the current active result
-		 * @param {Number} index
-		 * @param {boolean} [focus]   If true, focus will be set to the next result.
-		 *                            focus is false by default.
-		 * @private
-		 */
-		SearchBox.prototype._setActiveResult = function(index, focus) {
-		  // de-activate current active result
-		  if (this.activeResult) {
-		    var prevNode = this.activeResult.node;
-		    var prevElem = this.activeResult.elem;
-		    if (prevElem == 'field') {
-		      delete prevNode.searchFieldActive;
-		    }
-		    else {
-		      delete prevNode.searchValueActive;
-		    }
-		    prevNode.updateDom();
-		  }
-
-		  if (!this.results || !this.results[index]) {
-		    // out of range, set to undefined
-		    this.resultIndex = undefined;
-		    this.activeResult = undefined;
-		    return;
-		  }
-
-		  this.resultIndex = index;
-
-		  // set new node active
-		  var node = this.results[this.resultIndex].node;
-		  var elem = this.results[this.resultIndex].elem;
-		  if (elem == 'field') {
-		    node.searchFieldActive = true;
-		  }
-		  else {
-		    node.searchValueActive = true;
-		  }
-		  this.activeResult = this.results[this.resultIndex];
-		  node.updateDom();
-
-		  // TODO: not so nice that the focus is only set after the animation is finished
-		  node.scrollTo(function () {
-		    if (focus) {
-		      node.focus(elem);
-		    }
-		  });
-		};
-
-		/**
-		 * Cancel any running onDelayedSearch.
-		 * @private
-		 */
-		SearchBox.prototype._clearDelay = function() {
-		  if (this.timeout != undefined) {
-		    clearTimeout(this.timeout);
-		    delete this.timeout;
-		  }
-		};
-
-		/**
-		 * Start a timer to execute a search after a short delay.
-		 * Used for reducing the number of searches while typing.
-		 * @param {Event} event
-		 * @private
-		 */
-		SearchBox.prototype._onDelayedSearch = function (event) {
-		  // execute the search after a short delay (reduces the number of
-		  // search actions while typing in the search text box)
-		  this._clearDelay();
-		  var searchBox = this;
-		  this.timeout = setTimeout(function (event) {
-		    searchBox._onSearch();
-		  },
-		  this.delay);
-		};
-
-		/**
-		 * Handle onSearch event
-		 * @param {boolean} [forceSearch]  If true, search will be executed again even
-		 *                                 when the search text is not changed.
-		 *                                 Default is false.
-		 * @private
-		 */
-		SearchBox.prototype._onSearch = function (forceSearch) {
-		  this._clearDelay();
-
-		  var value = this.dom.search.value;
-		  var text = (value.length > 0) ? value : undefined;
-		  if (text !== this.lastText || forceSearch) {
-		    // only search again when changed
-		    this.lastText = text;
-		    this.results = this.editor.search(text);
-		    var MAX_SEARCH_RESULTS = this.results[0]
-		        ? this.results[0].node.MAX_SEARCH_RESULTS
-		        : Infinity;
-
-		    // try to maintain the current active result if this is still part of the new search results
-		    var activeResultIndex = 0;
-		    if (this.activeResult) {
-		      for (var i = 0; i < this.results.length; i++) {
-		        if (this.results[i].node === this.activeResult.node) {
-		          activeResultIndex = i;
-		          break;
-		        }
-		      }
-		    }
-
-		    this._setActiveResult(activeResultIndex, false);
-
-		    // display search results
-		    if (text !== undefined) {
-		      var resultCount = this.results.length;
-		      if (resultCount === 0) {
-		        this.dom.results.innerHTML = 'no&nbsp;results';
-		      }
-		      else if (resultCount === 1) {
-		        this.dom.results.innerHTML = '1&nbsp;result';
-		      }
-		      else if (resultCount > MAX_SEARCH_RESULTS) {
-		        this.dom.results.innerHTML = MAX_SEARCH_RESULTS + '+&nbsp;results';
-		      }
-		      else {
-		        this.dom.results.innerHTML = resultCount + '&nbsp;results';
-		      }
-		    }
-		    else {
-		      this.dom.results.innerHTML = '';
-		    }
-		  }
-		};
-
-		/**
-		 * Handle onKeyDown event in the input box
-		 * @param {Event} event
-		 * @private
-		 */
-		SearchBox.prototype._onKeyDown = function (event) {
-		  var keynum = event.which;
-		  if (keynum == 27) { // ESC
-		    this.dom.search.value = '';  // clear search
-		    this._onSearch();
-		    event.preventDefault();
-		    event.stopPropagation();
-		  }
-		  else if (keynum == 13) { // Enter
-		    if (event.ctrlKey) {
-		      // force to search again
-		      this._onSearch(true);
-		    }
-		    else if (event.shiftKey) {
-		      // move to the previous search result
-		      this.previous();
-		    }
-		    else {
-		      // move to the next search result
-		      this.next();
-		    }
-		    event.preventDefault();
-		    event.stopPropagation();
-		  }
-		};
-
-		/**
-		 * Handle onKeyUp event in the input box
-		 * @param {Event} event
-		 * @private
-		 */
-		SearchBox.prototype._onKeyUp = function (event) {
-		  var keynum = event.keyCode;
-		  if (keynum != 27 && keynum != 13) { // !show and !Enter
-		    this._onDelayedSearch(event);   // For IE 9
-		  }
-		};
-
-		/**
-		 * Clear the search results
-		 */
-		SearchBox.prototype.clear = function () {
-		  this.dom.search.value = '';
-		  this._onSearch();
-		};
-
-		/**
-		 * Refresh searchResults if there is a search value
-		 */
-		SearchBox.prototype.forceSearch = function () {
-		  this._onSearch(true);
-		};
-
-		/**
-		 * Test whether the search box value is empty
-		 * @returns {boolean} Returns true when empty.
-		 */
-		SearchBox.prototype.isEmpty = function () {
-		  return this.dom.search.value === '';
-		};
-
-		/**
-		 * Destroy the search box
-		 */
-		SearchBox.prototype.destroy = function () {
-		  this.editor = null;
-		  this.dom.container.removeChild(this.dom.table);
-		  this.dom = null;
-
-		  this.results = null;
-		  this.activeResult = null;
-
-		  this._clearDelay();
-
-		};
-
-		module.exports = SearchBox;
-
-
-	/***/ },
-	/* 63 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var createAbsoluteAnchor = __webpack_require__(64).createAbsoluteAnchor;
-		var util = __webpack_require__(65);
-		var translate = __webpack_require__(68).translate;
-
-		/**
-		 * A context menu
-		 * @param {Object[]} items    Array containing the menu structure
-		 *                            TODO: describe structure
-		 * @param {Object} [options]  Object with options. Available options:
-		 *                            {function} close    Callback called when the
-		 *                                                context menu is being closed.
-		 * @constructor
-		 */
-		function ContextMenu (items, options) {
-		  this.dom = {};
-
-		  var me = this;
-		  var dom = this.dom;
-		  this.anchor = undefined;
-		  this.items = items;
-		  this.eventListeners = {};
-		  this.selection = undefined; // holds the selection before the menu was opened
-		  this.onClose = options ? options.close : undefined;
-
-		  // create root element
-		  var root = document.createElement('div');
-		  root.className = 'jsoneditor-contextmenu-root';
-		  dom.root = root;
-
-		  // create a container element
-		  var menu = document.createElement('div');
-		  menu.className = 'jsoneditor-contextmenu';
-		  dom.menu = menu;
-		  root.appendChild(menu);
-
-		  // create a list to hold the menu items
-		  var list = document.createElement('ul');
-		  list.className = 'jsoneditor-menu';
-		  menu.appendChild(list);
-		  dom.list = list;
-		  dom.items = []; // list with all buttons
-
-		  // create a (non-visible) button to set the focus to the menu
-		  var focusButton = document.createElement('button');
-		  focusButton.type = 'button';
-		  dom.focusButton = focusButton;
-		  var li = document.createElement('li');
-		  li.style.overflow = 'hidden';
-		  li.style.height = '0';
-		  li.appendChild(focusButton);
-		  list.appendChild(li);
-
-		  function createMenuItems (list, domItems, items) {
-		    items.forEach(function (item) {
-		      if (item.type == 'separator') {
-		        // create a separator
-		        var separator = document.createElement('div');
-		        separator.className = 'jsoneditor-separator';
-		        li = document.createElement('li');
-		        li.appendChild(separator);
-		        list.appendChild(li);
-		      }
-		      else {
-		        var domItem = {};
-
-		        // create a menu item
-		        var li = document.createElement('li');
-		        list.appendChild(li);
-
-		        // create a button in the menu item
-		        var button = document.createElement('button');
-		        button.type = 'button';
-		        button.className = item.className;
-		        domItem.button = button;
-		        if (item.title) {
-		          button.title = item.title;
-		        }
-		        if (item.click) {
-		          button.onclick = function (event) {
-		            event.preventDefault();
-		            me.hide();
-		            item.click();
-		          };
-		        }
-		        li.appendChild(button);
-
-		        // create the contents of the button
-		        if (item.submenu) {
-		          // add the icon to the button
-		          var divIcon = document.createElement('div');
-		          divIcon.className = 'jsoneditor-icon';
-		          button.appendChild(divIcon);
-		          var divText = document.createElement('div');
-		          divText.className = 'jsoneditor-text' +
-		              (item.click ? '' : ' jsoneditor-right-margin');
-		          divText.appendChild(document.createTextNode(item.text));
-		          button.appendChild(divText);
-
-		          var buttonSubmenu;
-		          if (item.click) {
-		            // submenu and a button with a click handler
-		            button.className += ' jsoneditor-default';
-
-		            var buttonExpand = document.createElement('button');
-		            buttonExpand.type = 'button';
-		            domItem.buttonExpand = buttonExpand;
-		            buttonExpand.className = 'jsoneditor-expand';
-		            buttonExpand.innerHTML = '<div class="jsoneditor-expand"></div>';
-		            li.appendChild(buttonExpand);
-		            if (item.submenuTitle) {
-		              buttonExpand.title = item.submenuTitle;
-		            }
-
-		            buttonSubmenu = buttonExpand;
-		          }
-		          else {
-		            // submenu and a button without a click handler
-		            var divExpand = document.createElement('div');
-		            divExpand.className = 'jsoneditor-expand';
-		            button.appendChild(divExpand);
-
-		            buttonSubmenu = button;
-		          }
-
-		          // attach a handler to expand/collapse the submenu
-		          buttonSubmenu.onclick = function (event) {
-		            event.preventDefault();
-		            me._onExpandItem(domItem);
-		            buttonSubmenu.focus();
-		          };
-
-		          // create the submenu
-		          var domSubItems = [];
-		          domItem.subItems = domSubItems;
-		          var ul = document.createElement('ul');
-		          domItem.ul = ul;
-		          ul.className = 'jsoneditor-menu';
-		          ul.style.height = '0';
-		          li.appendChild(ul);
-		          createMenuItems(ul, domSubItems, item.submenu);
-		        }
-		        else {
-		          // no submenu, just a button with clickhandler
-		          button.innerHTML = '<div class="jsoneditor-icon"></div>' +
-		              '<div class="jsoneditor-text">' + translate(item.text) + '</div>';
-		        }
-
-		        domItems.push(domItem);
-		      }
-		    });
-		  }
-		  createMenuItems(list, this.dom.items, items);
-
-		  // TODO: when the editor is small, show the submenu on the right instead of inline?
-
-		  // calculate the max height of the menu with one submenu expanded
-		  this.maxHeight = 0; // height in pixels
-		  items.forEach(function (item) {
-		    var height = (items.length + (item.submenu ? item.submenu.length : 0)) * 24;
-		    me.maxHeight = Math.max(me.maxHeight, height);
-		  });
-		}
-
-		/**
-		 * Get the currently visible buttons
-		 * @return {Array.<HTMLElement>} buttons
-		 * @private
-		 */
-		ContextMenu.prototype._getVisibleButtons = function () {
-		  var buttons = [];
-		  var me = this;
-		  this.dom.items.forEach(function (item) {
-		    buttons.push(item.button);
-		    if (item.buttonExpand) {
-		      buttons.push(item.buttonExpand);
-		    }
-		    if (item.subItems && item == me.expandedItem) {
-		      item.subItems.forEach(function (subItem) {
-		        buttons.push(subItem.button);
-		        if (subItem.buttonExpand) {
-		          buttons.push(subItem.buttonExpand);
-		        }
-		        // TODO: change to fully recursive method
-		      });
-		    }
-		  });
-
-		  return buttons;
-		};
-
-		// currently displayed context menu, a singleton. We may only have one visible context menu
-		ContextMenu.visibleMenu = undefined;
-
-		/**
-		 * Attach the menu to an anchor
-		 * @param {HTMLElement} anchor    Anchor where the menu will be attached as sibling.
-		 * @param {HTMLElement} frame     The root of the JSONEditor window
-		 * @param {Boolean=} ignoreParent ignore anchor parent in regard to the calculation of the position, needed when the parent position is absolute
-		 */
-		ContextMenu.prototype.show = function (anchor, frame, ignoreParent) {
-		  this.hide();
-
-		  // determine whether to display the menu below or above the anchor
-		  var showBelow = true;
-		  var parent = anchor.parentNode;
-		  var anchorRect = anchor.getBoundingClientRect();
-		  var parentRect = parent.getBoundingClientRect();
-		  var frameRect = frame.getBoundingClientRect();
-
-		  var me = this;
-		  this.dom.absoluteAnchor = createAbsoluteAnchor(anchor, frame, function () {
-		    me.hide()
-		  });
-
-		  if (anchorRect.bottom + this.maxHeight < frameRect.bottom) {
-		    // fits below -> show below
-		  }
-		  else if (anchorRect.top - this.maxHeight > frameRect.top) {
-		    // fits above -> show above
-		    showBelow = false;
-		  }
-		  else {
-		    // doesn't fit above nor below -> show below
-		  }
-
-		  var topGap = ignoreParent ? 0 : (anchorRect.top - parentRect.top);
-
-		  // position the menu
-		  if (showBelow) {
-		    // display the menu below the anchor
-		    var anchorHeight = anchor.offsetHeight;
-		    this.dom.menu.style.left = '0';
-		    this.dom.menu.style.top = topGap + anchorHeight + 'px';
-		    this.dom.menu.style.bottom = '';
-		  }
-		  else {
-		    // display the menu above the anchor
-		    this.dom.menu.style.left = '0';
-		    this.dom.menu.style.top = '';
-		    this.dom.menu.style.bottom = '0px';
-		  }
-
-		  // attach the menu to the temporary, absolute anchor
-		  // parent.insertBefore(this.dom.root, anchor);
-		  this.dom.absoluteAnchor.appendChild(this.dom.root);
-
-		  // move focus to the first button in the context menu
-		  this.selection = util.getSelection();
-		  this.anchor = anchor;
-		  setTimeout(function () {
-		    me.dom.focusButton.focus();
-		  }, 0);
-
-		  if (ContextMenu.visibleMenu) {
-		    ContextMenu.visibleMenu.hide();
-		  }
-		  ContextMenu.visibleMenu = this;
-		};
-
-		/**
-		 * Hide the context menu if visible
-		 */
-		ContextMenu.prototype.hide = function () {
-		  // remove temporary absolutely positioned anchor
-		  if (this.dom.absoluteAnchor) {
-		    this.dom.absoluteAnchor.destroy();
-		    delete this.dom.absoluteAnchor;
-		  }
-
-		  // remove the menu from the DOM
-		  if (this.dom.root.parentNode) {
-		    this.dom.root.parentNode.removeChild(this.dom.root);
-		    if (this.onClose) {
-		      this.onClose();
-		    }
-		  }
-
-		  if (ContextMenu.visibleMenu == this) {
-		    ContextMenu.visibleMenu = undefined;
-		  }
-		};
-
-		/**
-		 * Expand a submenu
-		 * Any currently expanded submenu will be hided.
-		 * @param {Object} domItem
-		 * @private
-		 */
-		ContextMenu.prototype._onExpandItem = function (domItem) {
-		  var me = this;
-		  var alreadyVisible = (domItem == this.expandedItem);
-
-		  // hide the currently visible submenu
-		  var expandedItem = this.expandedItem;
-		  if (expandedItem) {
-		    //var ul = expandedItem.ul;
-		    expandedItem.ul.style.height = '0';
-		    expandedItem.ul.style.padding = '';
-		    setTimeout(function () {
-		      if (me.expandedItem != expandedItem) {
-		        expandedItem.ul.style.display = '';
-		        util.removeClassName(expandedItem.ul.parentNode, 'jsoneditor-selected');
-		      }
-		    }, 300); // timeout duration must match the css transition duration
-		    this.expandedItem = undefined;
-		  }
-
-		  if (!alreadyVisible) {
-		    var ul = domItem.ul;
-		    ul.style.display = 'block';
-		    var height = ul.clientHeight; // force a reflow in Firefox
-		    setTimeout(function () {
-		      if (me.expandedItem == domItem) {
-		        var childsHeight = 0;
-		        for (var i = 0; i < ul.childNodes.length; i++) {
-		          childsHeight += ul.childNodes[i].clientHeight;
-		        }
-		        ul.style.height = childsHeight + 'px';
-		        ul.style.padding = '5px 10px';
-		      }
-		    }, 0);
-		    util.addClassName(ul.parentNode, 'jsoneditor-selected');
-		    this.expandedItem = domItem;
-		  }
-		};
-
-		/**
-		 * Handle onkeydown event
-		 * @param {Event} event
-		 * @private
-		 */
-		ContextMenu.prototype._onKeyDown = function (event) {
-		  var target = event.target;
-		  var keynum = event.which;
-		  var handled = false;
-		  var buttons, targetIndex, prevButton, nextButton;
-
-		  if (keynum == 27) { // ESC
-		    // hide the menu on ESC key
-
-		    // restore previous selection and focus
-		    if (this.selection) {
-		      util.setSelection(this.selection);
-		    }
-		    if (this.anchor) {
-		      this.anchor.focus();
-		    }
-
-		    this.hide();
-
-		    handled = true;
-		  }
-		  else if (keynum == 9) { // Tab
-		    if (!event.shiftKey) { // Tab
-		      buttons = this._getVisibleButtons();
-		      targetIndex = buttons.indexOf(target);
-		      if (targetIndex == buttons.length - 1) {
-		        // move to first button
-		        buttons[0].focus();
-		        handled = true;
-		      }
-		    }
-		    else { // Shift+Tab
-		      buttons = this._getVisibleButtons();
-		      targetIndex = buttons.indexOf(target);
-		      if (targetIndex == 0) {
-		        // move to last button
-		        buttons[buttons.length - 1].focus();
-		        handled = true;
-		      }
-		    }
-		  }
-		  else if (keynum == 37) { // Arrow Left
-		    if (target.className == 'jsoneditor-expand') {
-		      buttons = this._getVisibleButtons();
-		      targetIndex = buttons.indexOf(target);
-		      prevButton = buttons[targetIndex - 1];
-		      if (prevButton) {
-		        prevButton.focus();
-		      }
-		    }
-		    handled = true;
-		  }
-		  else if (keynum == 38) { // Arrow Up
-		    buttons = this._getVisibleButtons();
-		    targetIndex = buttons.indexOf(target);
-		    prevButton = buttons[targetIndex - 1];
-		    if (prevButton && prevButton.className == 'jsoneditor-expand') {
-		      // skip expand button
-		      prevButton = buttons[targetIndex - 2];
-		    }
-		    if (!prevButton) {
-		      // move to last button
-		      prevButton = buttons[buttons.length - 1];
-		    }
-		    if (prevButton) {
-		      prevButton.focus();
-		    }
-		    handled = true;
-		  }
-		  else if (keynum == 39) { // Arrow Right
-		    buttons = this._getVisibleButtons();
-		    targetIndex = buttons.indexOf(target);
-		    nextButton = buttons[targetIndex + 1];
-		    if (nextButton && nextButton.className == 'jsoneditor-expand') {
-		      nextButton.focus();
-		    }
-		    handled = true;
-		  }
-		  else if (keynum == 40) { // Arrow Down
-		    buttons = this._getVisibleButtons();
-		    targetIndex = buttons.indexOf(target);
-		    nextButton = buttons[targetIndex + 1];
-		    if (nextButton && nextButton.className == 'jsoneditor-expand') {
-		      // skip expand button
-		      nextButton = buttons[targetIndex + 2];
-		    }
-		    if (!nextButton) {
-		      // move to first button
-		      nextButton = buttons[0];
-		    }
-		    if (nextButton) {
-		      nextButton.focus();
-		      handled = true;
-		    }
-		    handled = true;
-		  }
-		  // TODO: arrow left and right
-
-		  if (handled) {
-		    event.stopPropagation();
-		    event.preventDefault();
-		  }
-		};
-
-		module.exports = ContextMenu;
-
-
-	/***/ },
-	/* 64 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		var util = __webpack_require__(65);
-
-		/**
-		 * Create an anchor element absolutely positioned in the `parent`
-		 * element.
-		 * @param {HTMLElement} anchor
-		 * @param {HTMLElement} parent
-		 * @param [onDestroy(function(anchor)]  Callback when the anchor is destroyed
-		 * @returns {HTMLElement}
-		 */
-		exports.createAbsoluteAnchor = function (anchor, parent, onDestroy) {
-		  var root = getRootNode(anchor);
-		  var eventListeners = {};
-
-		  var anchorRect = anchor.getBoundingClientRect();
-		  var frameRect = parent.getBoundingClientRect();
-
-		  var absoluteAnchor = document.createElement('div');
-		  absoluteAnchor.className = 'jsoneditor-anchor';
-		  absoluteAnchor.style.position = 'absolute';
-		  absoluteAnchor.style.left = (anchorRect.left - frameRect.left) + 'px';
-		  absoluteAnchor.style.top = (anchorRect.top - frameRect.top) + 'px';
-		  absoluteAnchor.style.width = (anchorRect.width - 2) + 'px';
-		  absoluteAnchor.style.height = (anchorRect.height - 2) + 'px';
-		  absoluteAnchor.style.boxSizing = 'border-box';
-		  parent.appendChild(absoluteAnchor);
-
-		  function destroy () {
-		    // remove temporary absolutely positioned anchor
-		    if (absoluteAnchor && absoluteAnchor.parentNode) {
-		      absoluteAnchor.parentNode.removeChild(absoluteAnchor);
-
-		      // remove all event listeners
-		      // all event listeners are supposed to be attached to document.
-		      for (var name in eventListeners) {
-		        if (eventListeners.hasOwnProperty(name)) {
-		          var fn = eventListeners[name];
-		          if (fn) {
-		            util.removeEventListener(root, name, fn);
-		          }
-		          delete eventListeners[name];
-		        }
-		      }
-
-		      if (typeof onDestroy === 'function') {
-		        onDestroy(anchor);
-		      }
-		    }
-		  }
-
-		  // create and attach event listeners
-		  var destroyIfOutside = function (event) {
-		    var target = event.target;
-		    if ((target !== absoluteAnchor) && !util.isChildOf(target, absoluteAnchor)) {
-		      destroy();
-		    }
-		  }
-
-		  eventListeners.mousedown = util.addEventListener(root, 'mousedown', destroyIfOutside);
-		  eventListeners.mousewheel = util.addEventListener(root, 'mousewheel', destroyIfOutside);
-		  // eventListeners.scroll = util.addEventListener(root, 'scroll', destroyIfOutside);
-
-		  absoluteAnchor.destroy = destroy;
-
-		  return absoluteAnchor
-		}
-
-		/**
-		 * Node.getRootNode shim
-		 * @param  {HTMLElement} node node to check
-		 * @return {HTMLElement}      node's rootNode or `window` if there is ShadowDOM is not supported.
-		 */
-		function getRootNode(node){
-		  return (typeof node.getRootNode === 'function')
-		      ? node.getRootNode()
-		      : window;
-		}
-
-
-	/***/ },
-	/* 65 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		'use strict';
-
-		var jsonlint = __webpack_require__(66);
-		var jsonMap = __webpack_require__(67);
+		__webpack_require__(63);
+		var jsonlint = __webpack_require__(64);
+		var jsonMap = __webpack_require__(65);
+		var translate = __webpack_require__(66).translate;
 
 		/**
 		 * Parse JSON using the parser built-in in the browser.
@@ -34216,43 +33476,77 @@
 		 * @return {Array}
 		 */
 		exports.parsePath = function parsePath(jsonPath) {
-		  var prop, remainder;
+		  var path = [];
+		  var i = 0;
 
-		  if (jsonPath.length === 0) {
-		    return [];
-		  }
-
-		  // find a match like '.prop'
-		  var match = jsonPath.match(/^\.([\w$]+)/);
-		  if (match) {
-		    prop = match[1];
-		    remainder = jsonPath.substr(prop.length + 1);
-		  }
-		  else if (jsonPath[0] === '[') {
-		    // find a match like
-		    var end = jsonPath.indexOf(']');
-		    if (end === -1) {
-		      throw new SyntaxError('Character ] expected in path');
-		    }
-		    if (end === 1) {
-		      throw new SyntaxError('Index expected after [');
+		  function parseProperty () {
+		    var prop = ''
+		    while (jsonPath[i] !== undefined && /[\w$]/.test(jsonPath[i])) {
+		      prop += jsonPath[i];
+		      i++;
 		    }
 
-		    var value = jsonPath.substring(1, end);
-		    if (value[0] === '\'') {
-		      // ajv produces string prop names with single quotes, so we need
-		      // to reformat them into valid double-quoted JSON strings
-		      value = '\"' + value.substring(1, value.length - 1) + '\"';
+		    if (prop === '') {
+		      throw new Error('Invalid JSON path: property name expected at index ' + i);
 		    }
 
-		    prop = value === '*' ? value : JSON.parse(value); // parse string and number
-		    remainder = jsonPath.substr(end + 1);
-		  }
-		  else {
-		    throw new SyntaxError('Failed to parse path');
+		    return prop;
 		  }
 
-		  return [prop].concat(parsePath(remainder))
+		  function parseIndex (end) {
+		    var name = ''
+		    while (jsonPath[i] !== undefined && jsonPath[i] !== end) {
+		      name += jsonPath[i];
+		      i++;
+		    }
+
+		    if (jsonPath[i] !== end) {
+		      throw new Error('Invalid JSON path: unexpected end, character ' + end + ' expected')
+		    }
+
+		    return name;
+		  }
+
+		  while (jsonPath[i] !== undefined) {
+		    if (jsonPath[i] === '.') {
+		      i++;
+		      path.push(parseProperty());
+		    }
+		    else if (jsonPath[i] === '[') {
+		      i++;
+
+		      if (jsonPath[i] === '\'' || jsonPath[i] === '"') {
+		        var end = jsonPath[i]
+		        i++;
+
+		        path.push(parseIndex(end));
+
+		        if (jsonPath[i] !== end) {
+		          throw new Error('Invalid JSON path: closing quote \' expected at index ' + i)
+		        }
+		        i++;
+		      }
+		      else {
+		        var index = parseIndex(']').trim()
+		        if (index.length === 0) {
+		          throw new Error('Invalid JSON path: array value expected at index ' + i)
+		        }
+		        // Coerce numeric indices to numbers, but ignore star
+		        index = index === '*' ? index : JSON.parse(index);
+		        path.push(index);
+		      }
+
+		      if (jsonPath[i] !== ']') {
+		        throw new Error('Invalid JSON path: closing bracket ] expected at index ' + i)
+		      }
+		      i++;
+		    }
+		    else {
+		      throw new Error('Invalid JSON path: unexpected character "' + jsonPath[i] + '" at index ' + i);
+		    }
+		  }
+
+		  return path;
 		};
 
 		/**
@@ -34263,7 +33557,13 @@
 		exports.stringifyPath = function stringifyPath(path) {
 		  return path
 		      .map(function (p) {
-		        return typeof p === 'number' ? ('[' + p + ']') : ('.' + p);
+		        if (typeof p === 'number'){
+		          return ('[' + p + ']');
+		        } else if(typeof p === 'string' && p.match(/^[A-Za-z0-9_$]+$/)) {
+		          return '.' + p;
+		        } else {
+		          return '["' + p + '"]';
+		        }
 		      })
 		      .join('');
 		};
@@ -34538,6 +33838,96 @@
 		  return !!exports.getColorCSS(color);
 		}
 
+		/**
+		 * Make a tooltip for a field based on the field's schema.
+		 * @param {object} schema JSON schema
+		 * @param {string} [locale] Locale code (for example, zh-CN)
+		 * @returns {string} Field tooltip, may be empty string if all relevant schema properties are missing
+		 */
+		exports.makeFieldTooltip = function (schema, locale) {
+		  if (!schema) {
+		    return '';
+		  }
+		  
+		  var tooltip = '';
+		  if (schema.title) {
+		    tooltip += schema.title;
+		  }
+		  
+		  if (schema.description) {
+		    if (tooltip.length > 0) {
+		      tooltip += '\n';
+		    }
+		    tooltip += schema.description;
+		  }
+
+		  if (schema.default) {
+		    if (tooltip.length > 0) {
+		      tooltip += '\n\n';
+		    }
+		    tooltip += translate('default', undefined, locale) + '\n';
+		    tooltip += JSON.stringify(schema.default, null, 2);
+		  }
+
+		  if (Array.isArray(schema.examples) && schema.examples.length > 0) {
+		    if (tooltip.length > 0) {
+		      tooltip += '\n\n';
+		    }
+		    tooltip += translate('examples', undefined, locale) + '\n';
+		    schema.examples.forEach(function (example, index) {
+		      tooltip += JSON.stringify(example, null, 2);
+		      if (index !== schema.examples.length - 1) {
+		        tooltip += '\n';
+		      }
+		    });
+		  }
+
+		  return tooltip;
+		}
+
+		/**
+		 * Get a nested property from an object.
+		 * Returns undefined when the property does not exist.
+		 * @param {Object} object
+		 * @param {string[]} path
+		 * @return {*}
+		 */
+		exports.get = function (object, path) {
+		  var value = object
+
+		  for (var i = 0; i < path.length && value !== undefined && value !== null; i++) {
+		    value = value[path[i]]
+		  }
+
+		  return value;
+		}
+
+		/**
+		 * Find a unique name. Suffix the name with ' (copy)', '(copy 2)', etc
+		 * until a unique name is found
+		 * @param {string} name
+		 * @param {Array} existingPropNames    Array with existing prop names
+		 */
+		exports.findUniqueName = function(name, existingPropNames) {
+		  var strippedName = name.replace(/ \(copy( \d+)?\)$/, '')
+		  var validName = strippedName
+		  var i = 1
+
+		  while (existingPropNames.indexOf(validName) !== -1) {
+		    var copy = 'copy' + (i > 1 ? (' ' + i) : '')
+		    validName = strippedName + ' (' + copy + ')'
+		    i++
+		  }
+
+		  return validName
+		}
+
+
+	/***/ },
+	/* 63 */
+	/***/ function(module, exports) {
+
+		
 		if (typeof Element !== 'undefined') {
 		  // Polyfill for array remove
 		  (function () {
@@ -34565,15 +33955,15 @@
 
 		// Polyfill for startsWith
 		if (!String.prototype.startsWith) {
-		    String.prototype.startsWith = function (searchString, position) {
-		        position = position || 0;
-		        return this.substr(position, searchString.length) === searchString;
-		    };
+		  String.prototype.startsWith = function (searchString, position) {
+		    position = position || 0;
+		    return this.substr(position, searchString.length) === searchString;
+		  };
 		}
 
 		// Polyfill for Array.find
 		if (!Array.prototype.find) {
-		  Array.prototype.find = function(callback) {    
+		  Array.prototype.find = function(callback) {
 		    for (var i = 0; i < this.length; i++) {
 		      var element = this[i];
 		      if ( callback.call(this, element, i, this) ) {
@@ -34583,34 +33973,16 @@
 		  }
 		}
 
-		/**
-		 * Make a tooltip for a field based on the field's schema.
-		 * @param {Object} schema JSON schema
-		 * @returns {string} Field tooltip, may be empty string if all relevant schema properties are missing
-		 */
-		exports.makeFieldTooltip = function (schema) {
-		  if (!schema) {
-		    return '';
-		  }
-		  
-		  var tooltip = '';
-		  if (schema.title) {
-		    tooltip += schema.title;
-		  }
-		  
-		  if (schema.description) {
-		    if (tooltip.length > 0) {
-		      tooltip += '\n';
-		    }
-		    tooltip += schema.description;
-		  }
-
-		  return tooltip;
+		// Polyfill for String.trim
+		if (!String.prototype.trim) {
+		  String.prototype.trim = function () {
+		    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+		  };
 		}
 
 
 	/***/ },
-	/* 66 */
+	/* 64 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		/* Jison generated parser */
@@ -35033,7 +34405,7 @@
 		}
 
 	/***/ },
-	/* 67 */
+	/* 65 */
 	/***/ function(module, exports) {
 
 		'use strict';
@@ -35449,10 +34821,12 @@
 
 
 	/***/ },
-	/* 68 */
-	/***/ function(module, exports) {
+	/* 66 */
+	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
+
+		__webpack_require__(63);
 
 		var _locales = ['en', 'pt-BR', 'zh-CN', 'tr'];
 		var _defs = {
@@ -35474,6 +34848,9 @@
 		    duplicateText: 'Duplicate',
 		    duplicateTitle: 'Duplicate selected fields (Ctrl+D)',
 		    duplicateField: 'Duplicate this field (Ctrl+D)',
+		    duplicateFieldError: 'Duplicate field name',
+		    cannotParseFieldError: 'Cannot parse field into JSON',
+		    cannotParseValueError: 'Cannot parse value into JSON',
 		    empty: 'empty',
 		    expandAll: 'Expand all fields',
 		    expandTitle: 'Click to expand/collapse this field (Ctrl+E). \n' +
@@ -35537,6 +34914,8 @@
 		    modeTreeTitle: 'Switch to tree editor',
 		    modeViewText: 'View',
 		    modeViewTitle: 'Switch to tree view',
+		    examples: 'Examples',
+		    default: 'Default',
 		  },
 		  'zh-CN': {
 		    array: '数组',
@@ -35549,13 +34928,16 @@
 		    ascendingTitle: '升序排列${type}的子节点',
 		    actionsMenu: '点击打开动作菜单(Ctrl+M)',
 		    collapseAll: '缩进所有字段',
-		    descending: '姜旭',
-		    descendingTitle: '降序序排列${type}的子节点',
+		    descending: '降序',
+		    descendingTitle: '降序排列${type}的子节点',
 		    drag: '拖拽移动该节点(Alt+Shift+Arrows)',
-		    duplicateKey: '复制键',
+		    duplicateKey: '重复键',
 		    duplicateText: '复制',
 		    duplicateTitle: '复制选中字段(Ctrl+D)',
 		    duplicateField: '复制该字段(Ctrl+D)',
+		    duplicateFieldError: '重复的字段名称',
+		    cannotParseFieldError: '无法将字段解析为JSON',
+		    cannotParseValueError: '无法将值解析为JSON',
 		    empty: '清空',
 		    expandAll: '展开所有字段',
 		    expandTitle: '点击 展开/收缩 该字段(Ctrl+E). \n' +
@@ -35619,6 +35001,8 @@
 		    modeTreeTitle: '切换至树编辑',
 		    modeViewText: '视图',
 		    modeViewTitle: '切换至树视图',
+		    examples: '例子',
+		    default: '缺省',
 		  },
 		  'pt-BR': {
 		    array: 'Lista',
@@ -35638,6 +35022,9 @@
 		    duplicateText: 'Duplicar',
 		    duplicateTitle: 'Duplicar campos selecionados (Ctrl+D)',
 		    duplicateField: 'Duplicar este campo (Ctrl+D)',
+		    duplicateFieldError: 'Nome do campo duplicado',
+		    cannotParseFieldError: 'Não é possível analisar o campo no JSON',
+		    cannotParseValueError: 'Não é possível analisar o valor em JSON',
 		    empty: 'vazio',
 		    expandAll: 'Expandir todos campos',
 		    expandTitle: 'Clique para expandir/encolher este campo (Ctrl+E). \n' +
@@ -35712,7 +35099,9 @@
 		      'Uma lista contem uma coleção de valores ordenados.',
 		    stringType: 'Campo do tipo "string". ' +
 		      'Campo do tipo nao é determinado através do seu valor, ' +
-		      'mas sempre retornara um texto.'
+		      'mas sempre retornara um texto.',
+		    examples: 'Exemplos',
+		    default: 'Revelia',
 		  },
 		  tr: {
 		    array: 'Dizin',
@@ -35732,6 +35121,9 @@
 		    duplicateText: 'Aşağıya kopyala',
 		    duplicateTitle: 'Seçili alanlardan bir daha oluştur (Ctrl+D)',
 		    duplicateField: 'Bu alandan bir daha oluştur (Ctrl+D)',
+		    duplicateFieldError: 'Duplicate field name',
+		    cannotParseFieldError: 'Alan JSON\'a ayrıştırılamıyor',
+		    cannotParseValueError: 'JSON\'a değer ayrıştırılamıyor',
 		    empty: 'boş',
 		    expandAll: 'Tüm alanları aç',
 		    expandTitle: 'Bu alanı açmak/kapatmak için tıkla (Ctrl+E). \n' +
@@ -35794,7 +35186,9 @@
 		    modeTreeText: 'Ağaç',
 		    modeTreeTitle: 'Ağaç düzenleyiciye geç',
 		    modeViewText: 'Görünüm',
-		    modeViewTitle: 'Ağaç görünümüne geç'
+		    modeViewTitle: 'Ağaç görünümüne geç',
+		    examples: 'Örnekler',
+		    default: 'Varsayılan',
 		  }
 		};
 
@@ -35857,14 +35251,900 @@
 		};
 
 	/***/ },
-	/* 69 */
+	/* 67 */
+	/***/ function(module, exports) {
+
+		'use strict';
+
+		/**
+		 * @constructor SearchBox
+		 * Create a search box in given HTML container
+		 * @param {JSONEditor} editor    The JSON Editor to attach to
+		 * @param {Element} container               HTML container element of where to
+		 *                                          create the search box
+		 */
+		function SearchBox (editor, container) {
+		  var searchBox = this;
+
+		  this.editor = editor;
+		  this.timeout = undefined;
+		  this.delay = 200; // ms
+		  this.lastText = undefined;
+
+		  this.dom = {};
+		  this.dom.container = container;
+
+		  var table = document.createElement('table');
+		  this.dom.table = table;
+		  table.className = 'jsoneditor-search';
+		  container.appendChild(table);
+		  var tbody = document.createElement('tbody');
+		  this.dom.tbody = tbody;
+		  table.appendChild(tbody);
+		  var tr = document.createElement('tr');
+		  tbody.appendChild(tr);
+
+		  var td = document.createElement('td');
+		  tr.appendChild(td);
+		  var results = document.createElement('div');
+		  this.dom.results = results;
+		  results.className = 'jsoneditor-results';
+		  td.appendChild(results);
+
+		  td = document.createElement('td');
+		  tr.appendChild(td);
+		  var divInput = document.createElement('div');
+		  this.dom.input = divInput;
+		  divInput.className = 'jsoneditor-frame';
+		  divInput.title = 'Search fields and values';
+		  td.appendChild(divInput);
+
+		  // table to contain the text input and search button
+		  var tableInput = document.createElement('table');
+		  divInput.appendChild(tableInput);
+		  var tbodySearch = document.createElement('tbody');
+		  tableInput.appendChild(tbodySearch);
+		  tr = document.createElement('tr');
+		  tbodySearch.appendChild(tr);
+
+		  var refreshSearch = document.createElement('button');
+		  refreshSearch.type = 'button';
+		  refreshSearch.className = 'jsoneditor-refresh';
+		  td = document.createElement('td');
+		  td.appendChild(refreshSearch);
+		  tr.appendChild(td);
+
+		  var search = document.createElement('input');
+		  // search.type = 'button';
+		  this.dom.search = search;
+		  search.oninput = function (event) {
+		    searchBox._onDelayedSearch(event);
+		  };
+		  search.onchange = function (event) { // For IE 9
+		    searchBox._onSearch();
+		  };
+		  search.onkeydown = function (event) {
+		    searchBox._onKeyDown(event);
+		  };
+		  search.onkeyup = function (event) {
+		    searchBox._onKeyUp(event);
+		  };
+		  refreshSearch.onclick = function (event) {
+		    search.select();
+		  };
+
+		  // TODO: ESC in FF restores the last input, is a FF bug, https://bugzilla.mozilla.org/show_bug.cgi?id=598819
+		  td = document.createElement('td');
+		  td.appendChild(search);
+		  tr.appendChild(td);
+
+		  var searchNext = document.createElement('button');
+		  searchNext.type = 'button';
+		  searchNext.title = 'Next result (Enter)';
+		  searchNext.className = 'jsoneditor-next';
+		  searchNext.onclick = function () {
+		    searchBox.next();
+		  };
+		  td = document.createElement('td');
+		  td.appendChild(searchNext);
+		  tr.appendChild(td);
+
+		  var searchPrevious = document.createElement('button');
+		  searchPrevious.type = 'button';
+		  searchPrevious.title = 'Previous result (Shift+Enter)';
+		  searchPrevious.className = 'jsoneditor-previous';
+		  searchPrevious.onclick = function () {
+		    searchBox.previous();
+		  };
+		  td = document.createElement('td');
+		  td.appendChild(searchPrevious);
+		  tr.appendChild(td);
+		}
+
+		/**
+		 * Go to the next search result
+		 * @param {boolean} [focus]   If true, focus will be set to the next result
+		 *                            focus is false by default.
+		 */
+		SearchBox.prototype.next = function(focus) {
+		  if (this.results != undefined) {
+		    var index = (this.resultIndex != undefined) ? this.resultIndex + 1 : 0;
+		    if (index > this.results.length - 1) {
+		      index = 0;
+		    }
+		    this._setActiveResult(index, focus);
+		  }
+		};
+
+		/**
+		 * Go to the prevous search result
+		 * @param {boolean} [focus]   If true, focus will be set to the next result
+		 *                            focus is false by default.
+		 */
+		SearchBox.prototype.previous = function(focus) {
+		  if (this.results != undefined) {
+		    var max = this.results.length - 1;
+		    var index = (this.resultIndex != undefined) ? this.resultIndex - 1 : max;
+		    if (index < 0) {
+		      index = max;
+		    }
+		    this._setActiveResult(index, focus);
+		  }
+		};
+
+		/**
+		 * Set new value for the current active result
+		 * @param {Number} index
+		 * @param {boolean} [focus]   If true, focus will be set to the next result.
+		 *                            focus is false by default.
+		 * @private
+		 */
+		SearchBox.prototype._setActiveResult = function(index, focus) {
+		  // de-activate current active result
+		  if (this.activeResult) {
+		    var prevNode = this.activeResult.node;
+		    var prevElem = this.activeResult.elem;
+		    if (prevElem == 'field') {
+		      delete prevNode.searchFieldActive;
+		    }
+		    else {
+		      delete prevNode.searchValueActive;
+		    }
+		    prevNode.updateDom();
+		  }
+
+		  if (!this.results || !this.results[index]) {
+		    // out of range, set to undefined
+		    this.resultIndex = undefined;
+		    this.activeResult = undefined;
+		    return;
+		  }
+
+		  this.resultIndex = index;
+
+		  // set new node active
+		  var node = this.results[this.resultIndex].node;
+		  var elem = this.results[this.resultIndex].elem;
+		  if (elem == 'field') {
+		    node.searchFieldActive = true;
+		  }
+		  else {
+		    node.searchValueActive = true;
+		  }
+		  this.activeResult = this.results[this.resultIndex];
+		  node.updateDom();
+
+		  // TODO: not so nice that the focus is only set after the animation is finished
+		  node.scrollTo(function () {
+		    if (focus) {
+		      node.focus(elem);
+		    }
+		  });
+		};
+
+		/**
+		 * Cancel any running onDelayedSearch.
+		 * @private
+		 */
+		SearchBox.prototype._clearDelay = function() {
+		  if (this.timeout != undefined) {
+		    clearTimeout(this.timeout);
+		    delete this.timeout;
+		  }
+		};
+
+		/**
+		 * Start a timer to execute a search after a short delay.
+		 * Used for reducing the number of searches while typing.
+		 * @param {Event} event
+		 * @private
+		 */
+		SearchBox.prototype._onDelayedSearch = function (event) {
+		  // execute the search after a short delay (reduces the number of
+		  // search actions while typing in the search text box)
+		  this._clearDelay();
+		  var searchBox = this;
+		  this.timeout = setTimeout(function (event) {
+		    searchBox._onSearch();
+		  },
+		  this.delay);
+		};
+
+		/**
+		 * Handle onSearch event
+		 * @param {boolean} [forceSearch]  If true, search will be executed again even
+		 *                                 when the search text is not changed.
+		 *                                 Default is false.
+		 * @private
+		 */
+		SearchBox.prototype._onSearch = function (forceSearch) {
+		  this._clearDelay();
+
+		  var value = this.dom.search.value;
+		  var text = (value.length > 0) ? value : undefined;
+		  if (text !== this.lastText || forceSearch) {
+		    // only search again when changed
+		    this.lastText = text;
+		    this.results = this.editor.search(text);
+		    var MAX_SEARCH_RESULTS = this.results[0]
+		        ? this.results[0].node.MAX_SEARCH_RESULTS
+		        : Infinity;
+
+		    // try to maintain the current active result if this is still part of the new search results
+		    var activeResultIndex = 0;
+		    if (this.activeResult) {
+		      for (var i = 0; i < this.results.length; i++) {
+		        if (this.results[i].node === this.activeResult.node) {
+		          activeResultIndex = i;
+		          break;
+		        }
+		      }
+		    }
+
+		    this._setActiveResult(activeResultIndex, false);
+
+		    // display search results
+		    if (text !== undefined) {
+		      var resultCount = this.results.length;
+		      if (resultCount === 0) {
+		        this.dom.results.innerHTML = 'no&nbsp;results';
+		      }
+		      else if (resultCount === 1) {
+		        this.dom.results.innerHTML = '1&nbsp;result';
+		      }
+		      else if (resultCount > MAX_SEARCH_RESULTS) {
+		        this.dom.results.innerHTML = MAX_SEARCH_RESULTS + '+&nbsp;results';
+		      }
+		      else {
+		        this.dom.results.innerHTML = resultCount + '&nbsp;results';
+		      }
+		    }
+		    else {
+		      this.dom.results.innerHTML = '';
+		    }
+		  }
+		};
+
+		/**
+		 * Handle onKeyDown event in the input box
+		 * @param {Event} event
+		 * @private
+		 */
+		SearchBox.prototype._onKeyDown = function (event) {
+		  var keynum = event.which;
+		  if (keynum == 27) { // ESC
+		    this.dom.search.value = '';  // clear search
+		    this._onSearch();
+		    event.preventDefault();
+		    event.stopPropagation();
+		  }
+		  else if (keynum == 13) { // Enter
+		    if (event.ctrlKey) {
+		      // force to search again
+		      this._onSearch(true);
+		    }
+		    else if (event.shiftKey) {
+		      // move to the previous search result
+		      this.previous();
+		    }
+		    else {
+		      // move to the next search result
+		      this.next();
+		    }
+		    event.preventDefault();
+		    event.stopPropagation();
+		  }
+		};
+
+		/**
+		 * Handle onKeyUp event in the input box
+		 * @param {Event} event
+		 * @private
+		 */
+		SearchBox.prototype._onKeyUp = function (event) {
+		  var keynum = event.keyCode;
+		  if (keynum != 27 && keynum != 13) { // !show and !Enter
+		    this._onDelayedSearch(event);   // For IE 9
+		  }
+		};
+
+		/**
+		 * Clear the search results
+		 */
+		SearchBox.prototype.clear = function () {
+		  this.dom.search.value = '';
+		  this._onSearch();
+		};
+
+		/**
+		 * Refresh searchResults if there is a search value
+		 */
+		SearchBox.prototype.forceSearch = function () {
+		  this._onSearch(true);
+		};
+
+		/**
+		 * Test whether the search box value is empty
+		 * @returns {boolean} Returns true when empty.
+		 */
+		SearchBox.prototype.isEmpty = function () {
+		  return this.dom.search.value === '';
+		};
+
+		/**
+		 * Destroy the search box
+		 */
+		SearchBox.prototype.destroy = function () {
+		  this.editor = null;
+		  this.dom.container.removeChild(this.dom.table);
+		  this.dom = null;
+
+		  this.results = null;
+		  this.activeResult = null;
+
+		  this._clearDelay();
+
+		};
+
+		module.exports = SearchBox;
+
+
+	/***/ },
+	/* 68 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var ContextMenu = __webpack_require__(63);
-		var translate = __webpack_require__(68).translate;
-		var util = __webpack_require__(65);
+		var createAbsoluteAnchor = __webpack_require__(69).createAbsoluteAnchor;
+		var util = __webpack_require__(62);
+		var translate = __webpack_require__(66).translate;
+
+		/**
+		 * A context menu
+		 * @param {Object[]} items    Array containing the menu structure
+		 *                            TODO: describe structure
+		 * @param {Object} [options]  Object with options. Available options:
+		 *                            {function} close    Callback called when the
+		 *                                                context menu is being closed.
+		 * @constructor
+		 */
+		function ContextMenu (items, options) {
+		  this.dom = {};
+
+		  var me = this;
+		  var dom = this.dom;
+		  this.anchor = undefined;
+		  this.items = items;
+		  this.eventListeners = {};
+		  this.selection = undefined; // holds the selection before the menu was opened
+		  this.onClose = options ? options.close : undefined;
+
+		  // create root element
+		  var root = document.createElement('div');
+		  root.className = 'jsoneditor-contextmenu-root';
+		  dom.root = root;
+
+		  // create a container element
+		  var menu = document.createElement('div');
+		  menu.className = 'jsoneditor-contextmenu';
+		  dom.menu = menu;
+		  root.appendChild(menu);
+
+		  // create a list to hold the menu items
+		  var list = document.createElement('ul');
+		  list.className = 'jsoneditor-menu';
+		  menu.appendChild(list);
+		  dom.list = list;
+		  dom.items = []; // list with all buttons
+
+		  // create a (non-visible) button to set the focus to the menu
+		  var focusButton = document.createElement('button');
+		  focusButton.type = 'button';
+		  dom.focusButton = focusButton;
+		  var li = document.createElement('li');
+		  li.style.overflow = 'hidden';
+		  li.style.height = '0';
+		  li.appendChild(focusButton);
+		  list.appendChild(li);
+
+		  function createMenuItems (list, domItems, items) {
+		    items.forEach(function (item) {
+		      if (item.type == 'separator') {
+		        // create a separator
+		        var separator = document.createElement('div');
+		        separator.className = 'jsoneditor-separator';
+		        li = document.createElement('li');
+		        li.appendChild(separator);
+		        list.appendChild(li);
+		      }
+		      else {
+		        var domItem = {};
+
+		        // create a menu item
+		        var li = document.createElement('li');
+		        list.appendChild(li);
+
+		        // create a button in the menu item
+		        var button = document.createElement('button');
+		        button.type = 'button';
+		        button.className = item.className;
+		        domItem.button = button;
+		        if (item.title) {
+		          button.title = item.title;
+		        }
+		        if (item.click) {
+		          button.onclick = function (event) {
+		            event.preventDefault();
+		            me.hide();
+		            item.click();
+		          };
+		        }
+		        li.appendChild(button);
+
+		        // create the contents of the button
+		        if (item.submenu) {
+		          // add the icon to the button
+		          var divIcon = document.createElement('div');
+		          divIcon.className = 'jsoneditor-icon';
+		          button.appendChild(divIcon);
+		          var divText = document.createElement('div');
+		          divText.className = 'jsoneditor-text' +
+		              (item.click ? '' : ' jsoneditor-right-margin');
+		          divText.appendChild(document.createTextNode(item.text));
+		          button.appendChild(divText);
+
+		          var buttonSubmenu;
+		          if (item.click) {
+		            // submenu and a button with a click handler
+		            button.className += ' jsoneditor-default';
+
+		            var buttonExpand = document.createElement('button');
+		            buttonExpand.type = 'button';
+		            domItem.buttonExpand = buttonExpand;
+		            buttonExpand.className = 'jsoneditor-expand';
+		            buttonExpand.innerHTML = '<div class="jsoneditor-expand"></div>';
+		            li.appendChild(buttonExpand);
+		            if (item.submenuTitle) {
+		              buttonExpand.title = item.submenuTitle;
+		            }
+
+		            buttonSubmenu = buttonExpand;
+		          }
+		          else {
+		            // submenu and a button without a click handler
+		            var divExpand = document.createElement('div');
+		            divExpand.className = 'jsoneditor-expand';
+		            button.appendChild(divExpand);
+
+		            buttonSubmenu = button;
+		          }
+
+		          // attach a handler to expand/collapse the submenu
+		          buttonSubmenu.onclick = function (event) {
+		            event.preventDefault();
+		            me._onExpandItem(domItem);
+		            buttonSubmenu.focus();
+		          };
+
+		          // create the submenu
+		          var domSubItems = [];
+		          domItem.subItems = domSubItems;
+		          var ul = document.createElement('ul');
+		          domItem.ul = ul;
+		          ul.className = 'jsoneditor-menu';
+		          ul.style.height = '0';
+		          li.appendChild(ul);
+		          createMenuItems(ul, domSubItems, item.submenu);
+		        }
+		        else {
+		          // no submenu, just a button with clickhandler
+		          button.innerHTML = '<div class="jsoneditor-icon"></div>' +
+		              '<div class="jsoneditor-text">' + translate(item.text) + '</div>';
+		        }
+
+		        domItems.push(domItem);
+		      }
+		    });
+		  }
+		  createMenuItems(list, this.dom.items, items);
+
+		  // TODO: when the editor is small, show the submenu on the right instead of inline?
+
+		  // calculate the max height of the menu with one submenu expanded
+		  this.maxHeight = 0; // height in pixels
+		  items.forEach(function (item) {
+		    var height = (items.length + (item.submenu ? item.submenu.length : 0)) * 24;
+		    me.maxHeight = Math.max(me.maxHeight, height);
+		  });
+		}
+
+		/**
+		 * Get the currently visible buttons
+		 * @return {Array.<HTMLElement>} buttons
+		 * @private
+		 */
+		ContextMenu.prototype._getVisibleButtons = function () {
+		  var buttons = [];
+		  var me = this;
+		  this.dom.items.forEach(function (item) {
+		    buttons.push(item.button);
+		    if (item.buttonExpand) {
+		      buttons.push(item.buttonExpand);
+		    }
+		    if (item.subItems && item == me.expandedItem) {
+		      item.subItems.forEach(function (subItem) {
+		        buttons.push(subItem.button);
+		        if (subItem.buttonExpand) {
+		          buttons.push(subItem.buttonExpand);
+		        }
+		        // TODO: change to fully recursive method
+		      });
+		    }
+		  });
+
+		  return buttons;
+		};
+
+		// currently displayed context menu, a singleton. We may only have one visible context menu
+		ContextMenu.visibleMenu = undefined;
+
+		/**
+		 * Attach the menu to an anchor
+		 * @param {HTMLElement} anchor    Anchor where the menu will be attached as sibling.
+		 * @param {HTMLElement} frame     The root of the JSONEditor window
+		 * @param {Boolean=} ignoreParent ignore anchor parent in regard to the calculation of the position, needed when the parent position is absolute
+		 */
+		ContextMenu.prototype.show = function (anchor, frame, ignoreParent) {
+		  this.hide();
+
+		  // determine whether to display the menu below or above the anchor
+		  var showBelow = true;
+		  var parent = anchor.parentNode;
+		  var anchorRect = anchor.getBoundingClientRect();
+		  var parentRect = parent.getBoundingClientRect();
+		  var frameRect = frame.getBoundingClientRect();
+
+		  var me = this;
+		  this.dom.absoluteAnchor = createAbsoluteAnchor(anchor, frame, function () {
+		    me.hide()
+		  });
+
+		  if (anchorRect.bottom + this.maxHeight < frameRect.bottom) {
+		    // fits below -> show below
+		  }
+		  else if (anchorRect.top - this.maxHeight > frameRect.top) {
+		    // fits above -> show above
+		    showBelow = false;
+		  }
+		  else {
+		    // doesn't fit above nor below -> show below
+		  }
+
+		  var topGap = ignoreParent ? 0 : (anchorRect.top - parentRect.top);
+
+		  // position the menu
+		  if (showBelow) {
+		    // display the menu below the anchor
+		    var anchorHeight = anchor.offsetHeight;
+		    this.dom.menu.style.left = '0';
+		    this.dom.menu.style.top = topGap + anchorHeight + 'px';
+		    this.dom.menu.style.bottom = '';
+		  }
+		  else {
+		    // display the menu above the anchor
+		    this.dom.menu.style.left = '0';
+		    this.dom.menu.style.top = '';
+		    this.dom.menu.style.bottom = '0px';
+		  }
+
+		  // attach the menu to the temporary, absolute anchor
+		  // parent.insertBefore(this.dom.root, anchor);
+		  this.dom.absoluteAnchor.appendChild(this.dom.root);
+
+		  // move focus to the first button in the context menu
+		  this.selection = util.getSelection();
+		  this.anchor = anchor;
+		  setTimeout(function () {
+		    me.dom.focusButton.focus();
+		  }, 0);
+
+		  if (ContextMenu.visibleMenu) {
+		    ContextMenu.visibleMenu.hide();
+		  }
+		  ContextMenu.visibleMenu = this;
+		};
+
+		/**
+		 * Hide the context menu if visible
+		 */
+		ContextMenu.prototype.hide = function () {
+		  // remove temporary absolutely positioned anchor
+		  if (this.dom.absoluteAnchor) {
+		    this.dom.absoluteAnchor.destroy();
+		    delete this.dom.absoluteAnchor;
+		  }
+
+		  // remove the menu from the DOM
+		  if (this.dom.root.parentNode) {
+		    this.dom.root.parentNode.removeChild(this.dom.root);
+		    if (this.onClose) {
+		      this.onClose();
+		    }
+		  }
+
+		  if (ContextMenu.visibleMenu == this) {
+		    ContextMenu.visibleMenu = undefined;
+		  }
+		};
+
+		/**
+		 * Expand a submenu
+		 * Any currently expanded submenu will be hided.
+		 * @param {Object} domItem
+		 * @private
+		 */
+		ContextMenu.prototype._onExpandItem = function (domItem) {
+		  var me = this;
+		  var alreadyVisible = (domItem == this.expandedItem);
+
+		  // hide the currently visible submenu
+		  var expandedItem = this.expandedItem;
+		  if (expandedItem) {
+		    //var ul = expandedItem.ul;
+		    expandedItem.ul.style.height = '0';
+		    expandedItem.ul.style.padding = '';
+		    setTimeout(function () {
+		      if (me.expandedItem != expandedItem) {
+		        expandedItem.ul.style.display = '';
+		        util.removeClassName(expandedItem.ul.parentNode, 'jsoneditor-selected');
+		      }
+		    }, 300); // timeout duration must match the css transition duration
+		    this.expandedItem = undefined;
+		  }
+
+		  if (!alreadyVisible) {
+		    var ul = domItem.ul;
+		    ul.style.display = 'block';
+		    var height = ul.clientHeight; // force a reflow in Firefox
+		    setTimeout(function () {
+		      if (me.expandedItem == domItem) {
+		        var childsHeight = 0;
+		        for (var i = 0; i < ul.childNodes.length; i++) {
+		          childsHeight += ul.childNodes[i].clientHeight;
+		        }
+		        ul.style.height = childsHeight + 'px';
+		        ul.style.padding = '5px 10px';
+		      }
+		    }, 0);
+		    util.addClassName(ul.parentNode, 'jsoneditor-selected');
+		    this.expandedItem = domItem;
+		  }
+		};
+
+		/**
+		 * Handle onkeydown event
+		 * @param {Event} event
+		 * @private
+		 */
+		ContextMenu.prototype._onKeyDown = function (event) {
+		  var target = event.target;
+		  var keynum = event.which;
+		  var handled = false;
+		  var buttons, targetIndex, prevButton, nextButton;
+
+		  if (keynum == 27) { // ESC
+		    // hide the menu on ESC key
+
+		    // restore previous selection and focus
+		    if (this.selection) {
+		      util.setSelection(this.selection);
+		    }
+		    if (this.anchor) {
+		      this.anchor.focus();
+		    }
+
+		    this.hide();
+
+		    handled = true;
+		  }
+		  else if (keynum == 9) { // Tab
+		    if (!event.shiftKey) { // Tab
+		      buttons = this._getVisibleButtons();
+		      targetIndex = buttons.indexOf(target);
+		      if (targetIndex == buttons.length - 1) {
+		        // move to first button
+		        buttons[0].focus();
+		        handled = true;
+		      }
+		    }
+		    else { // Shift+Tab
+		      buttons = this._getVisibleButtons();
+		      targetIndex = buttons.indexOf(target);
+		      if (targetIndex == 0) {
+		        // move to last button
+		        buttons[buttons.length - 1].focus();
+		        handled = true;
+		      }
+		    }
+		  }
+		  else if (keynum == 37) { // Arrow Left
+		    if (target.className == 'jsoneditor-expand') {
+		      buttons = this._getVisibleButtons();
+		      targetIndex = buttons.indexOf(target);
+		      prevButton = buttons[targetIndex - 1];
+		      if (prevButton) {
+		        prevButton.focus();
+		      }
+		    }
+		    handled = true;
+		  }
+		  else if (keynum == 38) { // Arrow Up
+		    buttons = this._getVisibleButtons();
+		    targetIndex = buttons.indexOf(target);
+		    prevButton = buttons[targetIndex - 1];
+		    if (prevButton && prevButton.className == 'jsoneditor-expand') {
+		      // skip expand button
+		      prevButton = buttons[targetIndex - 2];
+		    }
+		    if (!prevButton) {
+		      // move to last button
+		      prevButton = buttons[buttons.length - 1];
+		    }
+		    if (prevButton) {
+		      prevButton.focus();
+		    }
+		    handled = true;
+		  }
+		  else if (keynum == 39) { // Arrow Right
+		    buttons = this._getVisibleButtons();
+		    targetIndex = buttons.indexOf(target);
+		    nextButton = buttons[targetIndex + 1];
+		    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+		      nextButton.focus();
+		    }
+		    handled = true;
+		  }
+		  else if (keynum == 40) { // Arrow Down
+		    buttons = this._getVisibleButtons();
+		    targetIndex = buttons.indexOf(target);
+		    nextButton = buttons[targetIndex + 1];
+		    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+		      // skip expand button
+		      nextButton = buttons[targetIndex + 2];
+		    }
+		    if (!nextButton) {
+		      // move to first button
+		      nextButton = buttons[0];
+		    }
+		    if (nextButton) {
+		      nextButton.focus();
+		      handled = true;
+		    }
+		    handled = true;
+		  }
+		  // TODO: arrow left and right
+
+		  if (handled) {
+		    event.stopPropagation();
+		    event.preventDefault();
+		  }
+		};
+
+		module.exports = ContextMenu;
+
+
+	/***/ },
+	/* 69 */
+	/***/ function(module, exports, __webpack_require__) {
+
+		var util = __webpack_require__(62);
+
+		/**
+		 * Create an anchor element absolutely positioned in the `parent`
+		 * element.
+		 * @param {HTMLElement} anchor
+		 * @param {HTMLElement} parent
+		 * @param [onDestroy(function(anchor)]  Callback when the anchor is destroyed
+		 * @returns {HTMLElement}
+		 */
+		exports.createAbsoluteAnchor = function (anchor, parent, onDestroy) {
+		  var root = getRootNode(anchor);
+		  var eventListeners = {};
+
+		  var anchorRect = anchor.getBoundingClientRect();
+		  var frameRect = parent.getBoundingClientRect();
+
+		  var absoluteAnchor = document.createElement('div');
+		  absoluteAnchor.className = 'jsoneditor-anchor';
+		  absoluteAnchor.style.position = 'absolute';
+		  absoluteAnchor.style.left = (anchorRect.left - frameRect.left) + 'px';
+		  absoluteAnchor.style.top = (anchorRect.top - frameRect.top) + 'px';
+		  absoluteAnchor.style.width = (anchorRect.width - 2) + 'px';
+		  absoluteAnchor.style.height = (anchorRect.height - 2) + 'px';
+		  absoluteAnchor.style.boxSizing = 'border-box';
+		  parent.appendChild(absoluteAnchor);
+
+		  function destroy () {
+		    // remove temporary absolutely positioned anchor
+		    if (absoluteAnchor && absoluteAnchor.parentNode) {
+		      absoluteAnchor.parentNode.removeChild(absoluteAnchor);
+
+		      // remove all event listeners
+		      // all event listeners are supposed to be attached to document.
+		      for (var name in eventListeners) {
+		        if (eventListeners.hasOwnProperty(name)) {
+		          var fn = eventListeners[name];
+		          if (fn) {
+		            util.removeEventListener(root, name, fn);
+		          }
+		          delete eventListeners[name];
+		        }
+		      }
+
+		      if (typeof onDestroy === 'function') {
+		        onDestroy(anchor);
+		      }
+		    }
+		  }
+
+		  // create and attach event listeners
+		  var destroyIfOutside = function (event) {
+		    var target = event.target;
+		    if ((target !== absoluteAnchor) && !util.isChildOf(target, absoluteAnchor)) {
+		      destroy();
+		    }
+		  }
+
+		  eventListeners.mousedown = util.addEventListener(root, 'mousedown', destroyIfOutside);
+		  eventListeners.mousewheel = util.addEventListener(root, 'mousewheel', destroyIfOutside);
+		  // eventListeners.scroll = util.addEventListener(root, 'scroll', destroyIfOutside);
+
+		  absoluteAnchor.destroy = destroy;
+
+		  return absoluteAnchor
+		}
+
+		/**
+		 * Node.getRootNode shim
+		 * @param  {HTMLElement} node node to check
+		 * @return {HTMLElement}      node's rootNode or `window` if there is ShadowDOM is not supported.
+		 */
+		function getRootNode(node){
+		  return (typeof node.getRootNode === 'function')
+		      ? node.getRootNode()
+		      : window;
+		}
+
+
+	/***/ },
+	/* 70 */
+	/***/ function(module, exports, __webpack_require__) {
+
+		'use strict';
+
+		var ContextMenu = __webpack_require__(68);
+		var translate = __webpack_require__(66).translate;
+		var util = __webpack_require__(62);
 
 		/**
 		 * Creates a component that visualize path selection in tree based editors
@@ -36004,21 +36284,21 @@
 		module.exports = TreePath;
 
 	/***/ },
-	/* 70 */
+	/* 71 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var jmespath = __webpack_require__(71);
-		var naturalSort = __webpack_require__(72);
-		var createAbsoluteAnchor = __webpack_require__(64).createAbsoluteAnchor;
-		var ContextMenu = __webpack_require__(63);
-		var appendNodeFactory = __webpack_require__(73);
-		var showMoreNodeFactory = __webpack_require__(74);
-		var showSortModal = __webpack_require__(75);
-		var showTransformModal = __webpack_require__(77);
-		var util = __webpack_require__(65);
-		var translate = __webpack_require__(68).translate;
+		var jmespath = __webpack_require__(72);
+		var naturalSort = __webpack_require__(73);
+		var createAbsoluteAnchor = __webpack_require__(69).createAbsoluteAnchor;
+		var ContextMenu = __webpack_require__(68);
+		var appendNodeFactory = __webpack_require__(74);
+		var showMoreNodeFactory = __webpack_require__(75);
+		var showSortModal = __webpack_require__(76);
+		var showTransformModal = __webpack_require__(78);
+		var util = __webpack_require__(62);
+		var translate = __webpack_require__(66).translate;
 
 		var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
 
@@ -36277,7 +36557,7 @@
 		 * Render the error
 		 */
 		Node.prototype.updateError = function() {
-		  var error = this.error;
+		  var error = this.fieldError || this.valueError || this.error;
 		  var tdError = this.dom.tdError;
 		  if (error && this.dom && this.dom.tr) {
 		    util.addClassName(this.dom.tr, 'jsoneditor-validation-error');
@@ -36929,23 +37209,23 @@
 		 */
 		Node.prototype._updateCssClassName = function () {
 		  if(this.dom.field
-		    && this.editor 
-		    && this.editor.options 
+		    && this.editor
+		    && this.editor.options
 		    && typeof this.editor.options.onClassName ==='function'
-		    && this.dom.tree){              
-		      util.removeAllClassNames(this.dom.tree);              
+		    && this.dom.tree){
+		      util.removeAllClassNames(this.dom.tree);
 		      var addClasses = this.editor.options.onClassName({ path: this.getPath(), field: this.field, value: this.value }) || "";
 		      util.addClassName(this.dom.tree, "jsoneditor-values " + addClasses);
 		  }
 		};
 
-		Node.prototype.recursivelyUpdateCssClassesOnNodes = function () {  
+		Node.prototype.recursivelyUpdateCssClassesOnNodes = function () {
 		  this._updateCssClassName();
 		  if (Array.isArray(this.childs)) {
 		    for (var i = 0; i < this.childs.length; i++) {
 		      this.childs[i].recursivelyUpdateCssClassesOnNodes();
 		    }
-		  }  
+		  }
 		}
 
 		/**
@@ -37322,15 +37602,6 @@
 		};
 
 		/**
-		 * Update the values from the DOM field and value of this node
-		 */
-		Node.prototype.blur = function() {
-		  // retrieve the actual field and value from the DOM.
-		  this._getDomValue(false);
-		  this._getDomField(false);
-		};
-
-		/**
 		 * Check if given node is a child. The method will check recursively to find
 		 * this node.
 		 * @param {Node} node
@@ -37550,11 +37821,11 @@
 
 		/**
 		 * Retrieve value from DOM
-		 * @param {boolean} [silent]  If true (default), no errors will be thrown in
-		 *                            case of invalid data
 		 * @private
 		 */
-		Node.prototype._getDomValue = function(silent) {
+		Node.prototype._getDomValue = function() {
+		  this._clearValueError();
+
 		  if (this.dom.value && this.type != 'array' && this.type != 'object') {
 		    this.valueInnerText = util.getInnerText(this.dom.value);
 		  }
@@ -37576,14 +37847,49 @@
 		      }
 		    }
 		    catch (err) {
-		      this.value = undefined;
-		      // TODO: sent an action with the new, invalid value?
-		      if (silent !== true) {
-		        throw err;
-		      }
+		      // keep the previous value
+		      this._setValueError(translate('cannotParseValueError'));
 		    }
 		  }
 		};
+
+		/**
+		 * Show a local error in case of invalid value
+		 * @param {string} message
+		 * @private
+		 */
+		Node.prototype._setValueError = function (message) {
+		  this.valueError = {
+		    message: message
+		  };
+		  this.updateError();
+		}
+
+		Node.prototype._clearValueError = function () {
+		  if (this.valueError) {
+		    this.valueError = null;
+		    this.updateError();
+		  }
+		}
+
+		/**
+		 * Show a local error in case of invalid or duplicate field
+		 * @param {string} message
+		 * @private
+		 */
+		Node.prototype._setFieldError = function (message) {
+		  this.fieldError = {
+		    message: message
+		  };
+		  this.updateError();
+		}
+
+		Node.prototype._clearFieldError = function () {
+		  if (this.fieldError) {
+		    this.fieldError = null;
+		    this.updateError();
+		  }
+		}
 
 		/**
 		 * Handle a changed value
@@ -37831,6 +38137,8 @@
 
 		    // strip formatting from the contents of the editable div
 		    util.stripFormatting(domValue);
+
+		    this._updateDomDefault();
 		  }
 		};
 
@@ -37854,7 +38162,7 @@
 		Node.prototype._updateDomField = function () {
 		  var domField = this.dom.field;
 		  if (domField) {
-		    var tooltip = util.makeFieldTooltip(this.schema);
+		    var tooltip = util.makeFieldTooltip(this.schema, this.editor.options.language);
 		    if (tooltip) {
 		      domField.title = tooltip;
 		    }
@@ -37889,80 +38197,82 @@
 
 		/**
 		 * Retrieve field from DOM
-		 * @param {boolean} [silent]  If true (default), no errors will be thrown in
-		 *                            case of invalid data
+		 * @param {boolean} [forceUnique]  If true, the field name will be changed
+		 *                                 into a unique name in case it is a duplicate.
 		 * @private
 		 */
-		Node.prototype._getDomField = function(silent) {
+		Node.prototype._getDomField = function(forceUnique) {
+		  this._clearFieldError();
+
 		  if (this.dom.field && this.fieldEditable) {
 		    this.fieldInnerText = util.getInnerText(this.dom.field);
 		  }
 
-		  if (this.fieldInnerText != undefined) {
+		  if (this.fieldInnerText !== undefined) {
 		    try {
 		      var field = this._unescapeHTML(this.fieldInnerText);
 
-		      if (field !== this.field) {
-		        this.field = field;
-		        this._debouncedOnChangeField();
+		      var existingFieldNames = this.parent.getFieldNames(this);
+		      var isDuplicate = existingFieldNames.indexOf(field) !== -1;
+
+		      if (!isDuplicate) {
+		        if (field !== this.field) {
+		          this.field = field;
+		          this._debouncedOnChangeField();
+		        }
+		      }
+		      else {
+		        if (forceUnique) {
+		          // fix duplicate field: change it into a unique name
+		          field = util.findUniqueName(field, existingFieldNames);
+		          if (field !== this.field) {
+		            this.field = field;
+
+		            // TODO: don't debounce but resolve right away, and cancel current debounce
+		            this._debouncedOnChangeField();
+		          }
+		        }
+		        else {
+		          this._setFieldError(translate('duplicateFieldError'));
+		        }
 		      }
 		    }
 		    catch (err) {
-		      this.field = undefined;
-		      // TODO: sent an action here, with the new, invalid value?
-		      if (silent !== true) {
-		        throw err;
-		      }
+		      // keep the previous field value
+		      this._setFieldError(translate('cannotParseFieldError'));
 		    }
 		  }
 		};
 
 		/**
-		 * Validate this node and all it's childs
-		 * @return {Array.<{node: Node, error: {message: string}}>} Returns a list with duplicates
+		 * Update the value of the schema default element in the DOM.
+		 * @private
+		 * @returns {undefined}
 		 */
-		Node.prototype.validate = function () {
-		  var errors = [];
-
-		  // find duplicate keys
-		  if (this.type === 'object') {
-		    var keys = {};
-		    var duplicateKeys = [];
-		    for (var i = 0; i < this.childs.length; i++) {
-		      var child = this.childs[i];
-		      if (keys.hasOwnProperty(child.field)) {
-		        duplicateKeys.push(child.field);
-		      }
-		      keys[child.field] = true;
-		    }
-
-		    if (duplicateKeys.length > 0) {
-		      errors = this.childs
-		          .filter(function (node) {
-		            return duplicateKeys.indexOf(node.field) !== -1;
-		          })
-		          .map(function (node) {
-		            return {
-		              node: node,
-		              error: {
-		                message: translate('duplicateKey') + ' "' + node.field + '"'
-		              }
-		            }
-		          });
-		    }
+		Node.prototype._updateDomDefault = function () {
+		  // Short-circuit if schema is missing, has no default, or if Node has children
+		  if (!this.schema || this.schema.default === undefined || this._hasChilds()) {
+		    return;
 		  }
 
-		  // recurse over the childs
-		  if (this.childs) {
-		    for (var i = 0; i < this.childs.length; i++) {
-		      var e = this.childs[i].validate();
-		      if (e.length > 0) {
-		        errors = errors.concat(e);
-		      }
-		    }
+		  // select either enum dropdown (select) or input value
+		  var inputElement = this.dom.select
+		      ? this.dom.select
+		      : this.dom.value;
+
+		  if (!inputElement) {
+		    return;
 		  }
 
-		  return errors;
+		  if (this.value === this.schema.default) {
+		    inputElement.title = translate('default');
+		    util.addClassName(inputElement, 'jsoneditor-is-default');
+		    util.removeClassName(inputElement, 'jsoneditor-is-not-default');
+		  } else {
+		    inputElement.removeAttribute('title');
+		    util.removeClassName(inputElement, 'jsoneditor-is-default');
+		    util.addClassName(inputElement, 'jsoneditor-is-not-default');
+		  }
 		};
 
 		/**
@@ -38437,6 +38747,7 @@
 		Node.prototype.updateValue = function (value) {
 		  this.value = value;
 		  this.previousValue = value;
+		  this.valueError = undefined;
 		  this.updateDom();
 		};
 
@@ -38447,6 +38758,7 @@
 		Node.prototype.updateField = function (field) {
 		  this.field = field;
 		  this.previousField = field;
+		  this.fieldError = undefined;
 		  this.updateDom();
 		};
 
@@ -38520,7 +38832,7 @@
 		  // update field and value
 		  this._updateDomField();
 		  this._updateDomValue();
-		   
+
 		  this._updateCssClassName();
 
 		  // update childs indexes
@@ -38618,34 +38930,32 @@
 		  for (var j = 0; j < allSchemas.length; j++) {
 		    childSchema = allSchemas[j];
 
+		    if ('$ref' in childSchema && typeof childSchema['$ref'] === 'string') {
+		      childSchema = schemaRefs[childSchema['$ref']];
+		      if (childSchema) {
+		        foundSchema = Node._findSchema(childSchema, schemaRefs, path);
+		      }
+		    }
+
 		    for (var i = 0; i < path.length && childSchema; i++) {
 		      var nextPath = path.slice(i + 1, path.length);
 		      var key = path[i];
 
-		      // fix childSchema with $ref, and not display the select element on the child schema because of not found enum
-		      if (typeof key === 'string' && childSchema['$ref']) {
-		        childSchema = schemaRefs[childSchema['$ref']];
-		        if (childSchema) {
-		          foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
-		        }
-		      }
-		      else if (typeof key === 'string' && childSchema.patternProperties && !(childSchema.properties && key in childSchema.properties)) {
+		      if (typeof key === 'string' && childSchema.patternProperties && !(childSchema.properties && key in childSchema.properties)) {
 		        for (var prop in childSchema.patternProperties) {
 		          if (key.match(prop)) {
 		            foundSchema = Node._findSchema(childSchema.patternProperties[prop], schemaRefs, nextPath);
 		          }
 		        }
 		      }
-		      else if (childSchema.items && childSchema.items.properties) {
-		        childSchema = childSchema.items.properties[key];
-		        if (childSchema) {
-		          foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
-		        }
-		      }
 		      else if (typeof key === 'string' && childSchema.properties) {
-		        childSchema = childSchema.properties[key] || null;
-		        if (childSchema) {
-		          foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
+		        if (!(key in childSchema.properties)) {
+		          foundSchema = null;
+		        } else {
+		          childSchema = childSchema.properties[key];
+		          if (childSchema) {
+		            foundSchema = Node._findSchema(childSchema, schemaRefs, nextPath);
+		          }
 		        }
 		      }
 		      else if (typeof key === 'number' && childSchema.items) {
@@ -38657,6 +38967,12 @@
 		    }
 
 		  }
+
+		  // If the found schema is the input schema, the schema does not have the given path
+		  if (foundSchema === schema && path.length > 0) {
+		    return null;
+		  }
+
 		  return foundSchema
 		};
 
@@ -38862,6 +39178,7 @@
 		  if (type == 'change' && target == dom.checkbox) {
 		    this.dom.value.innerHTML = !this.value;
 		    this._getDomValue();
+		    this._updateDomDefault();
 		  }
 
 		  // update the value of the node based on the selected option
@@ -38878,7 +39195,8 @@
 		    switch (type) {
 		      case 'blur':
 		      case 'change':
-		        this._getDomValue(true);
+		        this._getDomValue();
+		        this._clearValueError();
 		        this._updateDomValue();
 		        if (this.value) {
 		          domValue.innerHTML = this._escapeHTML(this.value);
@@ -38887,7 +39205,7 @@
 
 		      case 'input':
 		        //this._debouncedGetDomValue(true); // TODO
-		        this._getDomValue(true);
+		        this._getDomValue();
 		        this._updateDomValue();
 		        break;
 
@@ -38909,14 +39227,14 @@
 
 		      case 'keyup':
 		        //this._debouncedGetDomValue(true); // TODO
-		        this._getDomValue(true);
+		        this._getDomValue();
 		        this._updateDomValue();
 		        break;
 
 		      case 'cut':
 		      case 'paste':
 		        setTimeout(function () {
-		          node._getDomValue(true);
+		          node._getDomValue();
 		          node._updateDomValue();
 		        }, 1);
 		        break;
@@ -38928,7 +39246,6 @@
 		  if (target == domField) {
 		    switch (type) {
 		      case 'blur':
-		      case 'change':
 		        this._getDomField(true);
 		        this._updateDomField();
 		        if (this.field) {
@@ -38937,7 +39254,7 @@
 		        break;
 
 		      case 'input':
-		        this._getDomField(true);
+		        this._getDomField();
 		        this._updateSchema();
 		        this._updateDomField();
 		        this._updateDomValue();
@@ -38949,14 +39266,14 @@
 		        break;
 
 		      case 'keyup':
-		        this._getDomField(true);
+		        this._getDomField();
 		        this._updateDomField();
 		        break;
 
 		      case 'cut':
 		      case 'paste':
 		        setTimeout(function () {
-		          node._getDomField(true);
+		          node._getDomField();
 		          node._updateDomField();
 		        }, 1);
 		        break;
@@ -39433,6 +39750,25 @@
 		};
 
 		/**
+		 * Get all field names of an object
+		 * @param {Node} [excludeNode] Optional node to be excluded from the returned field names
+		 * @return {string[]}
+		 */
+		Node.prototype.getFieldNames = function (excludeNode) {
+		  if (this.type === 'object') {
+		    return this.childs
+		        .filter(function (child) {
+		          return child !== excludeNode;
+		        })
+		        .map(function (child) {
+		          return child.field;
+		        });
+		  }
+
+		  return [];
+		}
+
+		/**
 		 * Remove nodes
 		 * @param {Node[] | Node} nodes
 		 */
@@ -39496,6 +39832,10 @@
 		    var afterNode = lastNode;
 		    var clones = nodes.map(function (node) {
 		      var clone = node.clone();
+		      if (node.parent.type === 'object') {
+		        var existingFieldNames = node.parent.getFieldNames();
+		        clone.field = util.findUniqueName(node.field, existingFieldNames);
+		      }
 		      parent.insertAfter(clone, afterNode);
 		      afterNode = clone;
 		      return clone;
@@ -40381,6 +40721,16 @@
 		    }
 		  }
 
+		  if (this.editor.options.onCreateMenu) {
+		    var path = node.getPath();
+
+				items = this.editor.options.onCreateMenu(items, {
+		      type: 'single',
+		      path: path,
+		      paths: [path]
+				});
+			}
+		  
 		  var menu = new ContextMenu(items, {close: onClose});
 		  menu.show(anchor, this.editor.frame);
 		};
@@ -40584,7 +40934,7 @@
 
 
 	/***/ },
-	/* 71 */
+	/* 72 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		(function(exports) {
@@ -42257,7 +42607,7 @@
 
 
 	/***/ },
-	/* 72 */
+	/* 73 */
 	/***/ function(module, exports) {
 
 		/*
@@ -42308,14 +42658,14 @@
 
 
 	/***/ },
-	/* 73 */
+	/* 74 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var util = __webpack_require__(65);
-		var ContextMenu = __webpack_require__(63);
-		var translate = __webpack_require__(68).translate;
+		var util = __webpack_require__(62);
+		var ContextMenu = __webpack_require__(68);
+		var translate = __webpack_require__(66).translate;
 
 		/**
 		 * A factory function to create an AppendNode, which depends on a Node
@@ -42513,9 +42863,19 @@
 		        'submenu': appendSubmenu
 		      }
 		    ];
+		    
+		    if (this.editor.options.onCreateMenu) {
+		      var path = node.parent.getPath();
+
+		      items = this.editor.options.onCreateMenu(items, {
+		        type: 'append',
+		        path: path,
+		        paths: [path]
+		      });
+		    }
 
 		    var menu = new ContextMenu(items, {close: onClose});
-		    menu.show(anchor, this.editor.content);
+		    menu.show(anchor, this.editor.frame);
 		  };
 
 		  /**
@@ -42563,12 +42923,12 @@
 
 
 	/***/ },
-	/* 74 */
+	/* 75 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var translate = __webpack_require__(68).translate;
+		var translate = __webpack_require__(66).translate;
 
 		/**
 		 * A factory function to create an ShowMoreNode, which depends on a Node
@@ -42726,11 +43086,11 @@
 
 
 	/***/ },
-	/* 75 */
+	/* 76 */
 	/***/ function(module, exports, __webpack_require__) {
 
-		var picoModal = __webpack_require__(76);
-		var translate = __webpack_require__(68).translate;
+		var picoModal = __webpack_require__(77);
+		var translate = __webpack_require__(66).translate;
 
 		/**
 		 * Show advanced sorting modal
@@ -42846,7 +43206,7 @@
 
 
 	/***/ },
-	/* 76 */
+	/* 77 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -43455,14 +43815,15 @@
 
 
 	/***/ },
-	/* 77 */
+	/* 78 */
 	/***/ function(module, exports, __webpack_require__) {
 
-		var jmespath = __webpack_require__(71);
-		var picoModal = __webpack_require__(76);
-		var Selectr = __webpack_require__(78);
-		var translate = __webpack_require__(68).translate;
-		var debounce = __webpack_require__(65).debounce;
+		var jmespath = __webpack_require__(72);
+		var picoModal = __webpack_require__(77);
+		var Selectr = __webpack_require__(79);
+		var translate = __webpack_require__(66).translate;
+		var util = __webpack_require__(62);
+		var debounce = util.debounce;
 
 		var MAX_PREVIEW_LINES = 100;
 
@@ -43481,84 +43842,75 @@
 		      'Enter a <a href="http://jmespath.org" target="_blank">JMESPath</a> query to filter, sort, or transform the JSON data.<br/>' +
 		      'To learn JMESPath, go to <a href="http://jmespath.org/tutorial.html" target="_blank">the interactive tutorial</a>.' +
 		      '</p>' +
-		      '<table>' +
-		      '<tbody>' +
-		      '<tr>' +
-		      '  <th>' + translate('transformWizardLabel') + ' </th>' +
-		      '  <td>' +
-		      '  <div id="wizard" class="jsoneditor-jmespath-wizard">' +
-		      '  <div>' +
-		      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardFilter') + '</div>' +
-		      '    <div class="jsoneditor-jmespath-filter">' +
-		      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-field" >' +
-		      '        <select id="filterField">' +
-		      '        </select>' +
-		      '      </div>' +
-		      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-relation" >' +
-		      '        <select id="filterRelation">' +
-		      '          <option value="==">==</option>' +
-		      '          <option value="!=">!=</option>' +
-		      '          <option value="<">&lt;</option>' +
-		      '          <option value="<=">&lt;=</option>' +
-		      '          <option value=">">&gt;</option>' +
-		      '          <option value=">=">&gt;=</option>' +
-		      '        </select>' +
-		      '      </div>' +
-		      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-value" >' +
-		      '        <input placeholder="value..." id="filterValue" />' +
-		      '      </div>' +
-		      '    </div>' +
-		      '  </div>' +
-		      '  <div>' +
-		      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSortBy') + '</div>' +
-		      '    <div class="jsoneditor-jmespath-filter">' +
-		      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-field">' +
-		      '        <select id="sortField">' +
-		      '        </select>' +
-		      '      </div>' +
-		      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-order" >' +
-		      '        <select id="sortOrder">' +
-		      '          <option value="asc">Ascending</option>' +
-		      '          <option value="desc">Descending</option>' +
-		      '        </select>' +
-		      '      </div>' +
-		      '    </div>' +
-		      '  </div>' +
-		      '  <div id="selectFieldsPart">' +
-		      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSelectFields') + '</div>' +
-		      '    <select class="jsoneditor-jmespath-select-fields" id="selectFields" multiple>' +
-		      '    </select>' +
-		      '  </div>' +
-		      '  </div>' +
-		      '  </td>' +
-		      '</tr>' +
-		      '<tr>' +
-		      '  <th>' + translate('transformQueryLabel') + ' </th>' +
-		      '  <td class="jsoneditor-modal-input">' +
-		      '    <textarea id="query" ' +
-		      '              rows="4" ' +
-		      '              autocomplete="off" ' +
-		      '              autocorrect="off" ' +
-		      '              autocapitalize="off" ' +
-		      '              spellcheck="false"' +
-		      '              title="' + translate('transformQueryTitle') + '">[*]</textarea>' +
-		      '  </td>' +
-		      '</tr>' +
-		      '<tr>' +
-		      '  <th>' + translate('transformPreviewLabel') + ' </th>' +
-		      '  <td class="jsoneditor-modal-input">' +
-		      '    <textarea id="preview" ' +
-		      '        class="jsoneditor-transform-preview"' +
-		      '        readonly> </textarea>' +
-		      '  </td>' +
-		      '</tr>' +
-		      '<tr>' +
-		      '<td colspan="2" class="jsoneditor-modal-input jsoneditor-modal-actions">' +
+		      '<div class="jsoneditor-jmespath-label">' + translate('transformWizardLabel') + ' </div>' +
+		      '<div id="wizard" class="jsoneditor-jmespath-block jsoneditor-jmespath-wizard">' +
+		      '  <table class="jsoneditor-jmespath-wizard-table">' +
+		      '    <tbody>' +
+		      '      <tr>' +
+		      '        <th>' + translate('transformWizardFilter') + '</th>' +
+		      '        <td class="jsoneditor-jmespath-filter">' +
+		      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-field" >' +
+		      '            <select id="filterField">' +
+		      '            </select>' +
+		      '          </div>' +
+		      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-relation" >' +
+		      '            <select id="filterRelation">' +
+		      '              <option value="==">==</option>' +
+		      '              <option value="!=">!=</option>' +
+		      '              <option value="<">&lt;</option>' +
+		      '              <option value="<=">&lt;=</option>' +
+		      '              <option value=">">&gt;</option>' +
+		      '              <option value=">=">&gt;=</option>' +
+		      '            </select>' +
+		      '          </div>' +
+		      '          <div class="jsoneditor-inline jsoneditor-jmespath-filter-value" >' +
+		      '            <input placeholder="value..." id="filterValue" />' +
+		      '          </div>' +
+		      '        </td>' +
+		      '      </tr>' +
+		      '      <tr>' +
+		      '        <th>' + translate('transformWizardSortBy') + '</th>' +
+		      '        <td class="jsoneditor-jmespath-filter">' +
+		      '          <div class="jsoneditor-inline jsoneditor-jmespath-sort-field">' +
+		      '            <select id="sortField">' +
+		      '            </select>' +
+		      '          </div>' +
+		      '          <div class="jsoneditor-inline jsoneditor-jmespath-sort-order" >' +
+		      '            <select id="sortOrder">' +
+		      '              <option value="asc">Ascending</option>' +
+		      '              <option value="desc">Descending</option>' +
+		      '            </select>' +
+		      '          </div>' +
+		      '        </td>' +
+		      '      </tr>' +
+		      '      <tr id="selectFieldsPart">' +
+		      '        <th>' + translate('transformWizardSelectFields') + '</th>' +
+		      '        <td class="jsoneditor-jmespath-filter">' +
+		      '          <select class="jsoneditor-jmespath-select-fields" id="selectFields" multiple></select>' +
+		      '        </td>' +
+		      '      </tr>' +
+		      '    </tbody>' +
+		      '  </table>' +
+		      '</div>' +
+		      '<div class="jsoneditor-jmespath-label">' + translate('transformQueryLabel') + ' </div>' +
+		      '<div class="jsoneditor-jmespath-block">' +
+		      '  <textarea id="query" ' +
+		      '            rows="4" ' +
+		      '            autocomplete="off" ' +
+		      '            autocorrect="off" ' +
+		      '            autocapitalize="off" ' +
+		      '            spellcheck="false"' +
+		      '            title="' + translate('transformQueryTitle') + '">[*]</textarea>' +
+		      '</div>' +
+		      '<div class="jsoneditor-jmespath-label">' + translate('transformPreviewLabel') + ' </div>' +
+		      '<div class="jsoneditor-jmespath-block">' +
+		      '  <textarea id="preview" ' +
+		      '      class="jsoneditor-transform-preview"' +
+		      '      readonly> </textarea>' +
+		      '</div>' +
+		      '<div class="jsoneditor-jmespath-block jsoneditor-modal-actions">' +
 		      '  <input type="submit" id="ok" value="' + translate('ok') + '" autofocus />' +
-		      '</td>' +
-		      '</tr>' +
-		      '</tbody>' +
-		      '</table>' +
+		      '</div>' +
 		      '</div>';
 
 		  picoModal({
@@ -43583,11 +43935,8 @@
 		        var preview = elem.querySelector('#preview');
 
 		        if (!Array.isArray(value)) {
-		          wizard.style.display = 'none';
-		          wizard.parentNode.style.fontStyle = 'italic';
-		          wizard.parentNode.appendChild(
-		              document.createTextNode('(wizard not available for objects, only for arrays)')
-		          );
+		          wizard.style.fontStyle = 'italic';
+		          wizard.innerHTML = '(wizard not available for objects, only for arrays)'
 		        }
 
 		        var paths = node.getChildPaths();
@@ -43618,14 +43967,17 @@
 		          });
 		        }
 		        else {
-		          elem.querySelector('#selectFieldsPart').style.display = 'none';
+		          var selectFieldsPart = elem.querySelector('#selectFieldsPart');
+		          if (selectFieldsPart) {
+		            selectFieldsPart.style.display = 'none';
+		          }
 		        }
 
 		        var selectrFilterField = new Selectr(filterField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
 		        var selectrFilterRelation = new Selectr(filterRelation, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'compare...' });
 		        var selectrSortField = new Selectr(sortField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
 		        var selectrSortOrder = new Selectr(sortOrder, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'order...' });
-		        var selectrSelectFields = new Selectr(selectFields, {multiple: true, clearable: true, defaultSelected: false});
+		        var selectrSelectFields = new Selectr(selectFields, {multiple: true, clearable: true, defaultSelected: false, placeholder: 'select fields...'});
 
 		        selectrFilterField.on('selectr.change', generateQueryFromWizard);
 		        selectrFilterRelation.on('selectr.change', generateQueryFromWizard);
@@ -43635,8 +43987,11 @@
 		        selectrSelectFields.on('selectr.change', generateQueryFromWizard);
 
 		        elem.querySelector('.pico-modal-contents').onclick = function (event) {
-		          // prevent the first clear button from getting focus when clicking anywhere in the modal
-		          event.preventDefault();
+		          // prevent the first clear button (in any select box) from getting
+		          // focus when clicking anywhere in the modal. Only allow clicking links.
+		          if (event.target.nodeName !== 'A') {
+		            event.preventDefault();
+		          }
 		        };
 
 		        query.value = Array.isArray(value) ? '[*]' : '@';
@@ -43655,12 +44010,19 @@
 		        function generateQueryFromWizard () {
 		          if (filterField.value && filterRelation.value && filterValue.value) {
 		            var field1 = filterField.value;
+		            var examplePath = field1 !== '@'
+		                ? ['0'].concat(util.parsePath('.' + field1))
+		                : ['0']
+		            var exampleValue = util.get(value, examplePath)
 		            // TODO: move _stringCast into a static util function
-		            var value1 = JSON.stringify(node._stringCast(filterValue.value));
+		            var value1 = typeof exampleValue === 'string'
+		                ? filterValue.value
+		                : node._stringCast(filterValue.value);
+
 		            query.value = '[? ' +
 		                field1 + ' ' +
 		                filterRelation.value + ' ' +
-		                '`' + value1 + '`' +
+		                '`' + JSON.stringify(value1) + '`' +
 		                ']';
 		          }
 		          else {
@@ -43681,8 +44043,8 @@
 		            var values = [];
 		            for (var i=0; i < selectFields.options.length; i++) {
 		              if (selectFields.options[i].selected) {
-		                var value = selectFields.options[i].value;
-		                values.push(value);
+		                var selectedValue = selectFields.options[i].value;
+		                values.push(selectedValue);
 		              }
 		            }
 
@@ -43691,7 +44053,7 @@
 		            }
 
 		            if (values.length === 1) {
-		              query.value += '.' + value;
+		              query.value += '.' + values[0];
 		            }
 		            else if (values.length > 1) {
 		              query.value += '.{' +
@@ -43762,7 +44124,7 @@
 
 
 	/***/ },
-	/* 78 */
+	/* 79 */
 	/***/ function(module, exports) {
 
 		/*!
@@ -45941,13 +46303,13 @@
 
 
 	/***/ },
-	/* 79 */
+	/* 80 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
-		var ContextMenu = __webpack_require__(63);
-		var translate = __webpack_require__(68).translate;
+		var ContextMenu = __webpack_require__(68);
+		var translate = __webpack_require__(66).translate;
 
 		/**
 		 * Create a select box to be used in the editor menu's, which allows to switch mode
@@ -46062,14 +46424,25 @@
 		module.exports = ModeSwitcher;
 
 	/***/ },
-	/* 80 */
+	/* 81 */
 	/***/ function(module, exports) {
 
 		'use strict';
 
+		var defaultFilterFunction = {
+		  start: function (token, match, config) {
+		    return match.indexOf(token) === 0;
+		  },
+		  contain: function (token, match, config) {
+		    return match.indexOf(token) > -1;
+		  }
+		};
+
 		function completely(config) {
 		    config = config || {};
-		    config.confirmKeys = config.confirmKeys || [39, 35, 9] // right, end, tab 
+		    config.filter = config.filter || 'start';
+		    config.trigger = config.trigger || 'keydown';
+		    config.confirmKeys = config.confirmKeys || [39, 35, 9] // right, end, tab
 		    config.caseSensitive = config.caseSensitive || false    // autocomplete case sensitive
 
 		    var fontSize = '';
@@ -46114,22 +46487,25 @@
 		                var distanceToBottom = vph - rect.bottom - 6;  // distance from the browser border.
 
 		                rows = [];
-		                for (var i = 0; i < array.length; i++) {
+		                var filterFn = typeof config.filter === 'function' ? config.filter : defaultFilterFunction[config.filter];
 
-		                    if (  (config.caseSensitive && array[i].indexOf(token) !== 0)
-		                        ||(!config.caseSensitive && array[i].toLowerCase().indexOf(token.toLowerCase()) !== 0)) { continue; }
+		                var filtered = !filterFn ? [] : array.filter(function (match) {
+		                  return filterFn(config.caseSensitive ? token : token.toLowerCase(), config.caseSensitive ? match : match.toLowerCase(), config);
+		                });
 
-		                    var divRow = document.createElement('div');
-		                    divRow.className = 'item';
-		                    //divRow.style.color = config.color;
-		                    divRow.onmouseover = onMouseOver;
-		                    divRow.onmouseout = onMouseOut;
-		                    divRow.onmousedown = onMouseDown;
-		                    divRow.__hint = array[i];
-		                    divRow.innerHTML = array[i].substring(0, token.length) + '<b>' + array[i].substring(token.length) + '</b>';
-		                    rows.push(divRow);
-		                    elem.appendChild(divRow);
-		                }
+		                rows = filtered.map(function (row) {
+		                  var divRow = document.createElement('div');
+		                  divRow.className = 'item';
+		                  //divRow.style.color = config.color;
+		                  divRow.onmouseover = onMouseOver;
+		                  divRow.onmouseout = onMouseOut;
+		                  divRow.onmousedown = onMouseDown;
+		                  divRow.__hint = row;
+		                  divRow.innerHTML = row.substring(0, token.length) + '<b>' + row.substring(token.length) + '</b>';
+		                  elem.appendChild(divRow);
+		                  return divRow;
+		                });
+
 		                if (rows.length === 0) {
 		                    return; // nothing to show.
 		                }
@@ -46449,14 +46825,14 @@
 		module.exports = completely;
 
 	/***/ },
-	/* 81 */
+	/* 82 */
 	/***/ function(module, exports, __webpack_require__) {
 
 		'use strict';
 
 		var ace = __webpack_require__(51);
-		var ModeSwitcher = __webpack_require__(79);
-		var util = __webpack_require__(65);
+		var ModeSwitcher = __webpack_require__(80);
+		var util = __webpack_require__(62);
 
 		// create a mixin with the functions for text mode
 		var textmode = {};
@@ -46530,7 +46906,7 @@
 		  this.theme = options.theme || DEFAULT_THEME;
 		  if (this.theme === DEFAULT_THEME && _ace) {
 		    try {
-		      __webpack_require__(82);
+		      __webpack_require__(83);
 		    }
 		    catch (err) {
 		      console.error(err);
@@ -47589,7 +47965,7 @@
 
 
 	/***/ },
-	/* 82 */
+	/* 83 */
 	/***/ function(module, exports) {
 
 		/* ***** BEGIN LICENSE BLOCK *****
@@ -47752,7 +48128,7 @@
 
 	module.exports.apply = __webpack_require__(3);
 	module.exports.generate = __webpack_require__(4);
-	module.exports.merge = __webpack_require__(8);
+	module.exports.merge = __webpack_require__(27);
 
 
 /***/ }),
@@ -47860,145 +48236,1088 @@
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var pSlice = Array.prototype.slice;
 	var objectKeys = __webpack_require__(6);
-	var isArguments = __webpack_require__(7);
+	var isArguments = __webpack_require__(9);
+	var is = __webpack_require__(10);
+	var isRegex = __webpack_require__(21);
+	var flags = __webpack_require__(22);
+	var isDate = __webpack_require__(26);
 
-	var deepEqual = module.exports = function (actual, expected, opts) {
-	  if (!opts) opts = {};
+	var getTime = Date.prototype.getTime;
+
+	function deepEqual(actual, expected, options) {
+	  var opts = options || {};
+
 	  // 7.1. All identical values are equivalent, as determined by ===.
-	  if (actual === expected) {
+	  if (opts.strict ? is(actual, expected) : actual === expected) {
 	    return true;
-
-	  } else if (actual instanceof Date && expected instanceof Date) {
-	    return actual.getTime() === expected.getTime();
-
-	  // 7.3. Other pairs that do not both pass typeof value == 'object',
-	  // equivalence is determined by ==.
-	  } else if (!actual || !expected || typeof actual != 'object' && typeof expected != 'object') {
-	    return opts.strict ? actual === expected : actual == expected;
-
-	  // 7.4. For all other Object pairs, including Array objects, equivalence is
-	  // determined by having the same number of owned properties (as verified
-	  // with Object.prototype.hasOwnProperty.call), the same set of keys
-	  // (although not necessarily the same order), equivalent values for every
-	  // corresponding key, and an identical 'prototype' property. Note: this
-	  // accounts for both named and indexed properties on Arrays.
-	  } else {
-	    return objEquiv(actual, expected, opts);
 	  }
+
+	  // 7.3. Other pairs that do not both pass typeof value == 'object', equivalence is determined by ==.
+	  if (!actual || !expected || (typeof actual !== 'object' && typeof expected !== 'object')) {
+	    return opts.strict ? is(actual, expected) : actual == expected;
+	  }
+
+	  /*
+	   * 7.4. For all other Object pairs, including Array objects, equivalence is
+	   * determined by having the same number of owned properties (as verified
+	   * with Object.prototype.hasOwnProperty.call), the same set of keys
+	   * (although not necessarily the same order), equivalent values for every
+	   * corresponding key, and an identical 'prototype' property. Note: this
+	   * accounts for both named and indexed properties on Arrays.
+	   */
+	  // eslint-disable-next-line no-use-before-define
+	  return objEquiv(actual, expected, opts);
 	}
 
 	function isUndefinedOrNull(value) {
 	  return value === null || value === undefined;
 	}
 
-	function isBuffer (x) {
-	  if (!x || typeof x !== 'object' || typeof x.length !== 'number') return false;
+	function isBuffer(x) {
+	  if (!x || typeof x !== 'object' || typeof x.length !== 'number') {
+	    return false;
+	  }
 	  if (typeof x.copy !== 'function' || typeof x.slice !== 'function') {
 	    return false;
 	  }
-	  if (x.length > 0 && typeof x[0] !== 'number') return false;
+	  if (x.length > 0 && typeof x[0] !== 'number') {
+	    return false;
+	  }
 	  return true;
 	}
 
 	function objEquiv(a, b, opts) {
+	  /* eslint max-statements: [2, 50] */
 	  var i, key;
-	  if (isUndefinedOrNull(a) || isUndefinedOrNull(b))
-	    return false;
+	  if (typeof a !== typeof b) { return false; }
+	  if (isUndefinedOrNull(a) || isUndefinedOrNull(b)) { return false; }
+
 	  // an identical 'prototype' property.
-	  if (a.prototype !== b.prototype) return false;
-	  //~~~I've managed to break Object.keys through screwy arguments passing.
-	  //   Converting to array solves the problem.
-	  if (isArguments(a)) {
-	    if (!isArguments(b)) {
-	      return false;
-	    }
-	    a = pSlice.call(a);
-	    b = pSlice.call(b);
-	    return deepEqual(a, b, opts);
+	  if (a.prototype !== b.prototype) { return false; }
+
+	  if (isArguments(a) !== isArguments(b)) { return false; }
+
+	  var aIsRegex = isRegex(a);
+	  var bIsRegex = isRegex(b);
+	  if (aIsRegex !== bIsRegex) { return false; }
+	  if (aIsRegex || bIsRegex) {
+	    return a.source === b.source && flags(a) === flags(b);
 	  }
-	  if (isBuffer(a)) {
-	    if (!isBuffer(b)) {
-	      return false;
-	    }
-	    if (a.length !== b.length) return false;
+
+	  if (isDate(a) && isDate(b)) {
+	    return getTime.call(a) === getTime.call(b);
+	  }
+
+	  var aIsBuffer = isBuffer(a);
+	  var bIsBuffer = isBuffer(b);
+	  if (aIsBuffer !== bIsBuffer) { return false; }
+	  if (aIsBuffer || bIsBuffer) { // && would work too, because both are true or both false here
+	    if (a.length !== b.length) { return false; }
 	    for (i = 0; i < a.length; i++) {
-	      if (a[i] !== b[i]) return false;
+	      if (a[i] !== b[i]) { return false; }
 	    }
 	    return true;
 	  }
+
+	  if (typeof a !== typeof b) { return false; }
+
 	  try {
-	    var ka = objectKeys(a),
-	        kb = objectKeys(b);
-	  } catch (e) {//happens when one is a string literal and the other isn't
+	    var ka = objectKeys(a);
+	    var kb = objectKeys(b);
+	  } catch (e) { // happens when one is a string literal and the other isn't
 	    return false;
 	  }
-	  // having the same number of owned properties (keys incorporates
-	  // hasOwnProperty)
-	  if (ka.length != kb.length)
-	    return false;
-	  //the same set of keys (although not necessarily the same order),
+	  // having the same number of owned properties (keys incorporates hasOwnProperty)
+	  if (ka.length !== kb.length) { return false; }
+
+	  // the same set of keys (although not necessarily the same order),
 	  ka.sort();
 	  kb.sort();
-	  //~~~cheap key test
+	  // ~~~cheap key test
 	  for (i = ka.length - 1; i >= 0; i--) {
-	    if (ka[i] != kb[i])
-	      return false;
+	    if (ka[i] != kb[i]) { return false; }
 	  }
-	  //equivalent values for every corresponding key, and
-	  //~~~possibly expensive deep test
+	  // equivalent values for every corresponding key, and ~~~possibly expensive deep test
 	  for (i = ka.length - 1; i >= 0; i--) {
 	    key = ka[i];
-	    if (!deepEqual(a[key], b[key], opts)) return false;
+	    if (!deepEqual(a[key], b[key], opts)) { return false; }
 	  }
-	  return typeof a === typeof b;
+
+	  return true;
 	}
+
+	module.exports = deepEqual;
 
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = typeof Object.keys === 'function'
-	  ? Object.keys : shim;
+	'use strict';
 
-	exports.shim = shim;
-	function shim (obj) {
-	  var keys = [];
-	  for (var key in obj) keys.push(key);
-	  return keys;
-	}
+	var slice = Array.prototype.slice;
+	var isArgs = __webpack_require__(7);
+
+	var origKeys = Object.keys;
+	var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(8);
+
+	var originalKeys = Object.keys;
+
+	keysShim.shim = function shimObjectKeys() {
+		if (Object.keys) {
+			var keysWorksWithArguments = (function () {
+				// Safari 5.0 bug
+				var args = Object.keys(arguments);
+				return args && args.length === arguments.length;
+			}(1, 2));
+			if (!keysWorksWithArguments) {
+				Object.keys = function keys(object) { // eslint-disable-line func-name-matching
+					if (isArgs(object)) {
+						return originalKeys(slice.call(object));
+					}
+					return originalKeys(object);
+				};
+			}
+		} else {
+			Object.keys = keysShim;
+		}
+		return Object.keys || keysShim;
+	};
+
+	module.exports = keysShim;
 
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-	var supportsArgumentsClass = (function(){
-	  return Object.prototype.toString.call(arguments)
-	})() == '[object Arguments]';
+	'use strict';
 
-	exports = module.exports = supportsArgumentsClass ? supported : unsupported;
+	var toStr = Object.prototype.toString;
 
-	exports.supported = supported;
-	function supported(object) {
-	  return Object.prototype.toString.call(object) == '[object Arguments]';
-	};
-
-	exports.unsupported = unsupported;
-	function unsupported(object){
-	  return object &&
-	    typeof object == 'object' &&
-	    typeof object.length == 'number' &&
-	    Object.prototype.hasOwnProperty.call(object, 'callee') &&
-	    !Object.prototype.propertyIsEnumerable.call(object, 'callee') ||
-	    false;
+	module.exports = function isArguments(value) {
+		var str = toStr.call(value);
+		var isArgs = str === '[object Arguments]';
+		if (!isArgs) {
+			isArgs = str !== '[object Array]' &&
+				value !== null &&
+				typeof value === 'object' &&
+				typeof value.length === 'number' &&
+				value.length >= 0 &&
+				toStr.call(value.callee) === '[object Function]';
+		}
+		return isArgs;
 	};
 
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var keysShim;
+	if (!Object.keys) {
+		// modified from https://github.com/es-shims/es5-shim
+		var has = Object.prototype.hasOwnProperty;
+		var toStr = Object.prototype.toString;
+		var isArgs = __webpack_require__(7); // eslint-disable-line global-require
+		var isEnumerable = Object.prototype.propertyIsEnumerable;
+		var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
+		var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
+		var dontEnums = [
+			'toString',
+			'toLocaleString',
+			'valueOf',
+			'hasOwnProperty',
+			'isPrototypeOf',
+			'propertyIsEnumerable',
+			'constructor'
+		];
+		var equalsConstructorPrototype = function (o) {
+			var ctor = o.constructor;
+			return ctor && ctor.prototype === o;
+		};
+		var excludedKeys = {
+			$applicationCache: true,
+			$console: true,
+			$external: true,
+			$frame: true,
+			$frameElement: true,
+			$frames: true,
+			$innerHeight: true,
+			$innerWidth: true,
+			$onmozfullscreenchange: true,
+			$onmozfullscreenerror: true,
+			$outerHeight: true,
+			$outerWidth: true,
+			$pageXOffset: true,
+			$pageYOffset: true,
+			$parent: true,
+			$scrollLeft: true,
+			$scrollTop: true,
+			$scrollX: true,
+			$scrollY: true,
+			$self: true,
+			$webkitIndexedDB: true,
+			$webkitStorageInfo: true,
+			$window: true
+		};
+		var hasAutomationEqualityBug = (function () {
+			/* global window */
+			if (typeof window === 'undefined') { return false; }
+			for (var k in window) {
+				try {
+					if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+						try {
+							equalsConstructorPrototype(window[k]);
+						} catch (e) {
+							return true;
+						}
+					}
+				} catch (e) {
+					return true;
+				}
+			}
+			return false;
+		}());
+		var equalsConstructorPrototypeIfNotBuggy = function (o) {
+			/* global window */
+			if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+				return equalsConstructorPrototype(o);
+			}
+			try {
+				return equalsConstructorPrototype(o);
+			} catch (e) {
+				return false;
+			}
+		};
+
+		keysShim = function keys(object) {
+			var isObject = object !== null && typeof object === 'object';
+			var isFunction = toStr.call(object) === '[object Function]';
+			var isArguments = isArgs(object);
+			var isString = isObject && toStr.call(object) === '[object String]';
+			var theKeys = [];
+
+			if (!isObject && !isFunction && !isArguments) {
+				throw new TypeError('Object.keys called on a non-object');
+			}
+
+			var skipProto = hasProtoEnumBug && isFunction;
+			if (isString && object.length > 0 && !has.call(object, 0)) {
+				for (var i = 0; i < object.length; ++i) {
+					theKeys.push(String(i));
+				}
+			}
+
+			if (isArguments && object.length > 0) {
+				for (var j = 0; j < object.length; ++j) {
+					theKeys.push(String(j));
+				}
+			} else {
+				for (var name in object) {
+					if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+						theKeys.push(String(name));
+					}
+				}
+			}
+
+			if (hasDontEnumBug) {
+				var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+
+				for (var k = 0; k < dontEnums.length; ++k) {
+					if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+						theKeys.push(dontEnums[k]);
+					}
+				}
+			}
+			return theKeys;
+		};
+	}
+	module.exports = keysShim;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+	var toStr = Object.prototype.toString;
+
+	var isStandardArguments = function isArguments(value) {
+		if (hasToStringTag && value && typeof value === 'object' && Symbol.toStringTag in value) {
+			return false;
+		}
+		return toStr.call(value) === '[object Arguments]';
+	};
+
+	var isLegacyArguments = function isArguments(value) {
+		if (isStandardArguments(value)) {
+			return true;
+		}
+		return value !== null &&
+			typeof value === 'object' &&
+			typeof value.length === 'number' &&
+			value.length >= 0 &&
+			toStr.call(value) !== '[object Array]' &&
+			toStr.call(value.callee) === '[object Function]';
+	};
+
+	var supportsStandardArguments = (function () {
+		return isStandardArguments(arguments);
+	}());
+
+	isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
+
+	module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var define = __webpack_require__(11);
+	var callBind = __webpack_require__(12);
+
+	var implementation = __webpack_require__(18);
+	var getPolyfill = __webpack_require__(19);
+	var shim = __webpack_require__(20);
+
+	var polyfill = callBind(getPolyfill(), Object);
+
+	define(polyfill, {
+		getPolyfill: getPolyfill,
+		implementation: implementation,
+		shim: shim
+	});
+
+	module.exports = polyfill;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var keys = __webpack_require__(6);
+	var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
+
+	var toStr = Object.prototype.toString;
+	var concat = Array.prototype.concat;
+	var origDefineProperty = Object.defineProperty;
+
+	var isFunction = function (fn) {
+		return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
+	};
+
+	var arePropertyDescriptorsSupported = function () {
+		var obj = {};
+		try {
+			origDefineProperty(obj, 'x', { enumerable: false, value: obj });
+			// eslint-disable-next-line no-unused-vars, no-restricted-syntax
+			for (var _ in obj) { // jscs:ignore disallowUnusedVariables
+				return false;
+			}
+			return obj.x === obj;
+		} catch (e) { /* this is IE 8. */
+			return false;
+		}
+	};
+	var supportsDescriptors = origDefineProperty && arePropertyDescriptorsSupported();
+
+	var defineProperty = function (object, name, value, predicate) {
+		if (name in object && (!isFunction(predicate) || !predicate())) {
+			return;
+		}
+		if (supportsDescriptors) {
+			origDefineProperty(object, name, {
+				configurable: true,
+				enumerable: false,
+				value: value,
+				writable: true
+			});
+		} else {
+			object[name] = value;
+		}
+	};
+
+	var defineProperties = function (object, map) {
+		var predicates = arguments.length > 2 ? arguments[2] : {};
+		var props = keys(map);
+		if (hasSymbols) {
+			props = concat.call(props, Object.getOwnPropertySymbols(map));
+		}
+		for (var i = 0; i < props.length; i += 1) {
+			defineProperty(object, props[i], map[props[i]], predicates[props[i]]);
+		}
+	};
+
+	defineProperties.supportsDescriptors = !!supportsDescriptors;
+
+	module.exports = defineProperties;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var bind = __webpack_require__(13);
+
+	var GetIntrinsic = __webpack_require__(15);
+
+	var $apply = GetIntrinsic('%Function.prototype.apply%');
+	var $call = GetIntrinsic('%Function.prototype.call%');
+	var $reflectApply = GetIntrinsic('%Reflect.apply%', true) || bind.call($call, $apply);
+
+	module.exports = function callBind() {
+		return $reflectApply(bind, $call, arguments);
+	};
+
+	module.exports.apply = function applyBind() {
+		return $reflectApply(bind, $apply, arguments);
+	};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var implementation = __webpack_require__(14);
+
+	module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint no-invalid-this: 1 */
+
+	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+	var slice = Array.prototype.slice;
+	var toStr = Object.prototype.toString;
+	var funcType = '[object Function]';
+
+	module.exports = function bind(that) {
+	    var target = this;
+	    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+	        throw new TypeError(ERROR_MESSAGE + target);
+	    }
+	    var args = slice.call(arguments, 1);
+
+	    var bound;
+	    var binder = function () {
+	        if (this instanceof bound) {
+	            var result = target.apply(
+	                this,
+	                args.concat(slice.call(arguments))
+	            );
+	            if (Object(result) === result) {
+	                return result;
+	            }
+	            return this;
+	        } else {
+	            return target.apply(
+	                that,
+	                args.concat(slice.call(arguments))
+	            );
+	        }
+	    };
+
+	    var boundLength = Math.max(0, target.length - args.length);
+	    var boundArgs = [];
+	    for (var i = 0; i < boundLength; i++) {
+	        boundArgs.push('$' + i);
+	    }
+
+	    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+	    if (target.prototype) {
+	        var Empty = function Empty() {};
+	        Empty.prototype = target.prototype;
+	        bound.prototype = new Empty();
+	        Empty.prototype = null;
+	    }
+
+	    return bound;
+	};
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* globals
+		Atomics,
+		SharedArrayBuffer,
+	*/
+
+	var undefined;
+
+	var $TypeError = TypeError;
+
+	var $gOPD = Object.getOwnPropertyDescriptor;
+	if ($gOPD) {
+		try {
+			$gOPD({}, '');
+		} catch (e) {
+			$gOPD = null; // this is IE 8, which has a broken gOPD
+		}
+	}
+
+	var throwTypeError = function () { throw new $TypeError(); };
+	var ThrowTypeError = $gOPD
+		? (function () {
+			try {
+				// eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
+				arguments.callee; // IE 8 does not throw here
+				return throwTypeError;
+			} catch (calleeThrows) {
+				try {
+					// IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
+					return $gOPD(arguments, 'callee').get;
+				} catch (gOPDthrows) {
+					return throwTypeError;
+				}
+			}
+		}())
+		: throwTypeError;
+
+	var hasSymbols = __webpack_require__(16)();
+
+	var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
+
+	var generator; // = function * () {};
+	var generatorFunction = generator ? getProto(generator) : undefined;
+	var asyncFn; // async function() {};
+	var asyncFunction = asyncFn ? asyncFn.constructor : undefined;
+	var asyncGen; // async function * () {};
+	var asyncGenFunction = asyncGen ? getProto(asyncGen) : undefined;
+	var asyncGenIterator = asyncGen ? asyncGen() : undefined;
+
+	var TypedArray = typeof Uint8Array === 'undefined' ? undefined : getProto(Uint8Array);
+
+	var INTRINSICS = {
+		'%Array%': Array,
+		'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined : ArrayBuffer,
+		'%ArrayBufferPrototype%': typeof ArrayBuffer === 'undefined' ? undefined : ArrayBuffer.prototype,
+		'%ArrayIteratorPrototype%': hasSymbols ? getProto([][Symbol.iterator]()) : undefined,
+		'%ArrayPrototype%': Array.prototype,
+		'%ArrayProto_entries%': Array.prototype.entries,
+		'%ArrayProto_forEach%': Array.prototype.forEach,
+		'%ArrayProto_keys%': Array.prototype.keys,
+		'%ArrayProto_values%': Array.prototype.values,
+		'%AsyncFromSyncIteratorPrototype%': undefined,
+		'%AsyncFunction%': asyncFunction,
+		'%AsyncFunctionPrototype%': asyncFunction ? asyncFunction.prototype : undefined,
+		'%AsyncGenerator%': asyncGen ? getProto(asyncGenIterator) : undefined,
+		'%AsyncGeneratorFunction%': asyncGenFunction,
+		'%AsyncGeneratorPrototype%': asyncGenFunction ? asyncGenFunction.prototype : undefined,
+		'%AsyncIteratorPrototype%': asyncGenIterator && hasSymbols && Symbol.asyncIterator ? asyncGenIterator[Symbol.asyncIterator]() : undefined,
+		'%Atomics%': typeof Atomics === 'undefined' ? undefined : Atomics,
+		'%Boolean%': Boolean,
+		'%BooleanPrototype%': Boolean.prototype,
+		'%DataView%': typeof DataView === 'undefined' ? undefined : DataView,
+		'%DataViewPrototype%': typeof DataView === 'undefined' ? undefined : DataView.prototype,
+		'%Date%': Date,
+		'%DatePrototype%': Date.prototype,
+		'%decodeURI%': decodeURI,
+		'%decodeURIComponent%': decodeURIComponent,
+		'%encodeURI%': encodeURI,
+		'%encodeURIComponent%': encodeURIComponent,
+		'%Error%': Error,
+		'%ErrorPrototype%': Error.prototype,
+		'%eval%': eval, // eslint-disable-line no-eval
+		'%EvalError%': EvalError,
+		'%EvalErrorPrototype%': EvalError.prototype,
+		'%Float32Array%': typeof Float32Array === 'undefined' ? undefined : Float32Array,
+		'%Float32ArrayPrototype%': typeof Float32Array === 'undefined' ? undefined : Float32Array.prototype,
+		'%Float64Array%': typeof Float64Array === 'undefined' ? undefined : Float64Array,
+		'%Float64ArrayPrototype%': typeof Float64Array === 'undefined' ? undefined : Float64Array.prototype,
+		'%Function%': Function,
+		'%FunctionPrototype%': Function.prototype,
+		'%Generator%': generator ? getProto(generator()) : undefined,
+		'%GeneratorFunction%': generatorFunction,
+		'%GeneratorPrototype%': generatorFunction ? generatorFunction.prototype : undefined,
+		'%Int8Array%': typeof Int8Array === 'undefined' ? undefined : Int8Array,
+		'%Int8ArrayPrototype%': typeof Int8Array === 'undefined' ? undefined : Int8Array.prototype,
+		'%Int16Array%': typeof Int16Array === 'undefined' ? undefined : Int16Array,
+		'%Int16ArrayPrototype%': typeof Int16Array === 'undefined' ? undefined : Int8Array.prototype,
+		'%Int32Array%': typeof Int32Array === 'undefined' ? undefined : Int32Array,
+		'%Int32ArrayPrototype%': typeof Int32Array === 'undefined' ? undefined : Int32Array.prototype,
+		'%isFinite%': isFinite,
+		'%isNaN%': isNaN,
+		'%IteratorPrototype%': hasSymbols ? getProto(getProto([][Symbol.iterator]())) : undefined,
+		'%JSON%': typeof JSON === 'object' ? JSON : undefined,
+		'%JSONParse%': typeof JSON === 'object' ? JSON.parse : undefined,
+		'%Map%': typeof Map === 'undefined' ? undefined : Map,
+		'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols ? undefined : getProto(new Map()[Symbol.iterator]()),
+		'%MapPrototype%': typeof Map === 'undefined' ? undefined : Map.prototype,
+		'%Math%': Math,
+		'%Number%': Number,
+		'%NumberPrototype%': Number.prototype,
+		'%Object%': Object,
+		'%ObjectPrototype%': Object.prototype,
+		'%ObjProto_toString%': Object.prototype.toString,
+		'%ObjProto_valueOf%': Object.prototype.valueOf,
+		'%parseFloat%': parseFloat,
+		'%parseInt%': parseInt,
+		'%Promise%': typeof Promise === 'undefined' ? undefined : Promise,
+		'%PromisePrototype%': typeof Promise === 'undefined' ? undefined : Promise.prototype,
+		'%PromiseProto_then%': typeof Promise === 'undefined' ? undefined : Promise.prototype.then,
+		'%Promise_all%': typeof Promise === 'undefined' ? undefined : Promise.all,
+		'%Promise_reject%': typeof Promise === 'undefined' ? undefined : Promise.reject,
+		'%Promise_resolve%': typeof Promise === 'undefined' ? undefined : Promise.resolve,
+		'%Proxy%': typeof Proxy === 'undefined' ? undefined : Proxy,
+		'%RangeError%': RangeError,
+		'%RangeErrorPrototype%': RangeError.prototype,
+		'%ReferenceError%': ReferenceError,
+		'%ReferenceErrorPrototype%': ReferenceError.prototype,
+		'%Reflect%': typeof Reflect === 'undefined' ? undefined : Reflect,
+		'%RegExp%': RegExp,
+		'%RegExpPrototype%': RegExp.prototype,
+		'%Set%': typeof Set === 'undefined' ? undefined : Set,
+		'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols ? undefined : getProto(new Set()[Symbol.iterator]()),
+		'%SetPrototype%': typeof Set === 'undefined' ? undefined : Set.prototype,
+		'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer,
+		'%SharedArrayBufferPrototype%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer.prototype,
+		'%String%': String,
+		'%StringIteratorPrototype%': hasSymbols ? getProto(''[Symbol.iterator]()) : undefined,
+		'%StringPrototype%': String.prototype,
+		'%Symbol%': hasSymbols ? Symbol : undefined,
+		'%SymbolPrototype%': hasSymbols ? Symbol.prototype : undefined,
+		'%SyntaxError%': SyntaxError,
+		'%SyntaxErrorPrototype%': SyntaxError.prototype,
+		'%ThrowTypeError%': ThrowTypeError,
+		'%TypedArray%': TypedArray,
+		'%TypedArrayPrototype%': TypedArray ? TypedArray.prototype : undefined,
+		'%TypeError%': $TypeError,
+		'%TypeErrorPrototype%': $TypeError.prototype,
+		'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined : Uint8Array,
+		'%Uint8ArrayPrototype%': typeof Uint8Array === 'undefined' ? undefined : Uint8Array.prototype,
+		'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined : Uint8ClampedArray,
+		'%Uint8ClampedArrayPrototype%': typeof Uint8ClampedArray === 'undefined' ? undefined : Uint8ClampedArray.prototype,
+		'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined : Uint16Array,
+		'%Uint16ArrayPrototype%': typeof Uint16Array === 'undefined' ? undefined : Uint16Array.prototype,
+		'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined : Uint32Array,
+		'%Uint32ArrayPrototype%': typeof Uint32Array === 'undefined' ? undefined : Uint32Array.prototype,
+		'%URIError%': URIError,
+		'%URIErrorPrototype%': URIError.prototype,
+		'%WeakMap%': typeof WeakMap === 'undefined' ? undefined : WeakMap,
+		'%WeakMapPrototype%': typeof WeakMap === 'undefined' ? undefined : WeakMap.prototype,
+		'%WeakSet%': typeof WeakSet === 'undefined' ? undefined : WeakSet,
+		'%WeakSetPrototype%': typeof WeakSet === 'undefined' ? undefined : WeakSet.prototype
+	};
+
+	var bind = __webpack_require__(13);
+	var $replace = bind.call(Function.call, String.prototype.replace);
+
+	/* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
+	var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
+	var reEscapeChar = /\\(\\)?/g; /** Used to match backslashes in property paths. */
+	var stringToPath = function stringToPath(string) {
+		var result = [];
+		$replace(string, rePropName, function (match, number, quote, subString) {
+			result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : (number || match);
+		});
+		return result;
+	};
+	/* end adaptation */
+
+	var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
+		if (!(name in INTRINSICS)) {
+			throw new SyntaxError('intrinsic ' + name + ' does not exist!');
+		}
+
+		// istanbul ignore if // hopefully this is impossible to test :-)
+		if (typeof INTRINSICS[name] === 'undefined' && !allowMissing) {
+			throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
+		}
+
+		return INTRINSICS[name];
+	};
+
+	module.exports = function GetIntrinsic(name, allowMissing) {
+		if (typeof name !== 'string' || name.length === 0) {
+			throw new TypeError('intrinsic name must be a non-empty string');
+		}
+		if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
+			throw new TypeError('"allowMissing" argument must be a boolean');
+		}
+
+		var parts = stringToPath(name);
+
+		var value = getBaseIntrinsic('%' + (parts.length > 0 ? parts[0] : '') + '%', allowMissing);
+		for (var i = 1; i < parts.length; i += 1) {
+			if (value != null) {
+				if ($gOPD && (i + 1) >= parts.length) {
+					var desc = $gOPD(value, parts[i]);
+					if (!allowMissing && !(parts[i] in value)) {
+						throw new $TypeError('base intrinsic for ' + name + ' exists, but the property is not available.');
+					}
+					value = desc ? (desc.get || desc.value) : value[parts[i]];
+				} else {
+					value = value[parts[i]];
+				}
+			}
+		}
+		return value;
+	};
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var origSymbol = global.Symbol;
+	var hasSymbolSham = __webpack_require__(17);
+
+	module.exports = function hasNativeSymbols() {
+		if (typeof origSymbol !== 'function') { return false; }
+		if (typeof Symbol !== 'function') { return false; }
+		if (typeof origSymbol('foo') !== 'symbol') { return false; }
+		if (typeof Symbol('bar') !== 'symbol') { return false; }
+
+		return hasSymbolSham();
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint complexity: [2, 18], max-statements: [2, 33] */
+	module.exports = function hasSymbols() {
+		if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
+		if (typeof Symbol.iterator === 'symbol') { return true; }
+
+		var obj = {};
+		var sym = Symbol('test');
+		var symObj = Object(sym);
+		if (typeof sym === 'string') { return false; }
+
+		if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
+		if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
+
+		// temp disabled per https://github.com/ljharb/object.assign/issues/17
+		// if (sym instanceof Symbol) { return false; }
+		// temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
+		// if (!(symObj instanceof Symbol)) { return false; }
+
+		// if (typeof Symbol.prototype.toString !== 'function') { return false; }
+		// if (String(sym) !== Symbol.prototype.toString.call(sym)) { return false; }
+
+		var symVal = 42;
+		obj[sym] = symVal;
+		for (sym in obj) { return false; } // eslint-disable-line no-restricted-syntax
+		if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
+
+		if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
+
+		var syms = Object.getOwnPropertySymbols(obj);
+		if (syms.length !== 1 || syms[0] !== sym) { return false; }
+
+		if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
+
+		if (typeof Object.getOwnPropertyDescriptor === 'function') {
+			var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
+			if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
+		}
+
+		return true;
+	};
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var numberIsNaN = function (value) {
+		return value !== value;
+	};
+
+	module.exports = function is(a, b) {
+		if (a === 0 && b === 0) {
+			return 1 / a === 1 / b;
+		}
+		if (a === b) {
+			return true;
+		}
+		if (numberIsNaN(a) && numberIsNaN(b)) {
+			return true;
+		}
+		return false;
+	};
+
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var implementation = __webpack_require__(18);
+
+	module.exports = function getPolyfill() {
+		return typeof Object.is === 'function' ? Object.is : implementation;
+	};
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var getPolyfill = __webpack_require__(19);
+	var define = __webpack_require__(11);
+
+	module.exports = function shimObjectIs() {
+		var polyfill = getPolyfill();
+		define(Object, { is: polyfill }, {
+			is: function testObjectIs() {
+				return Object.is !== polyfill;
+			}
+		});
+		return polyfill;
+	};
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var hasSymbols = __webpack_require__(16)();
+	var hasToStringTag = hasSymbols && typeof Symbol.toStringTag === 'symbol';
+	var hasOwnProperty;
+	var regexExec;
+	var isRegexMarker;
+	var badStringifier;
+
+	if (hasToStringTag) {
+		hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty);
+		regexExec = Function.call.bind(RegExp.prototype.exec);
+		isRegexMarker = {};
+
+		var throwRegexMarker = function () {
+			throw isRegexMarker;
+		};
+		badStringifier = {
+			toString: throwRegexMarker,
+			valueOf: throwRegexMarker
+		};
+
+		if (typeof Symbol.toPrimitive === 'symbol') {
+			badStringifier[Symbol.toPrimitive] = throwRegexMarker;
+		}
+	}
+
+	var toStr = Object.prototype.toString;
+	var gOPD = Object.getOwnPropertyDescriptor;
+	var regexClass = '[object RegExp]';
+
+	module.exports = hasToStringTag
+		// eslint-disable-next-line consistent-return
+		? function isRegex(value) {
+			if (!value || typeof value !== 'object') {
+				return false;
+			}
+
+			var descriptor = gOPD(value, 'lastIndex');
+			var hasLastIndexDataProperty = descriptor && hasOwnProperty(descriptor, 'value');
+			if (!hasLastIndexDataProperty) {
+				return false;
+			}
+
+			try {
+				regexExec(value, badStringifier);
+			} catch (e) {
+				return e === isRegexMarker;
+			}
+		}
+		: function isRegex(value) {
+			// In older browsers, typeof regex incorrectly returns 'function'
+			if (!value || (typeof value !== 'object' && typeof value !== 'function')) {
+				return false;
+			}
+
+			return toStr.call(value) === regexClass;
+		};
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var define = __webpack_require__(11);
+	var callBind = __webpack_require__(12);
+
+	var implementation = __webpack_require__(23);
+	var getPolyfill = __webpack_require__(24);
+	var shim = __webpack_require__(25);
+
+	var flagsBound = callBind(implementation);
+
+	define(flagsBound, {
+		getPolyfill: getPolyfill,
+		implementation: implementation,
+		shim: shim
+	});
+
+	module.exports = flagsBound;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var $Object = Object;
+	var $TypeError = TypeError;
+
+	module.exports = function flags() {
+		if (this != null && this !== $Object(this)) {
+			throw new $TypeError('RegExp.prototype.flags getter called on non-object');
+		}
+		var result = '';
+		if (this.global) {
+			result += 'g';
+		}
+		if (this.ignoreCase) {
+			result += 'i';
+		}
+		if (this.multiline) {
+			result += 'm';
+		}
+		if (this.dotAll) {
+			result += 's';
+		}
+		if (this.unicode) {
+			result += 'u';
+		}
+		if (this.sticky) {
+			result += 'y';
+		}
+		return result;
+	};
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var implementation = __webpack_require__(23);
+
+	var supportsDescriptors = __webpack_require__(11).supportsDescriptors;
+	var $gOPD = Object.getOwnPropertyDescriptor;
+	var $TypeError = TypeError;
+
+	module.exports = function getPolyfill() {
+		if (!supportsDescriptors) {
+			throw new $TypeError('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
+		}
+		if ((/a/mig).flags === 'gim') {
+			var descriptor = $gOPD(RegExp.prototype, 'flags');
+			if (descriptor && typeof descriptor.get === 'function' && typeof (/a/).dotAll === 'boolean') {
+				return descriptor.get;
+			}
+		}
+		return implementation;
+	};
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var supportsDescriptors = __webpack_require__(11).supportsDescriptors;
+	var getPolyfill = __webpack_require__(24);
+	var gOPD = Object.getOwnPropertyDescriptor;
+	var defineProperty = Object.defineProperty;
+	var TypeErr = TypeError;
+	var getProto = Object.getPrototypeOf;
+	var regex = /a/;
+
+	module.exports = function shimFlags() {
+		if (!supportsDescriptors || !getProto) {
+			throw new TypeErr('RegExp.prototype.flags requires a true ES5 environment that supports property descriptors');
+		}
+		var polyfill = getPolyfill();
+		var proto = getProto(regex);
+		var descriptor = gOPD(proto, 'flags');
+		if (!descriptor || descriptor.get !== polyfill) {
+			defineProperty(proto, 'flags', {
+				configurable: true,
+				enumerable: false,
+				get: polyfill
+			});
+		}
+		return polyfill;
+	};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	var getDay = Date.prototype.getDay;
+	var tryDateObject = function tryDateGetDayCall(value) {
+		try {
+			getDay.call(value);
+			return true;
+		} catch (e) {
+			return false;
+		}
+	};
+
+	var toStr = Object.prototype.toString;
+	var dateClass = '[object Date]';
+	var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
+
+	module.exports = function isDateObject(value) {
+		if (typeof value !== 'object' || value === null) {
+			return false;
+		}
+		return hasToStringTag ? tryDateObject(value) : toStr.call(value) === dateClass;
+	};
+
+
+/***/ }),
+/* 27 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -48024,7 +49343,7 @@
 
 
 /***/ }),
-/* 9 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48064,38 +49383,38 @@
 	        return newObj;
 	    };
 	}
-	JSZip.prototype = __webpack_require__(10);
-	JSZip.prototype.loadAsync = __webpack_require__(106);
-	JSZip.support = __webpack_require__(13);
-	JSZip.defaults = __webpack_require__(77);
+	JSZip.prototype = __webpack_require__(29);
+	JSZip.prototype.loadAsync = __webpack_require__(103);
+	JSZip.support = __webpack_require__(32);
+	JSZip.defaults = __webpack_require__(74);
 
 	// TODO find a better way to handle this version,
 	// a require('package.json').version doesn't work with webpack, see #327
-	JSZip.version = "3.1.5";
+	JSZip.version = "3.5.0";
 
 	JSZip.loadAsync = function (content, options) {
 	    return new JSZip().loadAsync(content, options);
 	};
 
-	JSZip.external = __webpack_require__(70);
+	JSZip.external = __webpack_require__(67);
 	module.exports = JSZip;
 
 
 /***/ }),
-/* 10 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var utf8 = __webpack_require__(11);
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
-	var StreamHelper = __webpack_require__(74);
-	var defaults = __webpack_require__(77);
-	var CompressedObject = __webpack_require__(78);
-	var ZipObject = __webpack_require__(83);
-	var generate = __webpack_require__(84);
-	var nodejsUtils = __webpack_require__(48);
-	var NodejsStreamInputAdapter = __webpack_require__(105);
+	var utf8 = __webpack_require__(30);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
+	var StreamHelper = __webpack_require__(71);
+	var defaults = __webpack_require__(74);
+	var CompressedObject = __webpack_require__(75);
+	var ZipObject = __webpack_require__(80);
+	var generate = __webpack_require__(81);
+	var nodejsUtils = __webpack_require__(65);
+	var NodejsStreamInputAdapter = __webpack_require__(102);
 
 
 	/**
@@ -48422,7 +49741,7 @@
 	          opts.type = opts.type.toLowerCase();
 	          opts.compression = opts.compression.toUpperCase();
 
-	          // "binarystring" is prefered but the internals use "string".
+	          // "binarystring" is preferred but the internals use "string".
 	          if(opts.type === "binarystring") {
 	            opts.type = "string";
 	          }
@@ -48477,15 +49796,15 @@
 
 
 /***/ }),
-/* 11 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
-	var support = __webpack_require__(13);
-	var nodejsUtils = __webpack_require__(48);
-	var GenericWorker = __webpack_require__(73);
+	var utils = __webpack_require__(31);
+	var support = __webpack_require__(32);
+	var nodejsUtils = __webpack_require__(65);
+	var GenericWorker = __webpack_require__(70);
 
 	/**
 	 * The following functions come from pako, from pako/lib/utils/strings
@@ -48758,16 +50077,16 @@
 
 
 /***/ }),
-/* 12 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var support = __webpack_require__(13);
-	var base64 = __webpack_require__(47);
-	var nodejsUtils = __webpack_require__(48);
-	var setImmediate = __webpack_require__(49);
-	var external = __webpack_require__(70);
+	var support = __webpack_require__(32);
+	var base64 = __webpack_require__(64);
+	var nodejsUtils = __webpack_require__(65);
+	var setImmediate = __webpack_require__(66);
+	var external = __webpack_require__(67);
 
 
 	/**
@@ -48851,7 +50170,7 @@
 
 	/**
 	 * An helper for the function arrayLikeToString.
-	 * This contains static informations and functions that
+	 * This contains static information and functions that
 	 * can be optimized by the browser JIT compiler.
 	 */
 	var arrayToStringHelper = {
@@ -49240,7 +50559,7 @@
 
 
 /***/ }),
-/* 13 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {'use strict';
@@ -49277,30 +50596,30 @@
 	}
 
 	try {
-	    exports.nodestream = !!__webpack_require__(18).Readable;
+	    exports.nodestream = !!__webpack_require__(37).Readable;
 	} catch(e) {
 	    exports.nodestream = false;
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33).Buffer))
 
 /***/ }),
-/* 14 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
 	 * The buffer module from node.js, for the browser.
 	 *
-	 * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+	 * @author   Feross Aboukhadijeh <http://feross.org>
 	 * @license  MIT
 	 */
 	/* eslint-disable no-proto */
 
 	'use strict'
 
-	var base64 = __webpack_require__(15)
-	var ieee754 = __webpack_require__(16)
-	var isArray = __webpack_require__(17)
+	var base64 = __webpack_require__(34)
+	var ieee754 = __webpack_require__(35)
+	var isArray = __webpack_require__(36)
 
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -51081,7 +52400,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 15 */
+/* 34 */
 /***/ (function(module, exports) {
 
 	'use strict'
@@ -51151,7 +52470,8 @@
 	    ? validLen - 4
 	    : validLen
 
-	  for (var i = 0; i < len; i += 4) {
+	  var i
+	  for (i = 0; i < len; i += 4) {
 	    tmp =
 	      (revLookup[b64.charCodeAt(i)] << 18) |
 	      (revLookup[b64.charCodeAt(i + 1)] << 12) |
@@ -51238,7 +52558,7 @@
 
 
 /***/ }),
-/* 16 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -51328,7 +52648,7 @@
 
 
 /***/ }),
-/* 17 */
+/* 36 */
 /***/ (function(module, exports) {
 
 	var toString = {}.toString;
@@ -51339,7 +52659,7 @@
 
 
 /***/ }),
-/* 18 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -51350,11 +52670,11 @@
 	 * reduce the final size of the bundle (only one stream implementation, not
 	 * two).
 	 */
-	module.exports = __webpack_require__(19);
+	module.exports = __webpack_require__(38);
 
 
 /***/ }),
-/* 19 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -51380,15 +52700,15 @@
 
 	module.exports = Stream;
 
-	var EE = __webpack_require__(20).EventEmitter;
-	var inherits = __webpack_require__(21);
+	var EE = __webpack_require__(39).EventEmitter;
+	var inherits = __webpack_require__(40);
 
 	inherits(Stream, EE);
-	Stream.Readable = __webpack_require__(22);
-	Stream.Writable = __webpack_require__(43);
-	Stream.Duplex = __webpack_require__(44);
-	Stream.Transform = __webpack_require__(45);
-	Stream.PassThrough = __webpack_require__(46);
+	Stream.Readable = __webpack_require__(41);
+	Stream.Writable = __webpack_require__(60);
+	Stream.Duplex = __webpack_require__(61);
+	Stream.Transform = __webpack_require__(62);
+	Stream.PassThrough = __webpack_require__(63);
 
 	// Backwards-compat with node 0.4.x
 	Stream.Stream = Stream;
@@ -51487,7 +52807,7 @@
 
 
 /***/ }),
-/* 20 */
+/* 39 */
 /***/ (function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -51795,49 +53115,53 @@
 
 
 /***/ }),
-/* 21 */
+/* 40 */
 /***/ (function(module, exports) {
 
 	if (typeof Object.create === 'function') {
 	  // implementation from standard node.js 'util' module
 	  module.exports = function inherits(ctor, superCtor) {
-	    ctor.super_ = superCtor
-	    ctor.prototype = Object.create(superCtor.prototype, {
-	      constructor: {
-	        value: ctor,
-	        enumerable: false,
-	        writable: true,
-	        configurable: true
-	      }
-	    });
+	    if (superCtor) {
+	      ctor.super_ = superCtor
+	      ctor.prototype = Object.create(superCtor.prototype, {
+	        constructor: {
+	          value: ctor,
+	          enumerable: false,
+	          writable: true,
+	          configurable: true
+	        }
+	      })
+	    }
 	  };
 	} else {
 	  // old school shim for old browsers
 	  module.exports = function inherits(ctor, superCtor) {
-	    ctor.super_ = superCtor
-	    var TempCtor = function () {}
-	    TempCtor.prototype = superCtor.prototype
-	    ctor.prototype = new TempCtor()
-	    ctor.prototype.constructor = ctor
+	    if (superCtor) {
+	      ctor.super_ = superCtor
+	      var TempCtor = function () {}
+	      TempCtor.prototype = superCtor.prototype
+	      ctor.prototype = new TempCtor()
+	      ctor.prototype.constructor = ctor
+	    }
 	  }
 	}
 
 
 /***/ }),
-/* 22 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(23);
+	exports = module.exports = __webpack_require__(42);
 	exports.Stream = exports;
 	exports.Readable = exports;
-	exports.Writable = __webpack_require__(36);
-	exports.Duplex = __webpack_require__(35);
-	exports.Transform = __webpack_require__(41);
-	exports.PassThrough = __webpack_require__(42);
+	exports.Writable = __webpack_require__(53);
+	exports.Duplex = __webpack_require__(52);
+	exports.Transform = __webpack_require__(58);
+	exports.PassThrough = __webpack_require__(59);
 
 
 /***/ }),
-/* 23 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -51865,13 +53189,13 @@
 
 	/*<replacement>*/
 
-	var pna = __webpack_require__(25);
+	var pna = __webpack_require__(44);
 	/*</replacement>*/
 
 	module.exports = Readable;
 
 	/*<replacement>*/
-	var isArray = __webpack_require__(26);
+	var isArray = __webpack_require__(36);
 	/*</replacement>*/
 
 	/*<replacement>*/
@@ -51881,7 +53205,7 @@
 	Readable.ReadableState = ReadableState;
 
 	/*<replacement>*/
-	var EE = __webpack_require__(20).EventEmitter;
+	var EE = __webpack_require__(39).EventEmitter;
 
 	var EElistenerCount = function (emitter, type) {
 	  return emitter.listeners(type).length;
@@ -51889,12 +53213,12 @@
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var Stream = __webpack_require__(27);
+	var Stream = __webpack_require__(45);
 	/*</replacement>*/
 
 	/*<replacement>*/
 
-	var Buffer = __webpack_require__(28).Buffer;
+	var Buffer = __webpack_require__(46).Buffer;
 	var OurUint8Array = global.Uint8Array || function () {};
 	function _uint8ArrayToBuffer(chunk) {
 	  return Buffer.from(chunk);
@@ -51906,12 +53230,12 @@
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var util = __webpack_require__(29);
-	util.inherits = __webpack_require__(30);
+	var util = Object.create(__webpack_require__(47));
+	util.inherits = __webpack_require__(40);
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var debugUtil = __webpack_require__(31);
+	var debugUtil = __webpack_require__(48);
 	var debug = void 0;
 	if (debugUtil && debugUtil.debuglog) {
 	  debug = debugUtil.debuglog('stream');
@@ -51920,8 +53244,8 @@
 	}
 	/*</replacement>*/
 
-	var BufferList = __webpack_require__(32);
-	var destroyImpl = __webpack_require__(34);
+	var BufferList = __webpack_require__(49);
+	var destroyImpl = __webpack_require__(51);
 	var StringDecoder;
 
 	util.inherits(Readable, Stream);
@@ -51941,7 +53265,7 @@
 	}
 
 	function ReadableState(options, stream) {
-	  Duplex = Duplex || __webpack_require__(35);
+	  Duplex = Duplex || __webpack_require__(52);
 
 	  options = options || {};
 
@@ -52011,14 +53335,14 @@
 	  this.decoder = null;
 	  this.encoding = null;
 	  if (options.encoding) {
-	    if (!StringDecoder) StringDecoder = __webpack_require__(40).StringDecoder;
+	    if (!StringDecoder) StringDecoder = __webpack_require__(57).StringDecoder;
 	    this.decoder = new StringDecoder(options.encoding);
 	    this.encoding = options.encoding;
 	  }
 	}
 
 	function Readable(options) {
-	  Duplex = Duplex || __webpack_require__(35);
+	  Duplex = Duplex || __webpack_require__(52);
 
 	  if (!(this instanceof Readable)) return new Readable(options);
 
@@ -52167,7 +53491,7 @@
 
 	// backwards compatibility.
 	Readable.prototype.setEncoding = function (enc) {
-	  if (!StringDecoder) StringDecoder = __webpack_require__(40).StringDecoder;
+	  if (!StringDecoder) StringDecoder = __webpack_require__(57).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
 	  this._readableState.encoding = enc;
 	  return this;
@@ -52859,10 +54183,10 @@
 	  }
 	  return -1;
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(24)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(43)))
 
 /***/ }),
-/* 24 */
+/* 43 */
 /***/ (function(module, exports) {
 
 	// shim for using process in browser
@@ -53052,12 +54376,13 @@
 
 
 /***/ }),
-/* 25 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	if (!process.version ||
+	if (typeof process === 'undefined' ||
+	    !process.version ||
 	    process.version.indexOf('v0.') === 0 ||
 	    process.version.indexOf('v1.') === 0 && process.version.indexOf('v1.8.') !== 0) {
 	  module.exports = { nextTick: nextTick };
@@ -53100,32 +54425,21 @@
 	}
 
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43)))
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-	var toString = {}.toString;
-
-	module.exports = Array.isArray || function (arr) {
-	  return toString.call(arr) == '[object Array]';
-	};
-
-
-/***/ }),
-/* 27 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(20).EventEmitter;
+	module.exports = __webpack_require__(39).EventEmitter;
 
 
 /***/ }),
-/* 28 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* eslint-disable node/no-deprecated-api */
-	var buffer = __webpack_require__(14)
+	var buffer = __webpack_require__(33)
 	var Buffer = buffer.Buffer
 
 	// alternative to using Object.keys for old browsers
@@ -53189,7 +54503,7 @@
 
 
 /***/ }),
-/* 29 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -53300,53 +54614,24 @@
 	  return Object.prototype.toString.call(o);
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33).Buffer))
 
 /***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-	if (typeof Object.create === 'function') {
-	  // implementation from standard node.js 'util' module
-	  module.exports = function inherits(ctor, superCtor) {
-	    ctor.super_ = superCtor
-	    ctor.prototype = Object.create(superCtor.prototype, {
-	      constructor: {
-	        value: ctor,
-	        enumerable: false,
-	        writable: true,
-	        configurable: true
-	      }
-	    });
-	  };
-	} else {
-	  // old school shim for old browsers
-	  module.exports = function inherits(ctor, superCtor) {
-	    ctor.super_ = superCtor
-	    var TempCtor = function () {}
-	    TempCtor.prototype = superCtor.prototype
-	    ctor.prototype = new TempCtor()
-	    ctor.prototype.constructor = ctor
-	  }
-	}
-
-
-/***/ }),
-/* 31 */
+/* 48 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 32 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Buffer = __webpack_require__(28).Buffer;
-	var util = __webpack_require__(33);
+	var Buffer = __webpack_require__(46).Buffer;
+	var util = __webpack_require__(50);
 
 	function copyBuffer(src, target, offset) {
 	  src.copy(target, offset);
@@ -53422,20 +54707,20 @@
 	}
 
 /***/ }),
-/* 33 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 34 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/*<replacement>*/
 
-	var pna = __webpack_require__(25);
+	var pna = __webpack_require__(44);
 	/*</replacement>*/
 
 	// undocumented cb() API, needed for core, not for public API
@@ -53507,7 +54792,7 @@
 	};
 
 /***/ }),
-/* 35 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -53540,7 +54825,7 @@
 
 	/*<replacement>*/
 
-	var pna = __webpack_require__(25);
+	var pna = __webpack_require__(44);
 	/*</replacement>*/
 
 	/*<replacement>*/
@@ -53555,12 +54840,12 @@
 	module.exports = Duplex;
 
 	/*<replacement>*/
-	var util = __webpack_require__(29);
-	util.inherits = __webpack_require__(30);
+	var util = Object.create(__webpack_require__(47));
+	util.inherits = __webpack_require__(40);
 	/*</replacement>*/
 
-	var Readable = __webpack_require__(23);
-	var Writable = __webpack_require__(36);
+	var Readable = __webpack_require__(42);
+	var Writable = __webpack_require__(53);
 
 	util.inherits(Duplex, Readable);
 
@@ -53643,7 +54928,7 @@
 	};
 
 /***/ }),
-/* 36 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process, setImmediate, global) {// Copyright Joyent, Inc. and other Node contributors.
@@ -53675,7 +54960,7 @@
 
 	/*<replacement>*/
 
-	var pna = __webpack_require__(25);
+	var pna = __webpack_require__(44);
 	/*</replacement>*/
 
 	module.exports = Writable;
@@ -53712,23 +54997,23 @@
 	Writable.WritableState = WritableState;
 
 	/*<replacement>*/
-	var util = __webpack_require__(29);
-	util.inherits = __webpack_require__(30);
+	var util = Object.create(__webpack_require__(47));
+	util.inherits = __webpack_require__(40);
 	/*</replacement>*/
 
 	/*<replacement>*/
 	var internalUtil = {
-	  deprecate: __webpack_require__(39)
+	  deprecate: __webpack_require__(56)
 	};
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var Stream = __webpack_require__(27);
+	var Stream = __webpack_require__(45);
 	/*</replacement>*/
 
 	/*<replacement>*/
 
-	var Buffer = __webpack_require__(28).Buffer;
+	var Buffer = __webpack_require__(46).Buffer;
 	var OurUint8Array = global.Uint8Array || function () {};
 	function _uint8ArrayToBuffer(chunk) {
 	  return Buffer.from(chunk);
@@ -53739,14 +55024,14 @@
 
 	/*</replacement>*/
 
-	var destroyImpl = __webpack_require__(34);
+	var destroyImpl = __webpack_require__(51);
 
 	util.inherits(Writable, Stream);
 
 	function nop() {}
 
 	function WritableState(options, stream) {
-	  Duplex = Duplex || __webpack_require__(35);
+	  Duplex = Duplex || __webpack_require__(52);
 
 	  options = options || {};
 
@@ -53896,7 +55181,7 @@
 	}
 
 	function Writable(options) {
-	  Duplex = Duplex || __webpack_require__(35);
+	  Duplex = Duplex || __webpack_require__(52);
 
 	  // Writable ctor is applied to Duplexes, too.
 	  // `realHasInstance` is necessary because using plain `instanceof`
@@ -54333,10 +55618,10 @@
 	  this.end();
 	  cb(err);
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24), __webpack_require__(37).setImmediate, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(43), __webpack_require__(54).setImmediate, (function() { return this; }())))
 
 /***/ }),
-/* 37 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -54392,7 +55677,7 @@
 	};
 
 	// setimmediate attaches itself to the global object
-	__webpack_require__(38);
+	__webpack_require__(55);
 	// On some exotic environments, it's not clear which object `setimmediate` was
 	// able to install onto.  Search each possibility in the same order as the
 	// `setimmediate` library.
@@ -54406,7 +55691,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 38 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -54596,10 +55881,10 @@
 	    attachTo.clearImmediate = clearImmediate;
 	}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(24)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(43)))
 
 /***/ }),
-/* 39 */
+/* 56 */
 /***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -54673,7 +55958,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 40 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -54701,7 +55986,7 @@
 
 	/*<replacement>*/
 
-	var Buffer = __webpack_require__(28).Buffer;
+	var Buffer = __webpack_require__(46).Buffer;
 	/*</replacement>*/
 
 	var isEncoding = Buffer.isEncoding || function (encoding) {
@@ -54974,7 +56259,7 @@
 	}
 
 /***/ }),
-/* 41 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -55044,11 +56329,11 @@
 
 	module.exports = Transform;
 
-	var Duplex = __webpack_require__(35);
+	var Duplex = __webpack_require__(52);
 
 	/*<replacement>*/
-	var util = __webpack_require__(29);
-	util.inherits = __webpack_require__(30);
+	var util = Object.create(__webpack_require__(47));
+	util.inherits = __webpack_require__(40);
 	/*</replacement>*/
 
 	util.inherits(Transform, Duplex);
@@ -55193,7 +56478,7 @@
 	}
 
 /***/ }),
-/* 42 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -55225,11 +56510,11 @@
 
 	module.exports = PassThrough;
 
-	var Transform = __webpack_require__(41);
+	var Transform = __webpack_require__(58);
 
 	/*<replacement>*/
-	var util = __webpack_require__(29);
-	util.inherits = __webpack_require__(30);
+	var util = Object.create(__webpack_require__(47));
+	util.inherits = __webpack_require__(40);
 	/*</replacement>*/
 
 	util.inherits(PassThrough, Transform);
@@ -55245,40 +56530,40 @@
 	};
 
 /***/ }),
-/* 43 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(36);
+	module.exports = __webpack_require__(53);
 
 
 /***/ }),
-/* 44 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(35);
+	module.exports = __webpack_require__(52);
 
 
 /***/ }),
-/* 45 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(22).Transform
+	module.exports = __webpack_require__(41).Transform
 
 
 /***/ }),
-/* 46 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(22).PassThrough
+	module.exports = __webpack_require__(41).PassThrough
 
 
 /***/ }),
-/* 47 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var utils = __webpack_require__(12);
-	var support = __webpack_require__(13);
+	var utils = __webpack_require__(31);
+	var support = __webpack_require__(32);
 	// private property
 	var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
@@ -55385,7 +56670,7 @@
 
 
 /***/ }),
-/* 48 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {'use strict';
@@ -55404,13 +56689,16 @@
 	     * @return {Buffer} a new Buffer.
 	     */
 	    newBufferFrom: function(data, encoding) {
-	        // XXX We can't use `Buffer.from` which comes from `Uint8Array.from`
-	        // in nodejs v4 (< v.4.5). It's not the expected implementation (and
-	        // has a different signature).
-	        // see https://github.com/nodejs/node/issues/8053
-	        // A condition on nodejs' version won't solve the issue as we don't
-	        // control the Buffer polyfills that may or may not be used.
-	        return new Buffer(data, encoding);
+	        if (Buffer.from && Buffer.from !== Uint8Array.from) {
+	            return Buffer.from(data, encoding);
+	        } else {
+	            if (typeof data === "number") {
+	                // Safeguard for old Node.js versions. On newer versions,
+	                // Buffer.from(number) / Buffer(number, encoding) already throw.
+	                throw new Error("The \"data\" argument must not be a number");
+	            }
+	            return new Buffer(data, encoding);
+	        }
 	    },
 	    /**
 	     * Create a new nodejs Buffer with the specified size.
@@ -55421,7 +56709,9 @@
 	        if (Buffer.alloc) {
 	            return Buffer.alloc(size);
 	        } else {
-	            return new Buffer(size);
+	            var buf = new Buffer(size);
+	            buf.fill(0);
+	            return buf;
 	        }
 	    },
 	    /**
@@ -55441,384 +56731,24 @@
 	    }
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer))
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	__webpack_require__(50);
-	module.exports = __webpack_require__(53).setImmediate;
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var $export = __webpack_require__(51)
-	  , $task   = __webpack_require__(66);
-	$export($export.G + $export.B, {
-	  setImmediate:   $task.set,
-	  clearImmediate: $task.clear
-	});
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var global    = __webpack_require__(52)
-	  , core      = __webpack_require__(53)
-	  , ctx       = __webpack_require__(54)
-	  , hide      = __webpack_require__(56)
-	  , PROTOTYPE = 'prototype';
-
-	var $export = function(type, name, source){
-	  var IS_FORCED = type & $export.F
-	    , IS_GLOBAL = type & $export.G
-	    , IS_STATIC = type & $export.S
-	    , IS_PROTO  = type & $export.P
-	    , IS_BIND   = type & $export.B
-	    , IS_WRAP   = type & $export.W
-	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
-	    , expProto  = exports[PROTOTYPE]
-	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
-	    , key, own, out;
-	  if(IS_GLOBAL)source = name;
-	  for(key in source){
-	    // contains in native
-	    own = !IS_FORCED && target && target[key] !== undefined;
-	    if(own && key in exports)continue;
-	    // export native or passed
-	    out = own ? target[key] : source[key];
-	    // prevent global pollution for namespaces
-	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-	    // bind timers to global for call from export context
-	    : IS_BIND && own ? ctx(out, global)
-	    // wrap global constructors for prevent change them in library
-	    : IS_WRAP && target[key] == out ? (function(C){
-	      var F = function(a, b, c){
-	        if(this instanceof C){
-	          switch(arguments.length){
-	            case 0: return new C;
-	            case 1: return new C(a);
-	            case 2: return new C(a, b);
-	          } return new C(a, b, c);
-	        } return C.apply(this, arguments);
-	      };
-	      F[PROTOTYPE] = C[PROTOTYPE];
-	      return F;
-	    // make static versions for prototype methods
-	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-	    if(IS_PROTO){
-	      (exports.virtual || (exports.virtual = {}))[key] = out;
-	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-	      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
-	    }
-	  }
-	};
-	// type bitmap
-	$export.F = 1;   // forced
-	$export.G = 2;   // global
-	$export.S = 4;   // static
-	$export.P = 8;   // proto
-	$export.B = 16;  // bind
-	$export.W = 32;  // wrap
-	$export.U = 64;  // safe
-	$export.R = 128; // real proto method for `library` 
-	module.exports = $export;
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global = module.exports = typeof window != 'undefined' && window.Math == Math
-	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-	var core = module.exports = {version: '2.3.0'};
-	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// optional / simple context binding
-	var aFunction = __webpack_require__(55);
-	module.exports = function(fn, that, length){
-	  aFunction(fn);
-	  if(that === undefined)return fn;
-	  switch(length){
-	    case 1: return function(a){
-	      return fn.call(that, a);
-	    };
-	    case 2: return function(a, b){
-	      return fn.call(that, a, b);
-	    };
-	    case 3: return function(a, b, c){
-	      return fn.call(that, a, b, c);
-	    };
-	  }
-	  return function(/* ...args */){
-	    return fn.apply(that, arguments);
-	  };
-	};
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-	module.exports = function(it){
-	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-	  return it;
-	};
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var dP         = __webpack_require__(57)
-	  , createDesc = __webpack_require__(65);
-	module.exports = __webpack_require__(61) ? function(object, key, value){
-	  return dP.f(object, key, createDesc(1, value));
-	} : function(object, key, value){
-	  object[key] = value;
-	  return object;
-	};
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var anObject       = __webpack_require__(58)
-	  , IE8_DOM_DEFINE = __webpack_require__(60)
-	  , toPrimitive    = __webpack_require__(64)
-	  , dP             = Object.defineProperty;
-
-	exports.f = __webpack_require__(61) ? Object.defineProperty : function defineProperty(O, P, Attributes){
-	  anObject(O);
-	  P = toPrimitive(P, true);
-	  anObject(Attributes);
-	  if(IE8_DOM_DEFINE)try {
-	    return dP(O, P, Attributes);
-	  } catch(e){ /* empty */ }
-	  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
-	  if('value' in Attributes)O[P] = Attributes.value;
-	  return O;
-	};
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(59);
-	module.exports = function(it){
-	  if(!isObject(it))throw TypeError(it + ' is not an object!');
-	  return it;
-	};
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports) {
-
-	module.exports = function(it){
-	  return typeof it === 'object' ? it !== null : typeof it === 'function';
-	};
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = !__webpack_require__(61) && !__webpack_require__(62)(function(){
-	  return Object.defineProperty(__webpack_require__(63)('div'), 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(62)(function(){
-	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-	module.exports = function(exec){
-	  try {
-	    return !!exec();
-	  } catch(e){
-	    return true;
-	  }
-	};
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var isObject = __webpack_require__(59)
-	  , document = __webpack_require__(52).document
-	  // in old IE typeof document.createElement is 'object'
-	  , is = isObject(document) && isObject(document.createElement);
-	module.exports = function(it){
-	  return is ? document.createElement(it) : {};
-	};
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(59);
-	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-	// and the second argument - flag - preferred type is a string
-	module.exports = function(it, S){
-	  if(!isObject(it))return it;
-	  var fn, val;
-	  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-	  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
-	  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-	  throw TypeError("Can't convert object to primitive value");
-	};
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-	module.exports = function(bitmap, value){
-	  return {
-	    enumerable  : !(bitmap & 1),
-	    configurable: !(bitmap & 2),
-	    writable    : !(bitmap & 4),
-	    value       : value
-	  };
-	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33).Buffer))
 
 /***/ }),
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var ctx                = __webpack_require__(54)
-	  , invoke             = __webpack_require__(67)
-	  , html               = __webpack_require__(68)
-	  , cel                = __webpack_require__(63)
-	  , global             = __webpack_require__(52)
-	  , process            = global.process
-	  , setTask            = global.setImmediate
-	  , clearTask          = global.clearImmediate
-	  , MessageChannel     = global.MessageChannel
-	  , counter            = 0
-	  , queue              = {}
-	  , ONREADYSTATECHANGE = 'onreadystatechange'
-	  , defer, channel, port;
-	var run = function(){
-	  var id = +this;
-	  if(queue.hasOwnProperty(id)){
-	    var fn = queue[id];
-	    delete queue[id];
-	    fn();
-	  }
-	};
-	var listener = function(event){
-	  run.call(event.data);
-	};
-	// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
-	if(!setTask || !clearTask){
-	  setTask = function setImmediate(fn){
-	    var args = [], i = 1;
-	    while(arguments.length > i)args.push(arguments[i++]);
-	    queue[++counter] = function(){
-	      invoke(typeof fn == 'function' ? fn : Function(fn), args);
-	    };
-	    defer(counter);
-	    return counter;
-	  };
-	  clearTask = function clearImmediate(id){
-	    delete queue[id];
-	  };
-	  // Node.js 0.8-
-	  if(__webpack_require__(69)(process) == 'process'){
-	    defer = function(id){
-	      process.nextTick(ctx(run, id, 1));
-	    };
-	  // Browsers with MessageChannel, includes WebWorkers
-	  } else if(MessageChannel){
-	    channel = new MessageChannel;
-	    port    = channel.port2;
-	    channel.port1.onmessage = listener;
-	    defer = ctx(port.postMessage, port, 1);
-	  // Browsers with postMessage, skip WebWorkers
-	  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
-	  } else if(global.addEventListener && typeof postMessage == 'function' && !global.importScripts){
-	    defer = function(id){
-	      global.postMessage(id + '', '*');
-	    };
-	    global.addEventListener('message', listener, false);
-	  // IE8-
-	  } else if(ONREADYSTATECHANGE in cel('script')){
-	    defer = function(id){
-	      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function(){
-	        html.removeChild(this);
-	        run.call(id);
-	      };
-	    };
-	  // Rest old browsers
-	  } else {
-	    defer = function(id){
-	      setTimeout(ctx(run, id, 1), 0);
-	    };
-	  }
-	}
-	module.exports = {
-	  set:   setTask,
-	  clear: clearTask
-	};
+	/* WEBPACK VAR INJECTION */(function(setImmediate) {'use strict';
+	module.exports = typeof setImmediate === 'function' ? setImmediate :
+		function setImmediate() {
+			var args = [].slice.apply(arguments);
+			args.splice(1, 0, 0);
+			setTimeout.apply(null, args);
+		};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54).setImmediate))
 
 /***/ }),
 /* 67 */
-/***/ (function(module, exports) {
-
-	// fast apply, http://jsperf.lnkit.com/fast-apply/5
-	module.exports = function(fn, args, that){
-	  var un = that === undefined;
-	  switch(args.length){
-	    case 0: return un ? fn()
-	                      : fn.call(that);
-	    case 1: return un ? fn(args[0])
-	                      : fn.call(that, args[0]);
-	    case 2: return un ? fn(args[0], args[1])
-	                      : fn.call(that, args[0], args[1]);
-	    case 3: return un ? fn(args[0], args[1], args[2])
-	                      : fn.call(that, args[0], args[1], args[2]);
-	    case 4: return un ? fn(args[0], args[1], args[2], args[3])
-	                      : fn.call(that, args[0], args[1], args[2], args[3]);
-	  } return              fn.apply(that, args);
-	};
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(52).document && document.documentElement;
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports) {
-
-	var toString = {}.toString;
-
-	module.exports = function(it){
-	  return toString.call(it).slice(8, -1);
-	};
-
-/***/ }),
-/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* global Promise */
@@ -55831,7 +56761,7 @@
 	if (typeof Promise !== "undefined") {
 	    ES6Promise = Promise;
 	} else {
-	    ES6Promise = __webpack_require__(71);
+	    ES6Promise = __webpack_require__(68);
 	}
 
 	/**
@@ -55843,11 +56773,11 @@
 
 
 /***/ }),
-/* 71 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var immediate = __webpack_require__(72);
+	var immediate = __webpack_require__(69);
 
 	/* istanbul ignore next */
 	function INTERNAL() {}
@@ -55872,6 +56802,26 @@
 	  }
 	}
 
+	Promise.prototype["finally"] = function (callback) {
+	  if (typeof callback !== 'function') {
+	    return this;
+	  }
+	  var p = this.constructor;
+	  return this.then(resolve, reject);
+
+	  function resolve(value) {
+	    function yes () {
+	      return value;
+	    }
+	    return p.resolve(callback()).then(yes);
+	  }
+	  function reject(reason) {
+	    function no () {
+	      throw reason;
+	    }
+	    return p.resolve(callback()).then(no);
+	  }
+	};
 	Promise.prototype["catch"] = function (onRejected) {
 	  return this.then(null, onRejected);
 	};
@@ -56102,7 +57052,7 @@
 
 
 /***/ }),
-/* 72 */
+/* 69 */
 /***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -56178,7 +57128,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 73 */
+/* 70 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -56447,22 +57397,22 @@
 
 
 /***/ }),
-/* 74 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {'use strict';
 
-	var utils = __webpack_require__(12);
-	var ConvertWorker = __webpack_require__(75);
-	var GenericWorker = __webpack_require__(73);
-	var base64 = __webpack_require__(47);
-	var support = __webpack_require__(13);
-	var external = __webpack_require__(70);
+	var utils = __webpack_require__(31);
+	var ConvertWorker = __webpack_require__(72);
+	var GenericWorker = __webpack_require__(70);
+	var base64 = __webpack_require__(64);
+	var support = __webpack_require__(32);
+	var external = __webpack_require__(67);
 
 	var NodejsStreamOutputAdapter = null;
 	if (support.nodestream) {
 	    try {
-	        NodejsStreamOutputAdapter = __webpack_require__(76);
+	        NodejsStreamOutputAdapter = __webpack_require__(73);
 	    } catch(e) {}
 	}
 
@@ -56663,16 +57613,16 @@
 
 	module.exports = StreamHelper;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33).Buffer))
 
 /***/ }),
-/* 75 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var GenericWorker = __webpack_require__(73);
-	var utils = __webpack_require__(12);
+	var GenericWorker = __webpack_require__(70);
+	var utils = __webpack_require__(31);
 
 	/**
 	 * A worker which convert chunks to a specified type.
@@ -56698,14 +57648,14 @@
 
 
 /***/ }),
-/* 76 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Readable = __webpack_require__(18).Readable;
+	var Readable = __webpack_require__(37).Readable;
 
-	var utils = __webpack_require__(12);
+	var utils = __webpack_require__(31);
 	utils.inherits(NodejsStreamOutputAdapter, Readable);
 
 	/**
@@ -56746,7 +57696,7 @@
 
 
 /***/ }),
-/* 77 */
+/* 74 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -56763,16 +57713,16 @@
 
 
 /***/ }),
-/* 78 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var external = __webpack_require__(70);
-	var DataWorker = __webpack_require__(79);
-	var DataLengthProbe = __webpack_require__(80);
-	var Crc32Probe = __webpack_require__(81);
-	var DataLengthProbe = __webpack_require__(80);
+	var external = __webpack_require__(67);
+	var DataWorker = __webpack_require__(76);
+	var DataLengthProbe = __webpack_require__(77);
+	var Crc32Probe = __webpack_require__(78);
+	var DataLengthProbe = __webpack_require__(77);
 
 	/**
 	 * Represent a compressed object, with everything needed to decompress it.
@@ -56825,7 +57775,7 @@
 
 	/**
 	 * Chain the given worker with other workers to compress the content with the
-	 * given compresion.
+	 * given compression.
 	 * @param {GenericWorker} uncompressedWorker the worker to pipe.
 	 * @param {Object} compression the compression object.
 	 * @param {Object} compressionOptions the options to use when compressing.
@@ -56844,13 +57794,13 @@
 
 
 /***/ }),
-/* 79 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
 
 	// the size of the generated chunks
 	// TODO expose this as a public variable
@@ -56966,13 +57916,13 @@
 
 
 /***/ }),
-/* 80 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
 
 	/**
 	 * A worker which calculate the total length of the data flowing through.
@@ -57001,14 +57951,14 @@
 
 
 /***/ }),
-/* 81 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var GenericWorker = __webpack_require__(73);
-	var crc32 = __webpack_require__(82);
-	var utils = __webpack_require__(12);
+	var GenericWorker = __webpack_require__(70);
+	var crc32 = __webpack_require__(79);
+	var utils = __webpack_require__(31);
 
 	/**
 	 * A worker which calculate the crc32 of the data flowing through.
@@ -57031,12 +57981,12 @@
 
 
 /***/ }),
-/* 82 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
+	var utils = __webpack_require__(31);
 
 	/**
 	 * The following functions come from pako, from pako/lib/zlib/crc32.js
@@ -57114,16 +58064,16 @@
 
 
 /***/ }),
-/* 83 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var StreamHelper = __webpack_require__(74);
-	var DataWorker = __webpack_require__(79);
-	var utf8 = __webpack_require__(11);
-	var CompressedObject = __webpack_require__(78);
-	var GenericWorker = __webpack_require__(73);
+	var StreamHelper = __webpack_require__(71);
+	var DataWorker = __webpack_require__(76);
+	var utf8 = __webpack_require__(30);
+	var CompressedObject = __webpack_require__(75);
+	var GenericWorker = __webpack_require__(70);
 
 	/**
 	 * A simple object representing a file in the zip file.
@@ -57253,13 +58203,13 @@
 
 
 /***/ }),
-/* 84 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var compressions = __webpack_require__(85);
-	var ZipFileWorker = __webpack_require__(103);
+	var compressions = __webpack_require__(82);
+	var ZipFileWorker = __webpack_require__(100);
 
 	/**
 	 * Find the compression to use.
@@ -57316,12 +58266,12 @@
 
 
 /***/ }),
-/* 85 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var GenericWorker = __webpack_require__(73);
+	var GenericWorker = __webpack_require__(70);
 
 	exports.STORE = {
 	    magic: "\x00\x00",
@@ -57332,19 +58282,19 @@
 	        return new GenericWorker("STORE decompression");
 	    }
 	};
-	exports.DEFLATE = __webpack_require__(86);
+	exports.DEFLATE = __webpack_require__(83);
 
 
 /***/ }),
-/* 86 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	var USE_TYPEDARRAY = (typeof Uint8Array !== 'undefined') && (typeof Uint16Array !== 'undefined') && (typeof Uint32Array !== 'undefined');
 
-	var pako = __webpack_require__(87);
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
+	var pako = __webpack_require__(84);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
 
 	var ARRAY_TYPE = USE_TYPEDARRAY ? "uint8array" : "array";
 
@@ -57427,17 +58377,17 @@
 
 
 /***/ }),
-/* 87 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// Top level file is just a mixin of submodules & constants
 	'use strict';
 
-	var assign    = __webpack_require__(88).assign;
+	var assign    = __webpack_require__(85).assign;
 
-	var deflate   = __webpack_require__(89);
-	var inflate   = __webpack_require__(97);
-	var constants = __webpack_require__(101);
+	var deflate   = __webpack_require__(86);
+	var inflate   = __webpack_require__(94);
+	var constants = __webpack_require__(98);
 
 	var pako = {};
 
@@ -57447,7 +58397,7 @@
 
 
 /***/ }),
-/* 88 */
+/* 85 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -57558,17 +58508,17 @@
 
 
 /***/ }),
-/* 89 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var zlib_deflate = __webpack_require__(90);
-	var utils        = __webpack_require__(88);
-	var strings      = __webpack_require__(95);
-	var msg          = __webpack_require__(94);
-	var ZStream      = __webpack_require__(96);
+	var zlib_deflate = __webpack_require__(87);
+	var utils        = __webpack_require__(85);
+	var strings      = __webpack_require__(92);
+	var msg          = __webpack_require__(91);
+	var ZStream      = __webpack_require__(93);
 
 	var toString = Object.prototype.toString;
 
@@ -57964,7 +58914,7 @@
 
 
 /***/ }),
-/* 90 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57988,11 +58938,11 @@
 	//   misrepresented as being the original software.
 	// 3. This notice may not be removed or altered from any source distribution.
 
-	var utils   = __webpack_require__(88);
-	var trees   = __webpack_require__(91);
-	var adler32 = __webpack_require__(92);
-	var crc32   = __webpack_require__(93);
-	var msg     = __webpack_require__(94);
+	var utils   = __webpack_require__(85);
+	var trees   = __webpack_require__(88);
+	var adler32 = __webpack_require__(89);
+	var crc32   = __webpack_require__(90);
+	var msg     = __webpack_require__(91);
 
 	/* Public constants ==========================================================*/
 	/* ===========================================================================*/
@@ -59844,7 +60794,7 @@
 
 
 /***/ }),
-/* 91 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59870,7 +60820,7 @@
 
 	/* eslint-disable space-unary-ops */
 
-	var utils = __webpack_require__(88);
+	var utils = __webpack_require__(85);
 
 	/* Public constants ==========================================================*/
 	/* ===========================================================================*/
@@ -61072,7 +62022,7 @@
 
 
 /***/ }),
-/* 92 */
+/* 89 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -61129,7 +62079,7 @@
 
 
 /***/ }),
-/* 93 */
+/* 90 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -61194,7 +62144,7 @@
 
 
 /***/ }),
-/* 94 */
+/* 91 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -61232,14 +62182,14 @@
 
 
 /***/ }),
-/* 95 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// String encode/decode helpers
 	'use strict';
 
 
-	var utils = __webpack_require__(88);
+	var utils = __webpack_require__(85);
 
 
 	// Quick check if we can use fast array to bin string conversion
@@ -61425,7 +62375,7 @@
 
 
 /***/ }),
-/* 96 */
+/* 93 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -61478,19 +62428,19 @@
 
 
 /***/ }),
-/* 97 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var zlib_inflate = __webpack_require__(98);
-	var utils        = __webpack_require__(88);
-	var strings      = __webpack_require__(95);
-	var c            = __webpack_require__(101);
-	var msg          = __webpack_require__(94);
-	var ZStream      = __webpack_require__(96);
-	var GZheader     = __webpack_require__(102);
+	var zlib_inflate = __webpack_require__(95);
+	var utils        = __webpack_require__(85);
+	var strings      = __webpack_require__(92);
+	var c            = __webpack_require__(98);
+	var msg          = __webpack_require__(91);
+	var ZStream      = __webpack_require__(93);
+	var GZheader     = __webpack_require__(99);
 
 	var toString = Object.prototype.toString;
 
@@ -61907,7 +62857,7 @@
 
 
 /***/ }),
-/* 98 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61931,11 +62881,11 @@
 	//   misrepresented as being the original software.
 	// 3. This notice may not be removed or altered from any source distribution.
 
-	var utils         = __webpack_require__(88);
-	var adler32       = __webpack_require__(92);
-	var crc32         = __webpack_require__(93);
-	var inflate_fast  = __webpack_require__(99);
-	var inflate_table = __webpack_require__(100);
+	var utils         = __webpack_require__(85);
+	var adler32       = __webpack_require__(89);
+	var crc32         = __webpack_require__(90);
+	var inflate_fast  = __webpack_require__(96);
+	var inflate_table = __webpack_require__(97);
 
 	var CODES = 0;
 	var LENS = 1;
@@ -63469,7 +64419,7 @@
 
 
 /***/ }),
-/* 99 */
+/* 96 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -63820,7 +64770,7 @@
 
 
 /***/ }),
-/* 100 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63844,7 +64794,7 @@
 	//   misrepresented as being the original software.
 	// 3. This notice may not be removed or altered from any source distribution.
 
-	var utils = __webpack_require__(88);
+	var utils = __webpack_require__(85);
 
 	var MAXBITS = 15;
 	var ENOUGH_LENS = 852;
@@ -64169,7 +65119,7 @@
 
 
 /***/ }),
-/* 101 */
+/* 98 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -64243,7 +65193,7 @@
 
 
 /***/ }),
-/* 102 */
+/* 99 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -64307,16 +65257,16 @@
 
 
 /***/ }),
-/* 103 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
-	var utf8 = __webpack_require__(11);
-	var crc32 = __webpack_require__(82);
-	var signature = __webpack_require__(104);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
+	var utf8 = __webpack_require__(30);
+	var crc32 = __webpack_require__(79);
+	var signature = __webpack_require__(101);
 
 	/**
 	 * Transform an integer into a string in hexadecimal.
@@ -64382,7 +65332,7 @@
 
 	/**
 	 * Generate the various parts used in the construction of the final zip file.
-	 * @param {Object} streamInfo the hash with informations about the compressed file.
+	 * @param {Object} streamInfo the hash with information about the compressed file.
 	 * @param {Boolean} streamedContent is the content streamed ?
 	 * @param {Boolean} streamingEnded is the stream finished ?
 	 * @param {number} offset the current offset from the start of the zip file.
@@ -64605,7 +65555,7 @@
 
 	/**
 	 * Generate data descriptors for a file entry.
-	 * @param {Object} streamInfo the hash generated by a worker, containing informations
+	 * @param {Object} streamInfo the hash generated by a worker, containing information
 	 * on the file entry.
 	 * @return {String} the data descriptors.
 	 */
@@ -64657,7 +65607,7 @@
 	    // The total number of entries in this zip file.
 	    this.entriesCount = 0;
 	    // the name of the file currently being added, null when handling the end of the zip file.
-	    // Used for the emited metadata.
+	    // Used for the emitted metadata.
 	    this.currentFile = null;
 
 
@@ -64853,7 +65803,7 @@
 
 
 /***/ }),
-/* 104 */
+/* 101 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -64866,13 +65816,13 @@
 
 
 /***/ }),
-/* 105 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var utils = __webpack_require__(12);
-	var GenericWorker = __webpack_require__(73);
+	var utils = __webpack_require__(31);
+	var GenericWorker = __webpack_require__(70);
 
 	/**
 	 * A worker that use a nodejs stream as source.
@@ -64946,17 +65896,17 @@
 
 
 /***/ }),
-/* 106 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var utils = __webpack_require__(12);
-	var external = __webpack_require__(70);
-	var utf8 = __webpack_require__(11);
-	var utils = __webpack_require__(12);
-	var ZipEntries = __webpack_require__(107);
-	var Crc32Probe = __webpack_require__(81);
-	var nodejsUtils = __webpack_require__(48);
+	var utils = __webpack_require__(31);
+	var external = __webpack_require__(67);
+	var utf8 = __webpack_require__(30);
+	var utils = __webpack_require__(31);
+	var ZipEntries = __webpack_require__(104);
+	var Crc32Probe = __webpack_require__(78);
+	var nodejsUtils = __webpack_require__(65);
 
 	/**
 	 * Check the CRC32 of an entry.
@@ -65034,16 +65984,16 @@
 
 
 /***/ }),
-/* 107 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var readerFor = __webpack_require__(108);
-	var utils = __webpack_require__(12);
-	var sig = __webpack_require__(104);
-	var ZipEntry = __webpack_require__(114);
-	var utf8 = __webpack_require__(11);
-	var support = __webpack_require__(13);
+	var readerFor = __webpack_require__(105);
+	var utils = __webpack_require__(31);
+	var sig = __webpack_require__(101);
+	var ZipEntry = __webpack_require__(111);
+	var utf8 = __webpack_require__(30);
+	var support = __webpack_require__(32);
 	//  class ZipEntries {{{
 	/**
 	 * All the entries in the zip file.
@@ -65302,17 +66252,17 @@
 
 
 /***/ }),
-/* 108 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(12);
-	var support = __webpack_require__(13);
-	var ArrayReader = __webpack_require__(109);
-	var StringReader = __webpack_require__(111);
-	var NodeBufferReader = __webpack_require__(112);
-	var Uint8ArrayReader = __webpack_require__(113);
+	var utils = __webpack_require__(31);
+	var support = __webpack_require__(32);
+	var ArrayReader = __webpack_require__(106);
+	var StringReader = __webpack_require__(108);
+	var NodeBufferReader = __webpack_require__(109);
+	var Uint8ArrayReader = __webpack_require__(110);
 
 	/**
 	 * Create a reader adapted to the data.
@@ -65336,12 +66286,12 @@
 
 
 /***/ }),
-/* 109 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var DataReader = __webpack_require__(110);
-	var utils = __webpack_require__(12);
+	var DataReader = __webpack_require__(107);
+	var utils = __webpack_require__(31);
 
 	function ArrayReader(data) {
 	    DataReader.call(this, data);
@@ -65399,11 +66349,11 @@
 
 
 /***/ }),
-/* 110 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var utils = __webpack_require__(12);
+	var utils = __webpack_require__(31);
 
 	function DataReader(data) {
 	    this.data = data; // type : see implementation
@@ -65487,9 +66437,9 @@
 	        // see implementations
 	    },
 	    /**
-	     * Find the last occurence of a zip signature (4 bytes).
+	     * Find the last occurrence of a zip signature (4 bytes).
 	     * @param {string} sig the signature to find.
-	     * @return {number} the index of the last occurence, -1 if not found.
+	     * @return {number} the index of the last occurrence, -1 if not found.
 	     */
 	    lastIndexOfSignature: function(sig) {
 	        // see implementations
@@ -65521,12 +66471,12 @@
 
 
 /***/ }),
-/* 111 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var DataReader = __webpack_require__(110);
-	var utils = __webpack_require__(12);
+	var DataReader = __webpack_require__(107);
+	var utils = __webpack_require__(31);
 
 	function StringReader(data) {
 	    DataReader.call(this, data);
@@ -65565,12 +66515,12 @@
 
 
 /***/ }),
-/* 112 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var Uint8ArrayReader = __webpack_require__(113);
-	var utils = __webpack_require__(12);
+	var Uint8ArrayReader = __webpack_require__(110);
+	var utils = __webpack_require__(31);
 
 	function NodeBufferReader(data) {
 	    Uint8ArrayReader.call(this, data);
@@ -65590,12 +66540,12 @@
 
 
 /***/ }),
-/* 113 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var ArrayReader = __webpack_require__(109);
-	var utils = __webpack_require__(12);
+	var ArrayReader = __webpack_require__(106);
+	var utils = __webpack_require__(31);
 
 	function Uint8ArrayReader(data) {
 	    ArrayReader.call(this, data);
@@ -65618,17 +66568,17 @@
 
 
 /***/ }),
-/* 114 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var readerFor = __webpack_require__(108);
-	var utils = __webpack_require__(12);
-	var CompressedObject = __webpack_require__(78);
-	var crc32fn = __webpack_require__(82);
-	var utf8 = __webpack_require__(11);
-	var compressions = __webpack_require__(85);
-	var support = __webpack_require__(13);
+	var readerFor = __webpack_require__(105);
+	var utils = __webpack_require__(31);
+	var CompressedObject = __webpack_require__(75);
+	var crc32fn = __webpack_require__(79);
+	var utf8 = __webpack_require__(30);
+	var compressions = __webpack_require__(82);
+	var support = __webpack_require__(32);
 
 	var MADE_BY_DOS = 0x00;
 	var MADE_BY_UNIX = 0x03;
@@ -65709,7 +66659,7 @@
 	        reader.skip(localExtraFieldsLength);
 
 	        if (this.compressedSize === -1 || this.uncompressedSize === -1) {
-	            throw new Error("Bug or corrupted zip : didn't get enough informations from the central directory " + "(compressedSize === -1 || uncompressedSize === -1)");
+	            throw new Error("Bug or corrupted zip : didn't get enough information from the central directory " + "(compressedSize === -1 || uncompressedSize === -1)");
 	        }
 
 	        compression = findCompression(this.compressionMethod);
@@ -65823,7 +66773,7 @@
 	            this.extraFields = {};
 	        }
 
-	        while (reader.index < end) {
+	        while (reader.index + 4 < end) {
 	            extraFieldId = reader.readInt(2);
 	            extraFieldLength = reader.readInt(2);
 	            extraFieldValue = reader.readData(extraFieldLength);
@@ -65834,6 +66784,8 @@
 	                value: extraFieldValue
 	            };
 	        }
+
+	        reader.setIndex(end);
 	    },
 	    /**
 	     * Apply an UTF8 transformation if needed.
@@ -65916,28 +66868,28 @@
 
 
 /***/ }),
+/* 112 */
+/***/ (function(module, exports) {
+
+	module.exports = {"id":"http://json-schema.org/draft-04/schema#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"type":"object","properties":{"id":{"type":"string"},"$schema":{"type":"string"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"type":"number","minimum":0,"exclusiveMinimum":true},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"boolean","default":false},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"boolean","default":false},"maxLength":{"$ref":"#/definitions/positiveInteger"},"minLength":{"$ref":"#/definitions/positiveIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/positiveInteger"},"minItems":{"$ref":"#/definitions/positiveIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"maxProperties":{"$ref":"#/definitions/positiveInteger"},"minProperties":{"$ref":"#/definitions/positiveIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"},"$ref":{"type":"string"},"omitWhenMerged":{"type":"boolean","default":false},"deprecated":{"type":"object","additionalProperties":false,"required":["deprecatedVersion","description"],"properties":{"deprecatedVersion":{"type":"string"},"description":{"type":"string"}}},"codelist":{"type":"string"},"openCodelist":{"type":"boolean","default":false},"wholeListMerge":{"type":"boolean","default":false},"versionId":{"type":"boolean","default":false}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"]},"default":{},"additionalProperties":false}
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports) {
+
+	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__5/release-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Release","description":"Each release provides data about a single contracting process at a particular point in time. Releases can be used to notify users of new tenders, awards, contracts and other updates. Releases may repeat or update information provided previously in this contracting process. One contracting process may have many releases. A 'record' of a contracting process follows the same structure as a release, but combines information from multiple points in time into a single summary.","type":"object","properties":{"ocid":{"title":"Open Contracting ID","description":"A globally unique identifier for this Open Contracting Process. Composed of an ocid prefix and an identifier for the contracting process. For more information see the [Open Contracting Identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/)","type":"string","minLength":1},"id":{"title":"Release ID","description":"An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid). A release identifier must not contain the # character.","type":"string","minLength":1,"omitWhenMerged":true},"date":{"title":"Release Date","description":"The date on which the information contained in the release was first recorded in, or published by, any system.","type":"string","format":"date-time","omitWhenMerged":true},"tag":{"title":"Release Tag","description":"One or more values from the closed [releaseTag](https://standard.open-contracting.org/1.1/en/schema/codelists/#release-tag) codelist. Tags can be used to filter releases and to understand the kind of information that releases might contain.","type":"array","items":{"type":"string","enum":["planning","planningUpdate","tender","tenderAmendment","tenderUpdate","tenderCancellation","award","awardUpdate","awardCancellation","contract","contractUpdate","contractAmendment","implementation","implementationUpdate","contractTermination","compiled"]},"codelist":"releaseTag.csv","openCodelist":false,"minItems":1,"omitWhenMerged":true},"initiationType":{"title":"Initiation type","description":"The type of initiation process used for this contract, from the closed [initiationType](https://standard.open-contracting.org/1.1/en/schema/codelists/#initiation-type) codelist.","type":"string","enum":["tender"],"codelist":"initiationType.csv","openCodelist":false},"parties":{"title":"Parties","description":"Information on the parties (organizations, economic operators and other participants) who are involved in the contracting process and their roles, e.g. buyer, procuring entity, supplier etc. Organization references elsewhere in the schema are used to refer back to this entries in this list.","type":"array","items":{"$ref":"#/definitions/Organization"},"uniqueItems":true},"buyer":{"title":"Buyer","description":"A buyer is an entity whose budget will be used to pay for goods, works or services related to a contract. This may be different from the procuring entity who may be specified in the tender data.","$ref":"#/definitions/OrganizationReference"},"planning":{"title":"Planning","description":"Information from the planning phase of the contracting process. This includes information related to the process of deciding what to contract, when and how.","$ref":"#/definitions/Planning"},"tender":{"title":"Tender","description":"The activities undertaken in order to enter into a contract.","$ref":"#/definitions/Tender"},"awards":{"title":"Awards","description":"Information from the award phase of the contracting process. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.","type":"array","items":{"$ref":"#/definitions/Award"},"uniqueItems":true},"contracts":{"title":"Contracts","description":"Information from the contract creation phase of the procurement process.","type":"array","items":{"$ref":"#/definitions/Contract"},"uniqueItems":true},"language":{"title":"Release language","description":"The default language of the data using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is recommended.","type":["string","null"],"default":"en"},"relatedProcesses":{"uniqueItems":true,"items":{"$ref":"#/definitions/RelatedProcess"},"description":"The details of related processes: for example, if this process follows on from one or more other processes, represented under a separate open contracting identifier (ocid). This is commonly used to relate mini-competitions to their parent frameworks or individual tenders to a broader planning process.","title":"Related processes","type":"array"}},"required":["ocid","id","date","tag","initiationType"],"definitions":{"Planning":{"title":"Planning","description":"Information from the planning phase of the contracting process. Note that many other fields can be filled in a planning release, in the appropriate fields in other schema sections; these would likely be estimates at this stage, e.g. value in tender.","type":"object","properties":{"rationale":{"title":"Rationale","description":"The rationale for the procurement provided in free text. More detail can be provided in an attached document.","type":["string","null"]},"budget":{"title":"Budget","description":"Details of the budget that funds this contracting process.","$ref":"#/definitions/Budget"},"documents":{"title":"Documents","description":"A list of documents related to the planning process.","type":"array","items":{"$ref":"#/definitions/Document"}},"milestones":{"title":"Planning milestones","description":"A list of milestones associated with the planning stage.","type":"array","items":{"$ref":"#/definitions/Milestone"}}},"patternProperties":{"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Tender":{"title":"Tender","description":"Data regarding tender process - publicly inviting prospective contractors to submit bids for evaluation and selecting a winner or winners.","type":"object","required":["id"],"properties":{"id":{"title":"Tender ID","description":"An identifier for this tender process. This may be the same as the ocid, or may be an internal identifier for this tender.","type":["string","integer"],"minLength":1,"versionId":true},"title":{"title":"Tender title","description":"A title for this tender. This will often be used by applications as a headline to attract interest, and to help analysts understand the nature of this procurement.","type":["string","null"]},"description":{"title":"Tender description","description":"A summary description of the tender. This complements any structured information provided using the items array. Descriptions should be short and easy to read. Avoid using ALL CAPS.","type":["string","null"]},"status":{"title":"Tender status","description":"The current status of the tender, from the closed [tenderStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#tender-status) codelist.","type":["string","null"],"codelist":"tenderStatus.csv","openCodelist":false,"enum":["planning","planned","active","cancelled","unsuccessful","complete","withdrawn",null]},"procuringEntity":{"title":"Procuring entity","description":"The entity managing the procurement. This may be different from the buyer who pays for, or uses, the items being procured.","$ref":"#/definitions/OrganizationReference"},"items":{"title":"Items to be procured","description":"The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.","type":"array","items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"value":{"title":"Value","description":"The total upper estimated value of the procurement. A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"minValue":{"title":"Minimum value","description":"The minimum estimated value of the procurement.  A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"procurementMethod":{"title":"Procurement method","description":"The procurement method, from the closed [method](https://standard.open-contracting.org/1.1/en/schema/codelists/#method) codelist.","type":["string","null"],"codelist":"method.csv","openCodelist":false,"enum":["open","selective","limited","direct",null]},"procurementMethodDetails":{"title":"Procurement method details","description":"Additional detail on the procurement method used. This field can be used to provide the local name of the particular procurement method used.","type":["string","null"]},"procurementMethodRationale":{"title":"Procurement method rationale","description":"Rationale for the chosen procurement method. This is especially important to provide a justification in the case of limited tenders or direct awards.","type":["string","null"]},"mainProcurementCategory":{"title":"Main procurement category","description":"The primary category describing the main object of this contracting process, from the closed [procurementCategory](https://standard.open-contracting.org/1.1/en/schema/codelists/#procurement-category) codelist.","type":["string","null"],"codelist":"procurementCategory.csv","openCodelist":false,"enum":["goods","works","services",null]},"additionalProcurementCategories":{"title":"Additional procurement categories","description":"Any additional categories describing the objects of this contracting process, using the open [extendedProcurementCategory](https://standard.open-contracting.org/1.1/en/schema/codelists/#extended-procurement-category) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"extendedProcurementCategory.csv","openCodelist":true},"awardCriteria":{"title":"Award criteria","description":"The award criteria for the procurement, using the open [awardCriteria](https://standard.open-contracting.org/1.1/en/schema/codelists/#award-criteria) codelist.","type":["string","null"],"codelist":"awardCriteria.csv","openCodelist":true},"awardCriteriaDetails":{"title":"Award criteria details","description":"Any detailed or further information on the award or selection criteria.","type":["string","null"]},"submissionMethod":{"title":"Submission method","description":"The methods by which bids are submitted, using the open [submissionMethod](https://standard.open-contracting.org/1.1/en/schema/codelists/#submission-method) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"submissionMethod.csv","openCodelist":true},"submissionMethodDetails":{"title":"Submission method details","description":"Any detailed or further information on the submission method. This can include the address, e-mail address or online service to which bids are submitted, and any special requirements to be followed for submissions.","type":["string","null"]},"tenderPeriod":{"title":"Tender period","description":"The period when the tender is open for submissions. The end date is the closing date for tender submissions.","$ref":"#/definitions/Period"},"enquiryPeriod":{"title":"Enquiry period","description":"The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.","$ref":"#/definitions/Period"},"hasEnquiries":{"title":"Has enquiries?","description":"A true/false field to indicate whether any enquiries were received during the tender process. Structured information on enquiries that were received, and responses to them, can be provided using the enquiries extension.","type":["boolean","null"]},"eligibilityCriteria":{"title":"Eligibility criteria","description":"A description of any eligibility criteria for potential suppliers.","type":["string","null"]},"awardPeriod":{"title":"Evaluation and award period","description":"The period for decision making regarding the contract award. The end date should be the date on which an award decision is due to be finalized. The start date may be used to indicate the start of an evaluation period.","$ref":"#/definitions/Period"},"contractPeriod":{"description":"The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.","title":"Contract period","$ref":"#/definitions/Period"},"numberOfTenderers":{"title":"Number of tenderers","description":"The number of parties who submit a bid.","type":["integer","null"]},"tenderers":{"title":"Tenderers","description":"All parties who submit a bid on a tender. More detailed information on bids and the bidding organization can be provided using the bid extension.","type":"array","items":{"$ref":"#/definitions/OrganizationReference"},"uniqueItems":true},"documents":{"title":"Documents","description":"All documents and attachments related to the tender, including any notices. See the [documentType](https://standard.open-contracting.org/1.1/en/schema/codelists/#document-type) codelist for details of potential documents to include. Common documents include official legal notices of tender, technical specifications, evaluation criteria, and, as a tender process progresses, clarifications and replies to queries.","type":"array","items":{"$ref":"#/definitions/Document"}},"milestones":{"title":"Milestones","description":"A list of milestones associated with the tender.","type":"array","items":{"$ref":"#/definitions/Milestone"}},"amendments":{"description":"A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(procurementMethodRationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(awardCriteriaDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(submissionMethodDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(eligibilityCriteria_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Award":{"title":"Award","description":"An award for the given procurement. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.","type":"object","required":["id"],"properties":{"id":{"title":"Award ID","description":"The identifier for this award. It must be unique and must not change within the Open Contracting Process it is part of (defined by a single ocid). See the [identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for further details.","type":["string","integer"],"minLength":1},"title":{"title":"Title","description":"Award title","type":["string","null"]},"description":{"title":"Description","description":"Award description","type":["string","null"]},"status":{"title":"Award status","description":"The current status of the award, from the closed [awardStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#award-status) codelist.","type":["string","null"],"enum":["pending","active","cancelled","unsuccessful",null],"codelist":"awardStatus.csv","openCodelist":false},"date":{"title":"Award date","description":"The date of the contract award. This is usually the date on which a decision to award was made.","type":["string","null"],"format":"date-time"},"value":{"title":"Value","description":"The total value of this award. In the case of a framework contract this may be the total estimated lifetime value, or maximum value, of the agreement. There may be more than one award per procurement. A negative value indicates that the award may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"suppliers":{"title":"Suppliers","description":"The suppliers awarded this award. If different suppliers have been awarded different items or values, these should be split into separate award blocks.","type":"array","items":{"$ref":"#/definitions/OrganizationReference"},"uniqueItems":true},"items":{"title":"Items awarded","description":"The goods and services awarded in this award, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.","type":"array","minItems":1,"items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"contractPeriod":{"title":"Contract period","description":"The period for which the contract has been awarded.","$ref":"#/definitions/Period"},"documents":{"title":"Documents","description":"All documents and attachments related to the award, including any notices.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true},"amendments":{"description":"An award amendment is a formal change to the details of the award, and generally involves the publication of a new award notice/release. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Contract":{"type":"object","title":"Contract","description":"Information regarding the signed contract between the buyer and supplier(s).","required":["id","awardID"],"properties":{"id":{"title":"Contract ID","description":"The identifier for this contract. It must be unique and must not change within the Open Contracting Process it is part of (defined by a single ocid). See the [identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for further details.","type":["string","integer"],"minLength":1},"awardID":{"title":"Award ID","description":"The award.id against which this contract is being issued.","type":["string","integer"],"minLength":1},"title":{"title":"Contract title","description":"Contract title","type":["string","null"]},"description":{"title":"Contract description","description":"Contract description","type":["string","null"]},"status":{"title":"Contract status","description":"The current status of the contract, from the closed [contractStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#contract-status) codelist.","type":["string","null"],"enum":["pending","active","cancelled","terminated",null],"codelist":"contractStatus.csv","openCodelist":false},"period":{"title":"Period","description":"The start and end date for the contract.","$ref":"#/definitions/Period"},"value":{"title":"Value","description":"The total value of this contract. A negative value indicates that the contract will involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"items":{"title":"Items contracted","description":"The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.","type":"array","minItems":1,"items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"dateSigned":{"title":"Date signed","description":"The date the contract was signed. In the case of multiple signatures, the date of the last signature.","type":["string","null"],"format":"date-time"},"documents":{"title":"Documents","description":"All documents and attachments related to the contract, including any notices.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true},"implementation":{"title":"Implementation","description":"Information related to the implementation of the contract in accordance with the obligations laid out therein.","$ref":"#/definitions/Implementation"},"relatedProcesses":{"uniqueItems":true,"items":{"$ref":"#/definitions/RelatedProcess"},"description":"The details of related processes: for example, if this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid). This is commonly used to refer to subcontracts and to renewal or replacement processes for this contract.","title":"Related processes","type":"array"},"milestones":{"title":"Contract milestones","description":"A list of milestones associated with the finalization of this contract.","type":"array","items":{"$ref":"#/definitions/Milestone"}},"amendments":{"description":"A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice/release, or some other documents detailing the change. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Implementation":{"type":"object","title":"Implementation","description":"Information during the performance / implementation stage of the contract.","properties":{"transactions":{"title":"Transactions","description":"A list of the spending transactions made against this contract","type":"array","items":{"$ref":"#/definitions/Transaction"},"uniqueItems":true},"milestones":{"title":"Milestones","description":"As milestones are completed, the milestone's status and dates should be updated.","type":"array","items":{"$ref":"#/definitions/Milestone"},"uniqueItems":true},"documents":{"title":"Documents","description":"Documents and reports that are part of the implementation phase e.g. audit and evaluation reports.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true}}},"Milestone":{"title":"Milestone","description":"The milestone block can be used to represent a wide variety of events in the lifetime of a contracting process.","type":"object","required":["id"],"properties":{"id":{"title":"ID","description":"A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.","type":["string","integer"],"minLength":1},"title":{"title":"Title","description":"Milestone title","type":["string","null"]},"type":{"title":"Milestone type","description":"The nature of the milestone, using the open [milestoneType](https://standard.open-contracting.org/1.1/en/schema/codelists/#milestone-type) codelist.","type":["string","null"],"codelist":"milestoneType.csv","openCodelist":true},"description":{"title":"Description","description":"A description of the milestone.","type":["string","null"]},"code":{"title":"Milestone code","description":"Milestone codes can be used to track specific events that take place for a particular kind of contracting process. For example, a code of 'approvalLetter' can be used to allow applications to understand this milestone represents the date an approvalLetter is due or signed.","type":["string","null"]},"dueDate":{"title":"Due date","description":"The date the milestone is due.","type":["string","null"],"format":"date-time"},"dateMet":{"format":"date-time","title":"Date met","description":"The date on which the milestone was met.","type":["string","null"]},"dateModified":{"title":"Date modified","description":"The date the milestone was last reviewed or modified and the status was altered or confirmed to still be correct.","type":["string","null"],"format":"date-time"},"status":{"title":"Status","description":"The status that was realized on the date provided in `dateModified`, from the closed [milestoneStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#milestone-status) codelist.","type":["string","null"],"enum":["scheduled","met","notMet","partiallyMet",null],"codelist":"milestoneStatus.csv","openCodelist":false},"documents":{"title":"Documents","description":"List of documents associated with this milestone (Deprecated in 1.1).","type":"array","deprecated":{"deprecatedVersion":"1.1","description":"Inclusion of documents at the milestone level is now deprecated. Documentation should be attached in the tender, award, contract or implementation sections, and titles and descriptions used to highlight the related milestone. Publishers who wish to continue to provide documents at the milestone level should explicitly declare this by using the milestone documents extension."},"items":{"$ref":"#/definitions/Document"},"uniqueItems":true}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Document":{"type":"object","title":"Document","description":"Links to, or descriptions of, external documents can be attached at various locations within the standard. Documents can be supporting information, formal notices, downloadable forms, or any other kind of resource that ought to be made public as part of full open contracting.","required":["id"],"properties":{"id":{"title":"ID","description":"A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.","type":["string","integer"],"minLength":1},"documentType":{"title":"Document type","description":"A classification of the document described, using the open [documentType](https://standard.open-contracting.org/1.1/en/schema/codelists/#document-type) codelist.","type":["string","null"],"codelist":"documentType.csv","openCodelist":true},"title":{"title":"Title","description":"The document title.","type":["string","null"]},"description":{"title":"Description","description":"A short description of the document. Descriptions are recommended to not exceed 250 words. In the event the document is not accessible online, the description field can be used to describe arrangements for obtaining a copy of the document.","type":["string","null"]},"url":{"title":"URL","description":"A direct link to the document or attachment. The server providing access to this document ought to be configured to correctly report the document mime type.","type":["string","null"],"format":"uri"},"datePublished":{"title":"Date published","description":"The date on which the document was first published. This is particularly important for legally important documents such as notices of a tender.","type":["string","null"],"format":"date-time"},"dateModified":{"title":"Date modified","description":"Date that the document was last modified","type":["string","null"],"format":"date-time"},"format":{"title":"Format","description":"The format of the document, using the open [IANA Media Types](http://www.iana.org/assignments/media-types/) codelist (see the values in the 'Template' column), or using the 'offline/print' code if the described document is published offline. For example, web pages have a format of 'text/html'.","type":["string","null"]},"language":{"title":"Language","description":"The language of the linked document using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is recommended unless there is a clear user need for distinguishing the language subtype.","type":["string","null"]}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Budget":{"type":"object","title":"Budget information","description":"This section contains information about the budget line, and associated projects, through which this contracting process is funded. It draws upon the data model of the [Fiscal Data Package](https://frictionlessdata.io/specs/fiscal-data-package/), and should be used to cross-reference to more detailed information held using a Budget Data Package, or, where no linked Budget Data Package is available, to provide enough information to allow a user to manually or automatically cross-reference with another published source of budget and project information.","properties":{"id":{"title":"ID","description":"An identifier for the budget line item which provides funds for this contracting process. This identifier should be possible to cross-reference against the provided data source.","type":["string","integer","null"]},"description":{"title":"Budget Source","description":"A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.","type":["string","null"]},"amount":{"title":"Amount","description":"The value reserved in the budget for this contracting process. A negative value indicates anticipated income to the budget as a result of this contracting process, rather than expenditure. Where the budget is drawn from multiple sources, the budget breakdown extension can be used.","$ref":"#/definitions/Value"},"project":{"title":"Project title","description":"The name of the project through which this contracting process is funded (if applicable). Some organizations maintain a registry of projects, and the data should use the name by which the project is known in that registry. No translation option is offered for this string, as translated values can be provided in third-party data, linked from the data source above.","type":["string","null"]},"projectID":{"title":"Project identifier","description":"An external identifier for the project that this contracting process forms part of, or is funded via (if applicable). Some organizations maintain a registry of projects, and the data should use the identifier from the relevant registry of projects.","type":["string","integer","null"]},"uri":{"title":"Linked budget information","description":"A URI pointing directly to a machine-readable record about the budget line-item or line-items that fund this contracting process. Information can be provided in a range of formats, including using IATI, the Open Fiscal Data Standard or any other standard which provides structured data on budget sources. Human readable documents can be included using the planning.documents block.","type":["string","null"],"format":"uri"},"source":{"title":"Data Source","description":"(Deprecated in 1.1) Used to point either to a corresponding Budget Data Package, or to a machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.","type":["string","null"],"deprecated":{"deprecatedVersion":"1.1","description":"The budget data source field was intended to link to machine-readable data about the budget for a contracting process, but has been widely mis-used to provide free-text descriptions of budget providers. As a result, it has been removed from version 1.1. budget/uri can be used to provide a link to machine-readable budget information, and budget/description can be used to provide human-readable information on the budget source."},"format":"uri"}},"patternProperties":{"^(source_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(project_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Transaction":{"type":"object","title":"Transaction information","description":"A spending transaction related to the contracting process. Draws upon the data models of the [Fiscal Data Package](https://frictionlessdata.io/specs/fiscal-data-package/) and the [International Aid Transparency Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data.","required":["id"],"properties":{"id":{"title":"ID","description":"A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.","type":["string","integer"],"minLength":1},"source":{"title":"Data source","description":"Used to point either to a corresponding Fiscal Data Package, IATI file, or machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.","type":["string","null"],"format":"uri"},"date":{"title":"Date","description":"The date of the transaction","type":["string","null"],"format":"date-time"},"value":{"$ref":"#/definitions/Value","title":"Value","description":"The value of the transaction."},"payer":{"$ref":"#/definitions/OrganizationReference","title":"Payer","description":"An organization reference for the organization from which the funds in this transaction originate."},"payee":{"$ref":"#/definitions/OrganizationReference","title":"Payee","description":"An organization reference for the organization which receives the funds in this transaction."},"uri":{"title":"Linked spending information","description":"A URI pointing directly to a machine-readable record about this spending transaction.","type":["string","null"],"format":"uri"},"amount":{"title":"Amount","description":"(Deprecated in 1.1. Use transaction.value instead) The value of the transaction. A negative value indicates a refund or correction.","$ref":"#/definitions/Value","deprecated":{"description":"This field has been replaced by the `transaction.value` field for consistency with the use of value and amount elsewhere in the standard.","deprecatedVersion":"1.1"}},"providerOrganization":{"title":"Provider organization","description":"(Deprecated in 1.1. Use transaction.payer instead.) The Organization Identifier for the organization from which the funds in this transaction originate. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.","$ref":"#/definitions/Identifier","deprecated":{"description":"This field has been replaced by the `transaction.payer` field to resolve ambiguity arising from 'provider' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties.","deprecatedVersion":"1.1"}},"receiverOrganization":{"title":"Receiver organization","description":"(Deprecated in 1.1. Use transaction.payee instead). The Organization Identifier for the organization which receives the funds in this transaction. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.","$ref":"#/definitions/Identifier","deprecated":{"description":"This field has been replaced by the `transaction.payee` field to resolve ambiguity arising from 'receiver' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties.","deprecatedVersion":"1.1"}}}},"OrganizationReference":{"properties":{"name":{"type":["string","null"],"description":"The name of the party being referenced. This must match the name of an entry in the parties section.","title":"Organization name","minLength":1},"id":{"type":["string","integer"],"description":"The id of the party being referenced. This must match the id of an entry in the parties section.","title":"Organization ID"},"identifier":{"title":"Primary identifier","description":"The primary identifier for this organization. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for the preferred scheme and identifier to use.","deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and detailed legal identifier information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/Identifier"},"address":{"deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and address information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/Address","description":"(Deprecated outside the parties section)","title":"Address"},"additionalIdentifiers":{"type":"array","deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and additional identifiers for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"items":{"$ref":"#/definitions/Identifier"},"title":"Additional identifiers","uniqueItems":true,"wholeListMerge":true,"description":"(Deprecated outside the parties section) A list of additional / supplemental identifiers for the organization, using the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/). This can be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier."},"contactPoint":{"deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and contact point information for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/ContactPoint","description":"(Deprecated outside the parties section)","title":"Contact point"}},"type":"object","description":"The id and name of the party being referenced. Used to cross-reference to the parties section","title":"Organization reference"},"Organization":{"title":"Organization","description":"A party (organization)","type":"object","properties":{"name":{"title":"Common name","description":"A common name for this organization or other participant in the contracting process. The identifier object provides a space for the formal legal name, and so this may either repeat that value, or may provide the common name by which this organization or entity is known. This field may also include details of the department or sub-unit involved in this contracting process.","type":["string","null"]},"id":{"type":"string","description":"The ID used for cross-referencing to this party from other sections of the release. This field may be built with the following structure {identifier.scheme}-{identifier.id}(-{department-identifier}).","title":"Entity ID"},"identifier":{"title":"Primary identifier","description":"The primary identifier for this organization or participant. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for the preferred scheme and identifier to use.","$ref":"#/definitions/Identifier"},"additionalIdentifiers":{"title":"Additional identifiers","description":"A list of additional / supplemental identifiers for the organization or participant, using the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/). This can be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier.","type":"array","items":{"$ref":"#/definitions/Identifier"},"uniqueItems":true,"wholeListMerge":true},"address":{"title":"Address","description":"An address. This may be the legally registered address of the organization, or may be a correspondence address for this particular contracting process.","$ref":"#/definitions/Address"},"contactPoint":{"title":"Contact point","description":"Contact details that can be used for this party.","$ref":"#/definitions/ContactPoint"},"roles":{"title":"Party roles","description":"The party's role(s) in the contracting process, using the open [partyRole](https://standard.open-contracting.org/1.1/en/schema/codelists/#party-role) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"partyRole.csv","openCodelist":true},"details":{"type":["object","null"],"description":"Additional classification information about parties can be provided using partyDetail extensions that define particular fields and classification schemes.","title":"Details"}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Item":{"title":"Item","type":"object","description":"A good, service, or work to be contracted.","required":["id"],"properties":{"id":{"title":"ID","description":"A local identifier to reference and merge the items by. Must be unique within a given array of items.","type":["string","integer"],"minLength":1},"description":{"title":"Description","description":"A description of the goods, services to be provided.","type":["string","null"]},"classification":{"title":"Classification","description":"The primary classification for the item.","$ref":"#/definitions/Classification"},"additionalClassifications":{"title":"Additional classifications","description":"An array of additional classifications for the item.","type":"array","items":{"$ref":"#/definitions/Classification"},"uniqueItems":true,"wholeListMerge":true},"quantity":{"title":"Quantity","description":"The number of units to be provided.","type":["number","null"]},"unit":{"title":"Unit","description":"A description of the unit in which the supplies, services or works are provided (e.g. hours, kilograms) and the unit-price.","type":"object","properties":{"scheme":{"title":"Scheme","description":"The list from which identifiers for units of measure are taken, using the open [unitClassificationScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#unit-classification-scheme) codelist. 'UNCEFACT' is recommended.","type":["string","null"],"codelist":"unitClassificationScheme.csv","openCodelist":true},"id":{"title":"ID","description":"The identifier from the codelist referenced in the `scheme` field. Check the [unitClassificationScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#unit-classification-scheme) codelist for details of how to find and use identifiers from the scheme in use.","type":["string","null"],"versionId":true},"name":{"title":"Name","description":"Name of the unit.","type":["string","null"]},"value":{"title":"Value","description":"The monetary value of a single unit.","$ref":"#/definitions/Value"},"uri":{"title":"URI","description":"The machine-readable URI for the unit of measure, provided by the scheme.","format":"uri","type":["string","null"]}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}}},"patternProperties":{"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Amendment":{"title":"Amendment","type":"object","description":"Amendment information","properties":{"date":{"title":"Amendment date","description":"The date of this amendment.","type":["string","null"],"format":"date-time"},"rationale":{"title":"Rationale","description":"An explanation for the amendment.","type":["string","null"]},"id":{"description":"An identifier for this amendment: often the amendment number","type":["string","null"],"title":"ID"},"description":{"description":"A free text, or semi-structured, description of the changes made in this amendment.","type":["string","null"],"title":"Description"},"amendsReleaseID":{"description":"Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **before** the amendment was made.","type":["string","null"],"title":"Amended release (identifier)"},"releaseID":{"description":"Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **after** the amendment was made.","type":["string","null"],"title":"Amending release (identifier)"},"changes":{"title":"Amended fields","description":"An array of change objects describing the fields changed, and their former values. (Deprecated in 1.1)","type":"array","items":{"type":"object","properties":{"property":{"title":"Property","description":"The property name that has been changed relative to the place the amendment is. For example if the contract value has changed, then the property under changes within the contract.amendment would be value.amount. (Deprecated in 1.1)","type":"string"},"former_value":{"title":"Former Value","description":"The previous value of the changed property, in whatever type the property is. (Deprecated in 1.1)","type":["string","number","integer","array","object","null"]}}},"deprecated":{"description":"A free-text or semi-structured string describing the changes made in each amendment can be provided in the amendment.description field. To provide structured information on the fields that have changed, publishers should provide releases indicating the state of the contracting process before and after the amendment.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Classification":{"title":"Classification","description":"A classification consists of at least two parts: an identifier for the list (scheme) from which the classification is taken, and an identifier for the category from that list being applied. It is useful to also publish a text label and/or URI that users can draw on to interpret the classification.","type":"object","properties":{"scheme":{"title":"Scheme","description":"The scheme or codelist from which the classification code is taken. For line item classifications, this uses the open [itemClassificationScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#item-classification-scheme) codelist.","type":["string","null"],"codelist":"itemClassificationScheme.csv","openCodelist":true},"id":{"title":"ID","description":"The classification code taken from the scheme.","type":["string","integer","null"],"versionId":true},"description":{"title":"Description","description":"A textual description or title for the classification code.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to uniquely identify the classification code.","type":["string","null"],"format":"uri"}},"patternProperties":{"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Identifier":{"title":"Identifier","description":"A unique identifier for a party (organization).","type":"object","properties":{"scheme":{"title":"Scheme","description":"Organization identifiers should be taken from an existing organization identifier list. The scheme field is used to indicate the list or register from which the identifier is taken. This value should be taken from the [Organization Identifier Scheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#organization-identifier-scheme) codelist.","type":["string","null"]},"id":{"title":"ID","description":"The identifier of the organization in the selected scheme.","type":["string","integer","null"],"versionId":true},"legalName":{"title":"Legal Name","description":"The legally registered name of the organization.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the organization, such as those provided by [Open Corporates](http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the URL field of the Organization contact point.","type":["string","null"],"format":"uri"}},"patternProperties":{"^(legalName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Address":{"title":"Address","description":"An address.","type":"object","properties":{"streetAddress":{"title":"Street address","type":["string","null"],"description":"The street address. For example, 1600 Amphitheatre Pkwy."},"locality":{"title":"Locality","type":["string","null"],"description":"The locality. For example, Mountain View."},"region":{"title":"Region","type":["string","null"],"description":"The region. For example, CA."},"postalCode":{"title":"Postal code","type":["string","null"],"description":"The postal code. For example, 94043."},"countryName":{"title":"Country name","type":["string","null"],"description":"The country name. For example, United States."}},"patternProperties":{"^(countryName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"ContactPoint":{"title":"Contact point","type":"object","description":"A person, contact point or department to contact in relation to this contracting process.","properties":{"name":{"title":"Name","type":["string","null"],"description":"The name of the contact person, department, or contact point, for correspondence relating to this contracting process."},"email":{"title":"Email","type":["string","null"],"description":"The e-mail address of the contact point/person."},"telephone":{"title":"Telephone","type":["string","null"],"description":"The telephone number of the contact point/person. This should include the international dialing code."},"faxNumber":{"title":"Fax number","type":["string","null"],"description":"The fax number of the contact point/person. This should include the international dialing code."},"url":{"title":"URL","type":["string","null"],"description":"A web address for the contact point/person.","format":"uri"}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Value":{"title":"Value","description":"Financial values should be published with a currency attached.","type":"object","properties":{"amount":{"title":"Amount","description":"Amount as a number.","type":["number","null"]},"currency":{"title":"Currency","description":"The currency of the amount, from the closed [currency](https://standard.open-contracting.org/1.1/en/schema/codelists/#currency) codelist.","type":["string","null"],"codelist":"currency.csv","openCodelist":false,"enum":["ADP","AED","AFA","AFN","ALK","ALL","AMD","ANG","AOA","AOK","AON","AOR","ARA","ARP","ARS","ARY","ATS","AUD","AWG","AYM","AZM","AZN","BAD","BAM","BBD","BDT","BEC","BEF","BEL","BGJ","BGK","BGL","BGN","BHD","BIF","BMD","BND","BOB","BOP","BOV","BRB","BRC","BRE","BRL","BRN","BRR","BSD","BTN","BUK","BWP","BYB","BYN","BYR","BZD","CAD","CDF","CHC","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CSD","CSJ","CSK","CUC","CUP","CVE","CYP","CZK","DDM","DEM","DJF","DKK","DOP","DZD","ECS","ECV","EEK","EGP","ERN","ESA","ESB","ESP","ETB","EUR","FIM","FJD","FKP","FRF","GBP","GEK","GEL","GHC","GHP","GHS","GIP","GMD","GNE","GNF","GNS","GQE","GRD","GTQ","GWE","GWP","GYD","HKD","HNL","HRD","HRK","HTG","HUF","IDR","IEP","ILP","ILR","ILS","INR","IQD","IRR","ISJ","ISK","ITL","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAJ","LAK","LBP","LKR","LRD","LSL","LSM","LTL","LTT","LUC","LUF","LUL","LVL","LVR","LYD","MAD","MDL","MGA","MGF","MKD","MLF","MMK","MNT","MOP","MRO","MRU","MTL","MTP","MUR","MVQ","MVR","MWK","MXN","MXP","MXV","MYR","MZE","MZM","MZN","NAD","NGN","NIC","NIO","NLG","NOK","NPR","NZD","OMR","PAB","PEH","PEI","PEN","PES","PGK","PHP","PKR","PLN","PLZ","PTE","PYG","QAR","RHD","ROK","ROL","RON","RSD","RUB","RUR","RWF","SAR","SBD","SCR","SDD","SDG","SDP","SEK","SGD","SHP","SIT","SKK","SLL","SOS","SRD","SRG","SSP","STD","STN","SUR","SVC","SYP","SZL","THB","TJR","TJS","TMM","TMT","TND","TOP","TPE","TRL","TRY","TTD","TWD","TZS","UAH","UAK","UGS","UGW","UGX","USD","USN","USS","UYI","UYN","UYP","UYU","UYW","UZS","VEB","VEF","VES","VNC","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XEU","XFO","XFU","XOF","XPD","XPF","XPT","XRE","XSU","XTS","XUA","XXX","YDD","YER","YUD","YUM","YUN","ZAL","ZAR","ZMK","ZMW","ZRN","ZRZ","ZWC","ZWD","ZWL","ZWN","ZWR",null]}}},"Period":{"title":"Period","description":"Key events during a contracting process may have a known start date, end date, duration, or maximum extent (the latest date the period can extend to). In some cases, not all of these fields will have known or relevant values.","type":"object","properties":{"startDate":{"title":"Start date","description":"The start date for the period. When known, a precise start date must be provided.","type":["string","null"],"format":"date-time"},"endDate":{"title":"End date","description":"The end date for the period. When known, a precise end date must be provided.","type":["string","null"],"format":"date-time"},"maxExtentDate":{"description":"The period cannot be extended beyond this date. This field can be used to express the maximum available date for extension or renewal of this period.","format":"date-time","title":"Maximum extent","type":["string","null"]},"durationInDays":{"description":"The maximum duration of this period in days. A user interface can collect or display this data in months or years as appropriate, and then convert it into days when storing this field. This field can be used when exact dates are not known. If a startDate and endDate are set, this field, if used, should be equal to the difference between startDate and endDate. Otherwise, if a startDate and maxExtentDate are set, this field, if used, should be equal to the difference between startDate and maxExtentDate.","title":"Duration (days)","type":["integer","null"]}}},"RelatedProcess":{"description":"A reference to a related contracting process: generally one preceding or following on from the current process.","type":"object","title":"Related Process","properties":{"id":{"title":"Relationship ID","description":"A local identifier for this relationship, unique within this array.","type":"string"},"relationship":{"items":{"type":"string"},"description":"The type of relationship, using the open [relatedProcess](https://standard.open-contracting.org/1.1/en/schema/codelists/#related-process) codelist.","title":"Relationship","type":["array","null"],"codelist":"relatedProcess.csv","openCodelist":true},"title":{"description":"The title of the related process, where referencing an open contracting process, this field should match the tender/title field in the related process.","title":"Related process title","type":["string","null"]},"scheme":{"title":"Scheme","description":"The identification scheme used by this cross-reference, using the open [relatedProcessScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#related-process-scheme) codelist.","type":["string","null"],"codelist":"relatedProcessScheme.csv","openCodelist":true},"identifier":{"description":"The identifier of the related process. If the scheme is 'ocid', this must be an Open Contracting ID (ocid).","title":"Identifier","type":["string","null"]},"uri":{"format":"uri","description":"A URI pointing to a machine-readable document, release or record package containing the identified related process.","title":"Related process URI","type":["string","null"]}}}}}
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports) {
+
+	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__5/release-package-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Release Package","description":"The release package contains a list of releases along with some publishing metadata.","type":"object","required":["uri","publisher","publishedDate","releases","version"],"properties":{"uri":{"title":"Package identifier","description":"The URI of this package that identifies it uniquely in the world. Recommended practice is to use a dereferenceable URI, where a persistent copy of this package is available.","type":"string","format":"uri"},"version":{"title":"OCDS schema version","description":"The version of the OCDS schema used in this package, expressed as major.minor For example: 1.0 or 1.1","type":"string","pattern":"^(\\d+\\.)(\\d+)$"},"extensions":{"title":"OCDS extensions","description":"An array of OCDS extensions used in this package, in which each array item is the URL of an extension.json file.","type":"array","items":{"type":"string","format":"uri"}},"publishedDate":{"title":"Published date","description":"The date that this package was published. If this package is generated 'on demand', this date should reflect the date of the last change to the underlying contents of the package.","type":"string","format":"date-time"},"releases":{"title":"Releases","description":"An array of one or more OCDS releases.","type":"array","minItems":1,"items":{"$ref":"https://standard.open-contracting.org/schema/1__1__5/release-schema.json"},"uniqueItems":true},"publisher":{"title":"Publisher","description":"Information to uniquely identify the publisher of this package.","type":"object","properties":{"name":{"title":"Name","description":"The name of the organization or department responsible for publishing this data.","type":"string"},"scheme":{"title":"Scheme","description":"The scheme that holds the unique identifiers used to identify the item being identified.","type":["string","null"]},"uid":{"title":"uid","description":"The unique ID for this entity under the given ID scheme.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the publisher.","type":["string","null"],"format":"uri"}},"required":["name"]},"license":{"title":"License","description":"A link to the license that applies to the data in this package. A Public Domain Dedication or [Open Definition Conformant](http://opendefinition.org/licenses/) license is recommended. The canonical URI of the license should be used. Documents linked from this file may be under other license conditions.","type":["string","null"],"format":"uri"},"publicationPolicy":{"title":"Publication policy","description":"A link to a document describing the publishers [publication policy](https://standard.open-contracting.org/1.1/en/implementation/publication_policy/).","type":["string","null"],"format":"uri"}}}
+
+/***/ }),
 /* 115 */
 /***/ (function(module, exports) {
 
-	module.exports = {"id":"http://json-schema.org/draft-04/schema#","$schema":"http://json-schema.org/draft-04/schema#","description":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"positiveInteger":{"type":"integer","minimum":0},"positiveIntegerDefault0":{"allOf":[{"$ref":"#/definitions/positiveInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"type":"object","properties":{"id":{"type":"string","format":"uri"},"$schema":{"type":"string","format":"uri"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"type":"number","minimum":0,"exclusiveMinimum":true},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"boolean","default":false},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"boolean","default":false},"maxLength":{"$ref":"#/definitions/positiveInteger"},"minLength":{"$ref":"#/definitions/positiveIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/positiveInteger"},"minItems":{"$ref":"#/definitions/positiveIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"maxProperties":{"$ref":"#/definitions/positiveInteger"},"minProperties":{"$ref":"#/definitions/positiveIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"anyOf":[{"type":"boolean"},{"$ref":"#"}],"default":{}},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"dependencies":{"exclusiveMaximum":["maximum"],"exclusiveMinimum":["minimum"]},"default":{}}
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports) {
-
-	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__4/release-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Release","description":"Each release provides data about a single contracting process at a particular point in time. Releases can be used to notify users of new tenders, awards, contracts and other updates. Releases may repeat or update information provided previously in this contracting process. One contracting process may have many releases. A 'record' of a contracting process follows the same structure as a release, but combines information from multiple points in time into a single summary.","type":"object","properties":{"ocid":{"title":"Open Contracting ID","description":"A globally unique identifier for this Open Contracting Process. Composed of an ocid prefix and an identifier for the contracting process. For more information see the [Open Contracting Identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/)","type":"string","minLength":1},"id":{"title":"Release ID","description":"An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid). A release identifier must not contain the # character.","type":"string","minLength":1,"omitWhenMerged":true},"date":{"title":"Release Date","description":"The date this information was first released, or published.","type":"string","format":"date-time","omitWhenMerged":true},"tag":{"title":"Release Tag","description":"One or more values from the closed [releaseTag](https://standard.open-contracting.org/1.1/en/schema/codelists/#release-tag) codelist. Tags can be used to filter releases and to understand the kind of information that releases might contain.","type":"array","items":{"type":"string","enum":["planning","planningUpdate","tender","tenderAmendment","tenderUpdate","tenderCancellation","award","awardUpdate","awardCancellation","contract","contractUpdate","contractAmendment","implementation","implementationUpdate","contractTermination","compiled"]},"codelist":"releaseTag.csv","openCodelist":false,"minItems":1,"omitWhenMerged":true},"initiationType":{"title":"Initiation type","description":"The type of initiation process used for this contract, from the closed [initiationType](https://standard.open-contracting.org/1.1/en/schema/codelists/#initiation-type) codelist.","type":"string","enum":["tender"],"codelist":"initiationType.csv","openCodelist":false},"parties":{"title":"Parties","description":"Information on the parties (organizations, economic operators and other participants) who are involved in the contracting process and their roles, e.g. buyer, procuring entity, supplier etc. Organization references elsewhere in the schema are used to refer back to this entries in this list.","type":"array","items":{"$ref":"#/definitions/Organization"},"uniqueItems":true},"buyer":{"title":"Buyer","description":"A buyer is an entity whose budget will be used to pay for goods, works or services related to a contract. This may be different from the procuring entity who may be specified in the tender data.","$ref":"#/definitions/OrganizationReference"},"planning":{"title":"Planning","description":"Information from the planning phase of the contracting process. This includes information related to the process of deciding what to contract, when and how.","$ref":"#/definitions/Planning"},"tender":{"title":"Tender","description":"The activities undertaken in order to enter into a contract.","$ref":"#/definitions/Tender"},"awards":{"title":"Awards","description":"Information from the award phase of the contracting process. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.","type":"array","items":{"$ref":"#/definitions/Award"},"uniqueItems":true},"contracts":{"title":"Contracts","description":"Information from the contract creation phase of the procurement process.","type":"array","items":{"$ref":"#/definitions/Contract"},"uniqueItems":true},"language":{"title":"Release language","description":"The default language of the data using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is recommended.","type":["string","null"],"default":"en"},"relatedProcesses":{"uniqueItems":true,"items":{"$ref":"#/definitions/RelatedProcess"},"description":"The details of related processes: for example, if this process follows on from one or more other processes, represented under a separate open contracting identifier (ocid). This is commonly used to relate mini-competitions to their parent frameworks or individual tenders to a broader planning process.","title":"Related processes","type":"array"}},"required":["ocid","id","date","tag","initiationType"],"definitions":{"Planning":{"title":"Planning","description":"Information from the planning phase of the contracting process. Note that many other fields can be filled in a planning release, in the appropriate fields in other schema sections; these would likely be estimates at this stage, e.g. value in tender.","type":"object","properties":{"rationale":{"title":"Rationale","description":"The rationale for the procurement provided in free text. More detail can be provided in an attached document.","type":["string","null"]},"budget":{"title":"Budget","description":"Details of the budget that funds this contracting process.","$ref":"#/definitions/Budget"},"documents":{"title":"Documents","description":"A list of documents related to the planning process.","type":"array","items":{"$ref":"#/definitions/Document"}},"milestones":{"title":"Planning milestones","description":"A list of milestones associated with the planning stage.","type":"array","items":{"$ref":"#/definitions/Milestone"}}},"patternProperties":{"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Tender":{"title":"Tender","description":"Data regarding tender process - publicly inviting prospective contractors to submit bids for evaluation and selecting a winner or winners.","type":"object","required":["id"],"properties":{"id":{"title":"Tender ID","description":"An identifier for this tender process. This may be the same as the ocid, or may be an internal identifier for this tender.","type":["string","integer"],"minLength":1,"versionId":true},"title":{"title":"Tender title","description":"A title for this tender. This will often be used by applications as a headline to attract interest, and to help analysts understand the nature of this procurement.","type":["string","null"]},"description":{"title":"Tender description","description":"A summary description of the tender. This complements any structured information provided using the items array. Descriptions should be short and easy to read. Avoid using ALL CAPS.","type":["string","null"]},"status":{"title":"Tender status","description":"The current status of the tender, from the closed [tenderStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#tender-status) codelist.","type":["string","null"],"codelist":"tenderStatus.csv","openCodelist":false,"enum":["planning","planned","active","cancelled","unsuccessful","complete","withdrawn",null]},"procuringEntity":{"title":"Procuring entity","description":"The entity managing the procurement. This may be different from the buyer who pays for, or uses, the items being procured.","$ref":"#/definitions/OrganizationReference"},"items":{"title":"Items to be procured","description":"The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.","type":"array","items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"value":{"title":"Value","description":"The total upper estimated value of the procurement. A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"minValue":{"title":"Minimum value","description":"The minimum estimated value of the procurement.  A negative value indicates that the contracting process may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"procurementMethod":{"title":"Procurement method","description":"The procurement method, from the closed [method](https://standard.open-contracting.org/1.1/en/schema/codelists/#method) codelist.","type":["string","null"],"codelist":"method.csv","openCodelist":false,"enum":["open","selective","limited","direct",null]},"procurementMethodDetails":{"title":"Procurement method details","description":"Additional detail on the procurement method used. This field can be used to provide the local name of the particular procurement method used.","type":["string","null"]},"procurementMethodRationale":{"title":"Procurement method rationale","description":"Rationale for the chosen procurement method. This is especially important to provide a justification in the case of limited tenders or direct awards.","type":["string","null"]},"mainProcurementCategory":{"title":"Main procurement category","description":"The primary category describing the main object of this contracting process, from the closed [procurementCategory](https://standard.open-contracting.org/1.1/en/schema/codelists/#procurement-category) codelist.","type":["string","null"],"codelist":"procurementCategory.csv","openCodelist":false,"enum":["goods","works","services",null]},"additionalProcurementCategories":{"title":"Additional procurement categories","description":"Any additional categories describing the objects of this contracting process, using the open [extendedProcurementCategory](https://standard.open-contracting.org/1.1/en/schema/codelists/#extended-procurement-category) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"extendedProcurementCategory.csv","openCodelist":true},"awardCriteria":{"title":"Award criteria","description":"The award criteria for the procurement, using the open [awardCriteria](https://standard.open-contracting.org/1.1/en/schema/codelists/#award-criteria) codelist.","type":["string","null"],"codelist":"awardCriteria.csv","openCodelist":true},"awardCriteriaDetails":{"title":"Award criteria details","description":"Any detailed or further information on the award or selection criteria.","type":["string","null"]},"submissionMethod":{"title":"Submission method","description":"The methods by which bids are submitted, using the open [submissionMethod](https://standard.open-contracting.org/1.1/en/schema/codelists/#submission-method) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"submissionMethod.csv","openCodelist":true},"submissionMethodDetails":{"title":"Submission method details","description":"Any detailed or further information on the submission method. This can include the address, e-mail address or online service to which bids are submitted, and any special requirements to be followed for submissions.","type":["string","null"]},"tenderPeriod":{"title":"Tender period","description":"The period when the tender is open for submissions. The end date is the closing date for tender submissions.","$ref":"#/definitions/Period"},"enquiryPeriod":{"title":"Enquiry period","description":"The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.","$ref":"#/definitions/Period"},"hasEnquiries":{"title":"Has enquiries?","description":"A true/false field to indicate whether any enquiries were received during the tender process. Structured information on enquiries that were received, and responses to them, can be provided using the enquiries extension.","type":["boolean","null"]},"eligibilityCriteria":{"title":"Eligibility criteria","description":"A description of any eligibility criteria for potential suppliers.","type":["string","null"]},"awardPeriod":{"title":"Evaluation and award period","description":"The period for decision making regarding the contract award. The end date should be the date on which an award decision is due to be finalized. The start date may be used to indicate the start of an evaluation period.","$ref":"#/definitions/Period"},"contractPeriod":{"description":"The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.","title":"Contract period","$ref":"#/definitions/Period"},"numberOfTenderers":{"title":"Number of tenderers","description":"The number of parties who submit a bid.","type":["integer","null"]},"tenderers":{"title":"Tenderers","description":"All parties who submit a bid on a tender. More detailed information on bids and the bidding organization can be provided using the bid extension.","type":"array","items":{"$ref":"#/definitions/OrganizationReference"},"uniqueItems":true},"documents":{"title":"Documents","description":"All documents and attachments related to the tender, including any notices. See the [documentType](https://standard.open-contracting.org/1.1/en/schema/codelists/#document-type) codelist for details of potential documents to include. Common documents include official legal notices of tender, technical specifications, evaluation criteria, and, as a tender process progresses, clarifications and replies to queries.","type":"array","items":{"$ref":"#/definitions/Document"}},"milestones":{"title":"Milestones","description":"A list of milestones associated with the tender.","type":"array","items":{"$ref":"#/definitions/Milestone"}},"amendments":{"description":"A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(procurementMethodRationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(awardCriteriaDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(submissionMethodDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(eligibilityCriteria_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Award":{"title":"Award","description":"An award for the given procurement. There can be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.","type":"object","required":["id"],"properties":{"id":{"title":"Award ID","description":"The identifier for this award. It must be unique and must not change within the Open Contracting Process it is part of (defined by a single ocid). See the [identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for further details.","type":["string","integer"],"minLength":1},"title":{"title":"Title","description":"Award title","type":["string","null"]},"description":{"title":"Description","description":"Award description","type":["string","null"]},"status":{"title":"Award status","description":"The current status of the award, from the closed [awardStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#award-status) codelist.","type":["string","null"],"enum":["pending","active","cancelled","unsuccessful",null],"codelist":"awardStatus.csv","openCodelist":false},"date":{"title":"Award date","description":"The date of the contract award. This is usually the date on which a decision to award was made.","type":["string","null"],"format":"date-time"},"value":{"title":"Value","description":"The total value of this award. In the case of a framework contract this may be the total estimated lifetime value, or maximum value, of the agreement. There may be more than one award per procurement. A negative value indicates that the award may involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"suppliers":{"title":"Suppliers","description":"The suppliers awarded this award. If different suppliers have been awarded different items or values, these should be split into separate award blocks.","type":"array","items":{"$ref":"#/definitions/OrganizationReference"},"uniqueItems":true},"items":{"title":"Items awarded","description":"The goods and services awarded in this award, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.","type":"array","minItems":1,"items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"contractPeriod":{"title":"Contract period","description":"The period for which the contract has been awarded.","$ref":"#/definitions/Period"},"documents":{"title":"Documents","description":"All documents and attachments related to the award, including any notices.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true},"amendments":{"description":"An award amendment is a formal change to the details of the award, and generally involves the publication of a new award notice/release. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Contract":{"type":"object","title":"Contract","description":"Information regarding the signed contract between the buyer and supplier(s).","required":["id","awardID"],"properties":{"id":{"title":"Contract ID","description":"The identifier for this contract. It must be unique and must not change within the Open Contracting Process it is part of (defined by a single ocid). See the [identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for further details.","type":["string","integer"],"minLength":1},"awardID":{"title":"Award ID","description":"The award.id against which this contract is being issued.","type":["string","integer"],"minLength":1},"title":{"title":"Contract title","description":"Contract title","type":["string","null"]},"description":{"title":"Contract description","description":"Contract description","type":["string","null"]},"status":{"title":"Contract status","description":"The current status of the contract, from the closed [contractStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#contract-status) codelist.","type":["string","null"],"enum":["pending","active","cancelled","terminated",null],"codelist":"contractStatus.csv","openCodelist":false},"period":{"title":"Period","description":"The start and end date for the contract.","$ref":"#/definitions/Period"},"value":{"title":"Value","description":"The total value of this contract. A negative value indicates that the contract will involve payments from the supplier to the buyer (commonly used in concession contracts).","$ref":"#/definitions/Value"},"items":{"title":"Items contracted","description":"The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.","type":"array","minItems":1,"items":{"$ref":"#/definitions/Item"},"uniqueItems":true},"dateSigned":{"title":"Date signed","description":"The date the contract was signed. In the case of multiple signatures, the date of the last signature.","type":["string","null"],"format":"date-time"},"documents":{"title":"Documents","description":"All documents and attachments related to the contract, including any notices.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true},"implementation":{"title":"Implementation","description":"Information related to the implementation of the contract in accordance with the obligations laid out therein.","$ref":"#/definitions/Implementation"},"relatedProcesses":{"uniqueItems":true,"items":{"$ref":"#/definitions/RelatedProcess"},"description":"The details of related processes: for example, if this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid). This is commonly used to refer to subcontracts and to renewal or replacement processes for this contract.","title":"Related processes","type":"array"},"milestones":{"title":"Contract milestones","description":"A list of milestones associated with the finalization of this contract.","type":"array","items":{"$ref":"#/definitions/Milestone"}},"amendments":{"description":"A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice/release, or some other documents detailing the change. The rationale and a description of the changes made can be provided here.","type":"array","title":"Amendments","items":{"$ref":"#/definitions/Amendment"}},"amendment":{"title":"Amendment","description":"The use of individual amendment objects has been deprecated. From OCDS 1.1 information should be provided in the amendments array.","$ref":"#/definitions/Amendment","deprecated":{"description":"The single amendment object has been deprecated in favour of including amendments in an amendments (plural) array.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Implementation":{"type":"object","title":"Implementation","description":"Information during the performance / implementation stage of the contract.","properties":{"transactions":{"title":"Transactions","description":"A list of the spending transactions made against this contract","type":"array","items":{"$ref":"#/definitions/Transaction"},"uniqueItems":true},"milestones":{"title":"Milestones","description":"As milestones are completed, the milestone's status and dates should be updated.","type":"array","items":{"$ref":"#/definitions/Milestone"},"uniqueItems":true},"documents":{"title":"Documents","description":"Documents and reports that are part of the implementation phase e.g. audit and evaluation reports.","type":"array","items":{"$ref":"#/definitions/Document"},"uniqueItems":true}}},"Milestone":{"title":"Milestone","description":"The milestone block can be used to represent a wide variety of events in the lifetime of a contracting process.","type":"object","required":["id"],"properties":{"id":{"title":"ID","description":"A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.","type":["string","integer"],"minLength":1},"title":{"title":"Title","description":"Milestone title","type":["string","null"]},"type":{"title":"Milestone type","description":"The nature of the milestone, using the open [milestoneType](https://standard.open-contracting.org/1.1/en/schema/codelists/#milestone-type) codelist.","type":["string","null"],"codelist":"milestoneType.csv","openCodelist":true},"description":{"title":"Description","description":"A description of the milestone.","type":["string","null"]},"code":{"title":"Milestone code","description":"Milestone codes can be used to track specific events that take place for a particular kind of contracting process. For example, a code of 'approvalLetter' can be used to allow applications to understand this milestone represents the date an approvalLetter is due or signed.","type":["string","null"]},"dueDate":{"title":"Due date","description":"The date the milestone is due.","type":["string","null"],"format":"date-time"},"dateMet":{"format":"date-time","title":"Date met","description":"The date on which the milestone was met.","type":["string","null"]},"dateModified":{"title":"Date modified","description":"The date the milestone was last reviewed or modified and the status was altered or confirmed to still be correct.","type":["string","null"],"format":"date-time"},"status":{"title":"Status","description":"The status that was realized on the date provided in `dateModified`, from the closed [milestoneStatus](https://standard.open-contracting.org/1.1/en/schema/codelists/#milestone-status) codelist.","type":["string","null"],"enum":["scheduled","met","notMet","partiallyMet",null],"codelist":"milestoneStatus.csv","openCodelist":false},"documents":{"title":"Documents","description":"List of documents associated with this milestone (Deprecated in 1.1).","type":"array","deprecated":{"deprecatedVersion":"1.1","description":"Inclusion of documents at the milestone level is now deprecated. Documentation should be attached in the tender, award, contract or implementation sections, and titles and descriptions used to highlight the related milestone. Publishers who wish to continue to provide documents at the milestone level should explicitly declare this by using the milestone documents extension."},"items":{"$ref":"#/definitions/Document"},"uniqueItems":true}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Document":{"type":"object","title":"Document","description":"Links to, or descriptions of, external documents can be attached at various locations within the standard. Documents can be supporting information, formal notices, downloadable forms, or any other kind of resource that ought to be made public as part of full open contracting.","required":["id"],"properties":{"id":{"title":"ID","description":"A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.","type":["string","integer"],"minLength":1},"documentType":{"title":"Document type","description":"A classification of the document described, using the open [documentType](https://standard.open-contracting.org/1.1/en/schema/codelists/#document-type) codelist.","type":["string","null"],"codelist":"documentType.csv","openCodelist":true},"title":{"title":"Title","description":"The document title.","type":["string","null"]},"description":{"title":"Description","description":"A short description of the document. Descriptions are recommended to not exceed 250 words. In the event the document is not accessible online, the description field can be used to describe arrangements for obtaining a copy of the document.","type":["string","null"]},"url":{"title":"URL","description":"A direct link to the document or attachment. The server providing access to this document ought to be configured to correctly report the document mime type.","type":["string","null"],"format":"uri"},"datePublished":{"title":"Date published","description":"The date on which the document was first published. This is particularly important for legally important documents such as notices of a tender.","type":["string","null"],"format":"date-time"},"dateModified":{"title":"Date modified","description":"Date that the document was last modified","type":["string","null"],"format":"date-time"},"format":{"title":"Format","description":"The format of the document, using the open [IANA Media Types](http://www.iana.org/assignments/media-types/) codelist (see the values in the 'Template' column), or using the 'offline/print' code if the described document is published offline. For example, web pages have a format of 'text/html'.","type":["string","null"]},"language":{"title":"Language","description":"The language of the linked document using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is recommended unless there is a clear user need for distinguishing the language subtype.","type":["string","null"]}},"patternProperties":{"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Budget":{"type":"object","title":"Budget information","description":"This section contains information about the budget line, and associated projects, through which this contracting process is funded. It draws upon the data model of the [Fiscal Data Package](https://frictionlessdata.io/specs/fiscal-data-package/), and should be used to cross-reference to more detailed information held using a Budget Data Package, or, where no linked Budget Data Package is available, to provide enough information to allow a user to manually or automatically cross-reference with another published source of budget and project information.","properties":{"id":{"title":"ID","description":"An identifier for the budget line item which provides funds for this contracting process. This identifier should be possible to cross-reference against the provided data source.","type":["string","integer","null"]},"description":{"title":"Budget Source","description":"A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.","type":["string","null"]},"amount":{"title":"Amount","description":"The value reserved in the budget for this contracting process. A negative value indicates anticipated income to the budget as a result of this contracting process, rather than expenditure. Where the budget is drawn from multiple sources, the budget breakdown extension can be used.","$ref":"#/definitions/Value"},"project":{"title":"Project title","description":"The name of the project through which this contracting process is funded (if applicable). Some organizations maintain a registry of projects, and the data should use the name by which the project is known in that registry. No translation option is offered for this string, as translated values can be provided in third-party data, linked from the data source above.","type":["string","null"]},"projectID":{"title":"Project identifier","description":"An external identifier for the project that this contracting process forms part of, or is funded via (if applicable). Some organizations maintain a registry of projects, and the data should use the identifier from the relevant registry of projects.","type":["string","integer","null"]},"uri":{"title":"Linked budget information","description":"A URI pointing directly to a machine-readable record about the budget line-item or line-items that fund this contracting process. Information can be provided in a range of formats, including using IATI, the Open Fiscal Data Standard or any other standard which provides structured data on budget sources. Human readable documents can be included using the planning.documents block.","type":["string","null"],"format":"uri"},"source":{"title":"Data Source","description":"(Deprecated in 1.1) Used to point either to a corresponding Budget Data Package, or to a machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.","type":["string","null"],"deprecated":{"deprecatedVersion":"1.1","description":"The budget data source field was intended to link to machine-readable data about the budget for a contracting process, but has been widely mis-used to provide free-text descriptions of budget providers. As a result, it has been removed from version 1.1. budget/uri can be used to provide a link to machine-readable budget information, and budget/description can be used to provide human-readable information on the budget source."},"format":"uri"}},"patternProperties":{"^(source_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]},"^(project_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Transaction":{"type":"object","title":"Transaction information","description":"A spending transaction related to the contracting process. Draws upon the data models of the [Fiscal Data Package](https://frictionlessdata.io/specs/fiscal-data-package/) and the [International Aid Transparency Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data.","required":["id"],"properties":{"id":{"title":"ID","description":"A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.","type":["string","integer"],"minLength":1},"source":{"title":"Data source","description":"Used to point either to a corresponding Fiscal Data Package, IATI file, or machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.","type":["string","null"],"format":"uri"},"date":{"title":"Date","description":"The date of the transaction","type":["string","null"],"format":"date-time"},"value":{"$ref":"#/definitions/Value","title":"Value","description":"The value of the transaction."},"payer":{"$ref":"#/definitions/OrganizationReference","title":"Payer","description":"An organization reference for the organization from which the funds in this transaction originate."},"payee":{"$ref":"#/definitions/OrganizationReference","title":"Payee","description":"An organization reference for the organization which receives the funds in this transaction."},"uri":{"title":"Linked spending information","description":"A URI pointing directly to a machine-readable record about this spending transaction.","type":["string","null"],"format":"uri"},"amount":{"title":"Amount","description":"(Deprecated in 1.1. Use transaction.value instead) The value of the transaction. A negative value indicates a refund or correction.","$ref":"#/definitions/Value","deprecated":{"description":"This field has been replaced by the `transaction.value` field for consistency with the use of value and amount elsewhere in the standard.","deprecatedVersion":"1.1"}},"providerOrganization":{"title":"Provider organization","description":"(Deprecated in 1.1. Use transaction.payer instead.) The Organization Identifier for the organization from which the funds in this transaction originate. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.","$ref":"#/definitions/Identifier","deprecated":{"description":"This field has been replaced by the `transaction.payer` field to resolve ambiguity arising from 'provider' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties.","deprecatedVersion":"1.1"}},"receiverOrganization":{"title":"Receiver organization","description":"(Deprecated in 1.1. Use transaction.payee instead). The Organization Identifier for the organization which receives the funds in this transaction. Expressed following the Organizational Identifier standard - consult the documentation and the codelist.","$ref":"#/definitions/Identifier","deprecated":{"description":"This field has been replaced by the `transaction.payee` field to resolve ambiguity arising from 'receiver' being interpreted as relating to the goods or services procured rather than the flow of funds between the parties.","deprecatedVersion":"1.1"}}}},"OrganizationReference":{"properties":{"name":{"type":["string","null"],"description":"The name of the party being referenced. This must match the name of an entry in the parties section.","title":"Organization name","minLength":1},"id":{"type":["string","integer"],"description":"The id of the party being referenced. This must match the id of an entry in the parties section.","title":"Organization ID"},"identifier":{"title":"Primary identifier","description":"The primary identifier for this organization. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for the preferred scheme and identifier to use.","deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and detailed legal identifier information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/Identifier"},"address":{"deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and address information should only be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/Address","description":"(Deprecated outside the parties section)","title":"Address"},"additionalIdentifiers":{"type":"array","deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and additional identifiers for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"items":{"$ref":"#/definitions/Identifier"},"title":"Additional identifiers","uniqueItems":true,"wholeListMerge":true,"description":"(Deprecated outside the parties section) A list of additional / supplemental identifiers for the organization, using the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/). This can be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier."},"contactPoint":{"deprecated":{"deprecatedVersion":"1.1","description":"From version 1.1, organizations should be referenced by their identifier and name in a document, and contact point information for an organization should be provided in the relevant cross-referenced entry in the parties section at the top level of a release."},"$ref":"#/definitions/ContactPoint","description":"(Deprecated outside the parties section)","title":"Contact point"}},"type":"object","description":"The id and name of the party being referenced. Used to cross-reference to the parties section","title":"Organization reference"},"Organization":{"title":"Organization","description":"A party (organization)","type":"object","properties":{"name":{"title":"Common name","description":"A common name for this organization or other participant in the contracting process. The identifier object provides a space for the formal legal name, and so this may either repeat that value, or may provide the common name by which this organization or entity is known. This field may also include details of the department or sub-unit involved in this contracting process.","type":["string","null"]},"id":{"type":"string","description":"The ID used for cross-referencing to this party from other sections of the release. This field may be built with the following structure {identifier.scheme}-{identifier.id}(-{department-identifier}).","title":"Entity ID"},"identifier":{"title":"Primary identifier","description":"The primary identifier for this organization or participant. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/) for the preferred scheme and identifier to use.","$ref":"#/definitions/Identifier"},"additionalIdentifiers":{"title":"Additional identifiers","description":"A list of additional / supplemental identifiers for the organization or participant, using the [organization identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/). This can be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier.","type":"array","items":{"$ref":"#/definitions/Identifier"},"uniqueItems":true,"wholeListMerge":true},"address":{"title":"Address","description":"An address. This may be the legally registered address of the organization, or may be a correspondence address for this particular contracting process.","$ref":"#/definitions/Address"},"contactPoint":{"title":"Contact point","description":"Contact details that can be used for this party.","$ref":"#/definitions/ContactPoint"},"roles":{"title":"Party roles","description":"The party's role(s) in the contracting process, using the open [partyRole](https://standard.open-contracting.org/1.1/en/schema/codelists/#party-role) codelist.","type":["array","null"],"items":{"type":"string"},"codelist":"partyRole.csv","openCodelist":true},"details":{"type":["object","null"],"description":"Additional classification information about parties can be provided using partyDetail extensions that define particular properties and classification schemes.","title":"Details"}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Item":{"title":"Item","type":"object","description":"A good, service, or work to be contracted.","required":["id"],"properties":{"id":{"title":"ID","description":"A local identifier to reference and merge the items by. Must be unique within a given array of items.","type":["string","integer"],"minLength":1},"description":{"title":"Description","description":"A description of the goods, services to be provided.","type":["string","null"]},"classification":{"title":"Classification","description":"The primary classification for the item.","$ref":"#/definitions/Classification"},"additionalClassifications":{"title":"Additional classifications","description":"An array of additional classifications for the item.","type":"array","items":{"$ref":"#/definitions/Classification"},"uniqueItems":true,"wholeListMerge":true},"quantity":{"title":"Quantity","description":"The number of units to be provided.","type":["number","null"]},"unit":{"title":"Unit","description":"A description of the unit in which the supplies, services or works are provided (e.g. hours, kilograms) and the unit-price.","type":"object","properties":{"scheme":{"title":"Scheme","description":"The list from which identifiers for units of measure are taken, using the open [unitClassificationScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#unit-classification-scheme) codelist. 'UNCEFACT' is recommended.","type":["string","null"],"codelist":"unitClassificationScheme.csv","openCodelist":true},"id":{"title":"ID","description":"The identifier from the codelist referenced in the scheme property. Check the codelist for details of how to find and use identifiers from the scheme in use.","type":["string","null"],"versionId":true},"name":{"title":"Name","description":"Name of the unit.","type":["string","null"]},"value":{"title":"Value","description":"The monetary value of a single unit.","$ref":"#/definitions/Value"},"uri":{"title":"URI","description":"The machine-readable URI for the unit of measure, provided by the scheme.","format":"uri","type":["string","null"]}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}}},"patternProperties":{"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Amendment":{"title":"Amendment","type":"object","description":"Amendment information","properties":{"date":{"title":"Amendment date","description":"The date of this amendment.","type":["string","null"],"format":"date-time"},"rationale":{"title":"Rationale","description":"An explanation for the amendment.","type":["string","null"]},"id":{"description":"An identifier for this amendment: often the amendment number","type":["string","null"],"title":"ID"},"description":{"description":"A free text, or semi-structured, description of the changes made in this amendment.","type":["string","null"],"title":"Description"},"amendsReleaseID":{"description":"Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **before** the amendment was made.","type":["string","null"],"title":"Amended release (identifier)"},"releaseID":{"description":"Provide the identifier (release.id) of the OCDS release (from this contracting process) that provides the values for this contracting process **after** the amendment was made.","type":["string","null"],"title":"Amending release (identifier)"},"changes":{"title":"Amended fields","description":"An array of change objects describing the fields changed, and their former values. (Deprecated in 1.1)","type":"array","items":{"type":"object","properties":{"property":{"title":"Property","description":"The property name that has been changed relative to the place the amendment is. For example if the contract value has changed, then the property under changes within the contract.amendment would be value.amount. (Deprecated in 1.1)","type":"string"},"former_value":{"title":"Former Value","description":"The previous value of the changed property, in whatever type the property is. (Deprecated in 1.1)","type":["string","number","integer","array","object","null"]}}},"deprecated":{"description":"A free-text or semi-structured string describing the changes made in each amendment can be provided in the amendment.description field. To provide structured information on the fields that have changed, publishers should provide releases indicating the state of the contracting process before and after the amendment.","deprecatedVersion":"1.1"}}},"patternProperties":{"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Classification":{"title":"Classification","description":"A classification consists of at least two parts: an identifier for the list (scheme) from which the classification is taken, and an identifier for the category from that list being applied. It is useful to also publish a text label and/or URI that users can draw on to interpret the classification.","type":"object","properties":{"scheme":{"title":"Scheme","description":"The scheme or codelist from which the classification code is taken. For line item classifications, this uses the open [itemClassificationScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#item-classification-scheme) codelist.","type":["string","null"],"codelist":"itemClassificationScheme.csv","openCodelist":true},"id":{"title":"ID","description":"The classification code taken from the scheme.","type":["string","integer","null"],"versionId":true},"description":{"title":"Description","description":"A textual description or title for the classification code.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to uniquely identify the classification code.","type":["string","null"],"format":"uri"}},"patternProperties":{"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Identifier":{"title":"Identifier","description":"A unique identifier for a party (organization).","type":"object","properties":{"scheme":{"title":"Scheme","description":"Organization identifiers should be taken from an existing organization identifier list. The scheme field is used to indicate the list or register from which the identifier is taken. This value should be taken from the [Organization Identifier Scheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#organization-identifier-scheme) codelist.","type":["string","null"]},"id":{"title":"ID","description":"The identifier of the organization in the selected scheme.","type":["string","integer","null"],"versionId":true},"legalName":{"title":"Legal Name","description":"The legally registered name of the organization.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the organization, such as those provided by [Open Corporates](http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the URL field of the Organization contact point.","type":["string","null"],"format":"uri"}},"patternProperties":{"^(legalName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Address":{"title":"Address","description":"An address.","type":"object","properties":{"streetAddress":{"title":"Street address","type":["string","null"],"description":"The street address. For example, 1600 Amphitheatre Pkwy."},"locality":{"title":"Locality","type":["string","null"],"description":"The locality. For example, Mountain View."},"region":{"title":"Region","type":["string","null"],"description":"The region. For example, CA."},"postalCode":{"title":"Postal code","type":["string","null"],"description":"The postal code. For example, 94043."},"countryName":{"title":"Country name","type":["string","null"],"description":"The country name. For example, United States."}},"patternProperties":{"^(countryName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"ContactPoint":{"title":"Contact point","type":"object","description":"A person, contact point or department to contact in relation to this contracting process.","properties":{"name":{"title":"Name","type":["string","null"],"description":"The name of the contact person, department, or contact point, for correspondence relating to this contracting process."},"email":{"title":"Email","type":["string","null"],"description":"The e-mail address of the contact point/person."},"telephone":{"title":"Telephone","type":["string","null"],"description":"The telephone number of the contact point/person. This should include the international dialing code."},"faxNumber":{"title":"Fax number","type":["string","null"],"description":"The fax number of the contact point/person. This should include the international dialing code."},"url":{"title":"URL","type":["string","null"],"description":"A web address for the contact point/person.","format":"uri"}},"patternProperties":{"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$":{"type":["string","null"]}}},"Value":{"title":"Value","description":"Financial values should be published with a currency attached.","type":"object","properties":{"amount":{"title":"Amount","description":"Amount as a number.","type":["number","null"]},"currency":{"title":"Currency","description":"The currency of the amount, from the closed [currency](https://standard.open-contracting.org/1.1/en/schema/codelists/#currency) codelist.","type":["string","null"],"codelist":"currency.csv","openCodelist":false,"enum":["ADP","AED","AFA","AFN","ALK","ALL","AMD","ANG","AOA","AOK","AON","AOR","ARA","ARP","ARS","ARY","ATS","AUD","AWG","AYM","AZM","AZN","BAD","BAM","BBD","BDT","BEC","BEF","BEL","BGJ","BGK","BGL","BGN","BHD","BIF","BMD","BND","BOB","BOP","BOV","BRB","BRC","BRE","BRL","BRN","BRR","BSD","BTN","BUK","BWP","BYB","BYN","BYR","BZD","CAD","CDF","CHC","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CSD","CSJ","CSK","CUC","CUP","CVE","CYP","CZK","DDM","DEM","DJF","DKK","DOP","DZD","ECS","ECV","EEK","EGP","ERN","ESA","ESB","ESP","ETB","EUR","FIM","FJD","FKP","FRF","GBP","GEK","GEL","GHC","GHP","GHS","GIP","GMD","GNE","GNF","GNS","GQE","GRD","GTQ","GWE","GWP","GYD","HKD","HNL","HRD","HRK","HTG","HUF","IDR","IEP","ILP","ILR","ILS","INR","IQD","IRR","ISJ","ISK","ITL","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAJ","LAK","LBP","LKR","LRD","LSL","LSM","LTL","LTT","LUC","LUF","LUL","LVL","LVR","LYD","MAD","MDL","MGA","MGF","MKD","MLF","MMK","MNT","MOP","MRO","MRU","MTL","MTP","MUR","MVQ","MVR","MWK","MXN","MXP","MXV","MYR","MZE","MZM","MZN","NAD","NGN","NIC","NIO","NLG","NOK","NPR","NZD","OMR","PAB","PEH","PEI","PEN","PES","PGK","PHP","PKR","PLN","PLZ","PTE","PYG","QAR","RHD","ROK","ROL","RON","RSD","RUB","RUR","RWF","SAR","SBD","SCR","SDD","SDG","SDP","SEK","SGD","SHP","SIT","SKK","SLL","SOS","SRD","SRG","SSP","STD","STN","SUR","SVC","SYP","SZL","THB","TJR","TJS","TMM","TMT","TND","TOP","TPE","TRL","TRY","TTD","TWD","TZS","UAH","UAK","UGS","UGW","UGX","USD","USN","USS","UYI","UYN","UYP","UYU","UYW","UZS","VEB","VEF","VES","VNC","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XEU","XFO","XFU","XOF","XPD","XPF","XPT","XRE","XSU","XTS","XUA","XXX","YDD","YER","YUD","YUM","YUN","ZAL","ZAR","ZMK","ZMW","ZRN","ZRZ","ZWC","ZWD","ZWL","ZWN","ZWR",null]}}},"Period":{"title":"Period","description":"Key events during a contracting process may have a known start date, end date, duration, or maximum extent (the latest date the period can extend to). In some cases, not all of these fields will have known or relevant values.","type":"object","properties":{"startDate":{"title":"Start date","description":"The start date for the period. When known, a precise start date must be provided.","type":["string","null"],"format":"date-time"},"endDate":{"title":"End date","description":"The end date for the period. When known, a precise end date must be provided.","type":["string","null"],"format":"date-time"},"maxExtentDate":{"description":"The period cannot be extended beyond this date. This field can be used to express the maximum available date for extension or renewal of this period.","format":"date-time","title":"Maximum extent","type":["string","null"]},"durationInDays":{"description":"The maximum duration of this period in days. A user interface can collect or display this data in months or years as appropriate, and then convert it into days when storing this field. This field can be used when exact dates are not known. If a startDate and endDate are set, this field, if used, should be equal to the difference between startDate and endDate. Otherwise, if a startDate and maxExtentDate are set, this field, if used, should be equal to the difference between startDate and maxExtentDate.","title":"Duration (days)","type":["integer","null"]}}},"RelatedProcess":{"description":"A reference to a related contracting process: generally one preceding or following on from the current process.","type":"object","title":"Related Process","properties":{"id":{"title":"Relationship ID","description":"A local identifier for this relationship, unique within this array.","type":"string"},"relationship":{"items":{"type":"string"},"description":"The type of relationship, using the open [relatedProcess](https://standard.open-contracting.org/1.1/en/schema/codelists/#related-process) codelist.","title":"Relationship","type":["array","null"],"codelist":"relatedProcess.csv","openCodelist":true},"title":{"description":"The title of the related process, where referencing an open contracting process, this field should match the tender/title field in the related process.","title":"Related process title","type":["string","null"]},"scheme":{"title":"Scheme","description":"The identification scheme used by this cross-reference, using the open [relatedProcessScheme](https://standard.open-contracting.org/1.1/en/schema/codelists/#related-process-scheme) codelist.","type":["string","null"],"codelist":"relatedProcessScheme.csv","openCodelist":true},"identifier":{"description":"The identifier of the related process. If the scheme is 'ocid', this must be an Open Contracting ID (ocid).","title":"Identifier","type":["string","null"]},"uri":{"format":"uri","description":"A URI pointing to a machine-readable document, release or record package containing the identified related process.","title":"Related process URI","type":["string","null"]}}}}}
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports) {
-
-	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__4/release-package-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Release Package","description":"The release package contains a list of releases along with some publishing metadata.","type":"object","required":["uri","publisher","publishedDate","releases","version"],"properties":{"uri":{"title":"Package identifier","description":"The URI of this package that identifies it uniquely in the world. Recommended practice is to use a dereferenceable URI, where a persistent copy of this package is available.","type":"string","format":"uri"},"version":{"title":"OCDS schema version","description":"The version of the OCDS schema used in this package, expressed as major.minor For example: 1.0 or 1.1","type":"string","pattern":"^(\\d+\\.)(\\d+)$"},"extensions":{"title":"OCDS extensions","description":"An array of OCDS extensions used in this package, in which each array item is the URL of an extension.json file.","type":"array","items":{"type":"string","format":"uri"}},"publishedDate":{"title":"Published date","description":"The date that this package was published. If this package is generated 'on demand', this date should reflect the date of the last change to the underlying contents of the package.","type":"string","format":"date-time"},"releases":{"title":"Releases","description":"An array of one or more OCDS releases.","type":"array","minItems":1,"items":{"$ref":"https://standard.open-contracting.org/schema/1__1__4/release-schema.json"},"uniqueItems":true},"publisher":{"title":"Publisher","description":"Information to uniquely identify the publisher of this package.","type":"object","properties":{"name":{"title":"Name","description":"The name of the organization or department responsible for publishing this data.","type":"string"},"scheme":{"title":"Scheme","description":"The scheme that holds the unique identifiers used to identify the item being identified.","type":["string","null"]},"uid":{"title":"uid","description":"The unique ID for this entity under the given ID scheme.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the publisher.","type":["string","null"],"format":"uri"}},"required":["name"]},"license":{"title":"License","description":"A link to the license that applies to the data in this package. A Public Domain Dedication or [Open Definition Conformant](http://opendefinition.org/licenses/) license is recommended. The canonical URI of the license should be used. Documents linked from this file may be under other license conditions.","type":["string","null"],"format":"uri"},"publicationPolicy":{"title":"Publication policy","description":"A link to a document describing the publishers [publication policy](https://standard.open-contracting.org/1.1/en/implementation/publication_policy/).","type":["string","null"],"format":"uri"}}}
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports) {
-
-	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__4/record-package-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Record package","description":"The record package contains a list of records along with some publishing metadata. The records pull together all the releases under a single Open Contracting ID and compile them into the latest version of the information along with the history of any data changes.","type":"object","properties":{"uri":{"title":"Package identifier","description":"The URI of this package that identifies it uniquely in the world.","type":"string","format":"uri"},"version":{"title":"OCDS schema version","description":"The version of the OCDS schema used in this package, expressed as major.minor For example: 1.0 or 1.1","type":"string","pattern":"^(\\d+\\.)(\\d+)$"},"extensions":{"title":"OCDS extensions","description":"An array of OCDS extensions used in this package, in which each array item is the URL of an extension.json file.","type":"array","items":{"type":"string","format":"uri"}},"publisher":{"title":"Publisher","description":"Information to uniquely identify the publisher of this package.","type":"object","properties":{"name":{"title":"Name","description":"The name of the organization or department responsible for publishing this data.","type":"string"},"scheme":{"title":"Scheme","description":"The scheme that holds the unique identifiers used to identify the item being identified.","type":["string","null"]},"uid":{"title":"uid","description":"The unique ID for this entity under the given ID scheme.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the publisher.","type":["string","null"],"format":"uri"}},"required":["name"]},"license":{"title":"License","description":"A link to the license that applies to the data in this package. A Public Domain Dedication or [Open Definition Conformant](http://opendefinition.org/licenses/) license is recommended. The canonical URI of the license should be used. Documents linked from this file may be under other license conditions.","type":["string","null"],"format":"uri"},"publicationPolicy":{"title":"Publication policy","description":"A link to a document describing the publishers publication policy.","type":["string","null"],"format":"uri"},"publishedDate":{"title":"Published date","description":"The date that this package was published. If this package is generated 'on demand', this date should reflect the date of the last change to the underlying contents of the package.","type":"string","format":"date-time"},"packages":{"title":"Packages","description":"A list of URIs of all the release packages that were used to create this record package.","type":"array","minItems":1,"items":{"type":"string","format":"uri"},"uniqueItems":true},"records":{"title":"Records","description":"The records for this data package.","type":"array","minItems":1,"items":{"$ref":"#/definitions/record"},"uniqueItems":true}},"required":["uri","publisher","publishedDate","records","version"],"definitions":{"record":{"title":"Record","description":"An OCDS record must provide a list of all the existing OCDS releases relating to a single contracting process and should provide a compiled release containing the current state of all fields in the OCDS schema. An OCDS record may also provide a versioned history of all changes to the data in the compiled release.","type":"object","properties":{"ocid":{"title":"Open Contracting ID","description":"A unique identifier that identifies the unique Open Contracting Process. For more information see: https://standard.open-contracting.org/1.1/en/getting_started/contracting_process/","type":"string"},"releases":{"title":"Releases","description":"An array of linking identifiers or releases","oneOf":[{"title":"Linked releases","description":"A list of objects that identify the releases associated with this Open Contracting ID. The releases MUST be sorted into date order in the array, from oldest (at position 0) to newest (last).","type":"array","items":{"description":"Information to uniquely identify the release.","type":"object","properties":{"url":{"title":"Release URL","description":"The URL of the release which contains the URL of the package with the release `id` appended using a fragment identifier e.g. https://standard.open-contracting.org/1.1/en/examples/tender.json#ocds-213czf-000-00001","type":["string","null"],"format":"uri"},"date":{"title":"Release Date","description":"The date of the release. It should match the value of the `date` field of the release. This is used to sort the releases in the list in chronological order.","type":"string","format":"date-time"},"tag":{"title":"Release Tag","description":"The tags of the release. It should match the value of the `tag` field of the release. This provides additional context when reviewing a record to see what types of releases are included for this ocid.","type":"array","items":{"type":"string","enum":["planning","planningUpdate","tender","tenderAmendment","tenderUpdate","tenderCancellation","award","awardUpdate","awardCancellation","contract","contractUpdate","contractAmendment","implementation","implementationUpdate","contractTermination","compiled"]},"codelist":"releaseTag.csv","openCodelist":false,"minItems":1}},"required":["url","date"]},"minItems":1},{"title":"Embedded releases","description":"A list of releases, with all the data. The releases MUST be sorted into date order in the array, from oldest (at position 0) to newest (last).","type":"array","items":{"$ref":"https://standard.open-contracting.org/schema/1__1__4/release-schema.json"},"minItems":1}]},"compiledRelease":{"title":"Compiled release","description":"This is the latest version of all the contracting data, it has the same schema as an open contracting release.","$ref":"https://standard.open-contracting.org/schema/1__1__4/release-schema.json"},"versionedRelease":{"title":"Versioned release","description":"This contains the history of the data in the compiledRecord. With all versions of the information and the release they came from.","$ref":"https://standard.open-contracting.org/schema/1__1__4/versioned-release-validation-schema.json"}},"required":["ocid","releases"]}}}
+	module.exports = {"id":"https://standard.open-contracting.org/schema/1__1__5/record-package-schema.json","$schema":"http://json-schema.org/draft-04/schema#","title":"Schema for an Open Contracting Record package","description":"The record package contains a list of records along with some publishing metadata. The records pull together all the releases under a single Open Contracting ID and compile them into the latest version of the information along with the history of any data changes.","type":"object","properties":{"uri":{"title":"Package identifier","description":"The URI of this package that identifies it uniquely in the world.","type":"string","format":"uri"},"version":{"title":"OCDS schema version","description":"The version of the OCDS schema used in this package, expressed as major.minor For example: 1.0 or 1.1","type":"string","pattern":"^(\\d+\\.)(\\d+)$"},"extensions":{"title":"OCDS extensions","description":"An array of OCDS extensions used in this package, in which each array item is the URL of an extension.json file.","type":"array","items":{"type":"string","format":"uri"}},"publisher":{"title":"Publisher","description":"Information to uniquely identify the publisher of this package.","type":"object","properties":{"name":{"title":"Name","description":"The name of the organization or department responsible for publishing this data.","type":"string"},"scheme":{"title":"Scheme","description":"The scheme that holds the unique identifiers used to identify the item being identified.","type":["string","null"]},"uid":{"title":"uid","description":"The unique ID for this entity under the given ID scheme.","type":["string","null"]},"uri":{"title":"URI","description":"A URI to identify the publisher.","type":["string","null"],"format":"uri"}},"required":["name"]},"license":{"title":"License","description":"A link to the license that applies to the data in this package. A Public Domain Dedication or [Open Definition Conformant](http://opendefinition.org/licenses/) license is recommended. The canonical URI of the license should be used. Documents linked from this file may be under other license conditions.","type":["string","null"],"format":"uri"},"publicationPolicy":{"title":"Publication policy","description":"A link to a document describing the publishers publication policy.","type":["string","null"],"format":"uri"},"publishedDate":{"title":"Published date","description":"The date that this package was published. If this package is generated 'on demand', this date should reflect the date of the last change to the underlying contents of the package.","type":"string","format":"date-time"},"packages":{"title":"Packages","description":"A list of URIs of all the release packages that were used to create this record package.","type":"array","minItems":1,"items":{"type":"string","format":"uri"},"uniqueItems":true},"records":{"title":"Records","description":"The records for this data package.","type":"array","minItems":1,"items":{"$ref":"#/definitions/record"},"uniqueItems":true}},"required":["uri","publisher","publishedDate","records","version"],"definitions":{"record":{"title":"Record","description":"An OCDS record must provide a list of all the existing OCDS releases relating to a single contracting process and should provide a compiled release containing the current state of all fields in the release schema. An OCDS record may also provide a versioned history of all changes to the data in the compiled release.","type":"object","properties":{"ocid":{"title":"Open Contracting ID","description":"A unique identifier that identifies the unique Open Contracting Process. For more information see: https://standard.open-contracting.org/1.1/en/getting_started/contracting_process/","type":"string"},"releases":{"title":"Releases","description":"An array of linking identifiers or releases","oneOf":[{"title":"Linked releases","description":"A list of objects that identify the releases associated with this Open Contracting ID. The releases MUST be sorted into date order in the array, from oldest (at position 0) to newest (last).","type":"array","items":{"description":"Information to uniquely identify the release.","type":"object","properties":{"url":{"title":"Release URL","description":"The URL of the release which contains the URL of the package with the release `id` appended using a fragment identifier e.g. https://standard.open-contracting.org/1.1/en/examples/tender.json#ocds-213czf-000-00001","type":["string","null"],"format":"uri"},"date":{"title":"Release Date","description":"The date of the release. It should match the value of the `date` field of the release. This is used to sort the releases in the list in chronological order.","type":"string","format":"date-time"},"tag":{"title":"Release Tag","description":"The tags of the release. It should match the value of the `tag` field of the release. This provides additional context when reviewing a record to see what types of releases are included for this ocid.","type":"array","items":{"type":"string","enum":["planning","planningUpdate","tender","tenderAmendment","tenderUpdate","tenderCancellation","award","awardUpdate","awardCancellation","contract","contractUpdate","contractAmendment","implementation","implementationUpdate","contractTermination","compiled"]},"codelist":"releaseTag.csv","openCodelist":false,"minItems":1}},"required":["url","date"]},"minItems":1},{"title":"Embedded releases","description":"A list of releases, with all the data. The releases MUST be sorted into date order in the array, from oldest (at position 0) to newest (last).","type":"array","items":{"$ref":"https://standard.open-contracting.org/schema/1__1__5/release-schema.json"},"minItems":1}]},"compiledRelease":{"title":"Compiled release","description":"This is the latest version of all the contracting data, it has the same schema as an open contracting release.","$ref":"https://standard.open-contracting.org/schema/1__1__5/release-schema.json"},"versionedRelease":{"title":"Versioned release","description":"This contains the history of all the data in the compiled release.","$ref":"https://standard.open-contracting.org/schema/1__1__5/versioned-release-validation-schema.json"}},"required":["ocid","releases"]}}}
 
 /***/ })
 /******/ ]);

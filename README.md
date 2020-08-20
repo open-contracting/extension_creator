@@ -40,13 +40,15 @@ webpack.js
 
 ## Maintenance
 
-Replace the tags in the URLs, then run:
+Replace the tags in the URLs below, then run:
 
 ```shell
-curl https://standard.open-contracting.org/schema/1__1__4/meta-schema.json > metaschema.json
-curl https://standard.open-contracting.org/schema/1__1__4/record-package-schema.json > record-package-schema/record-package-schema-1.1.json
-curl https://standard.open-contracting.org/schema/1__1__4/release-package-schema.json > release-package-schema/release-package-schema-1.1.json
-curl https://standard.open-contracting.org/schema/1__1__4/release-schema.json > release-schema/release-schema-1.1.json
+npm install .
+
+curl https://standard.open-contracting.org/schema/1__1__5/meta-schema.json > metaschema.json
+curl https://standard.open-contracting.org/schema/1__1__5/record-package-schema.json > record-package-schema/record-package-schema-1.1.json
+curl https://standard.open-contracting.org/schema/1__1__5/release-package-schema.json > release-package-schema/release-package-schema-1.1.json
+curl https://standard.open-contracting.org/schema/1__1__5/release-schema.json > release-schema/release-schema-1.1.json
 
 node_modules/.bin/webpack
 ```
